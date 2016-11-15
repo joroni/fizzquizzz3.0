@@ -71,6 +71,10 @@
                 })
 
         }
+        setTimeout(function() {
+            navigator.splashscreen.hide();
+        }, 8000);
+
 
 
     </script>
@@ -143,10 +147,10 @@
         var checkDateFrString = localStorage.getItem('dateFrString');
         console.log("checkAttempt:", checkAttempt);
         console.log("checkDateFrString", checkDateFrString );
-        if (checkAttempt == checkDateFrString){
+        if (checkAttempt == checkDateFrString) {
             window.alert("Thank you for taking the quiz! See you for the next rounds.");
             window.location.replace("main.html")
-        } else {
+        } else if (checkAttempt == "" || checkAttempt == null){
             console.log("First Time");
             $('#playQuiz').removeAttr('disabled');
             window.open(base_url + "/app/views/media/video.php", "_blank", "location=no", "closebuttoncaption=Return");

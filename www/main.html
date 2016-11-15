@@ -167,7 +167,9 @@
 
 
         }
-
+        setTimeout(function() {
+            navigator.splashscreen.hide();
+        }, 8000);
 
 
         function getStarted3() {
@@ -354,7 +356,10 @@
 
                             <img id="raysLogo" class="icon" src="img/canada-icon.svg">
                             <div id="rays"></div>
-                            <ul id="output2" style="visibility: hidden;"></ul>
+                            <ul id="output2" style="visibility:hidden;">
+
+
+                            </ul>
 
 
 

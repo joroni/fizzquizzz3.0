@@ -28,9 +28,9 @@ function get_Quiz_History() {
             //    console.log(field.attempts);
             //  console.log(field.datefrom);
             //  console.log(field.score_bottle);
-            var checkLQuiz = $("#output2 li:nth-child(1)").text();
+            var checkLQuiz = $("#output2 li:last-child").text();
             console.log("checkLQuiz", checkLQuiz);
-            localStorage.setItem('checkLQuiz', fields.datefrom);
+            localStorage.setItem('checkLQuiz', checkLQuiz);
 
 
 

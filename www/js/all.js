@@ -43,7 +43,7 @@ function fillmod() {
                 var textF_db = item.textF;
                 var image_db = item.image;
 
-                alert('Hi');
+               // alert('Hi');
 
               /*  if (empty(video_db)) {
                 } else {
