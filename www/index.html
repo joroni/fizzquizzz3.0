@@ -27,7 +27,45 @@
     <script type="text/javascript" src="js/jquery.validate.js"></script>
     <script src="js/jquery.touchSwipe.min.js"></script>
     <!-- Material Design Lite -->
+
+
+    <script src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+            //$('#loader').show();
+
+        }
+        // cordova is ready
+        //
+        function onDeviceReady() {
+
+
+
+            //    $('#loader').hide();
+            // console.log(navigator.notification);
+            noNet(base_url + '/json.php',
+                    function ( data ) {
+                        for (i = 0; i < data.length; i++) {
+                            //document.getElementById("result1").innerHTML += '<li> ' + data[i]['name'] + '</li>';
+                            console.log(data[i]['name']);
+                        }
+                    }
+            );
+
+
+            setTimeout(function () {
+                navigator.splashscreen.hide();
+            }, 2000);
+        }
+
+        </script>
+
     <script>
+
+
 
         function get_Quiz_History() {
             $('#output').empty();
