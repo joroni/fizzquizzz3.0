@@ -86,6 +86,9 @@
             //
             function onDeviceReady() {
 
+                setTimeout(function() {
+                    navigator.splashscreen.hide();
+                }, 5000);
 
 
                 //    $('#loader').hide();
@@ -167,9 +170,6 @@
 
 
         }
-        setTimeout(function() {
-            navigator.splashscreen.hide();
-        }, 2000);
 
 
         function getStarted3() {

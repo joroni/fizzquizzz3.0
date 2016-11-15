@@ -39,41 +39,43 @@
 
 
 
-
-
-           /*     var attempted = localStorage.getItem('attempts');
-                // if (attempted < 1) {
-                if (attempted < 1) {
-
-                    $('#playQuiz').removeAttr('disabled');
-                    window.open(base_url + "/app/views/media/video.php", "_blank", "location=no", "closebuttoncaption=Return");
-
-                    //$('#playQuiz').attr('disabled','');
-
-                } else {
+                setTimeout(function() {
+                    navigator.splashscreen.hide();
+                }, 5000);
 
 
 
 
+                /*     var attempted = localStorage.getItem('attempts');
+                     // if (attempted < 1) {
+                     if (attempted < 1) {
+
+                         $('#playQuiz').removeAttr('disabled');
+                         window.open(base_url + "/app/views/media/video.php", "_blank", "location=no", "closebuttoncaption=Return");
+
+                         //$('#playQuiz').attr('disabled','');
+
+                     } else {
 
 
 
-                    //navigator.notification.alert('Thank you for taking the quiz! See you for the next rounds.');
 
-                    //  $('#playQuiz').attr('disabled','disabled');
-                    //  window.location.replace('main.html');
 
-                }
-*/
+
+
+                         //navigator.notification.alert('Thank you for taking the quiz! See you for the next rounds.');
+
+                         //  $('#playQuiz').attr('disabled','disabled');
+                         //  window.location.replace('main.html');
+
+                     }
+     */
 
                 $('#playQuiz').on('click', function () {
                     $('#raysDemoHolder').hide();
                 })
 
         }
-        setTimeout(function() {
-            navigator.splashscreen.hide();
-        }, 2000);
 
 
 
