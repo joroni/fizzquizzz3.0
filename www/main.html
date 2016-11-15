@@ -56,9 +56,9 @@
     <script src="js/myApp.js"></script>
     <script src="js/user.js"></script>
 
-    <!--   <script src='http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/jsonSmallFormat.js?callback=myFunction'></script>
-       <script src='http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz.js?callback=mySlickQuiz'></script>
-   -->
+ <!--   <script src='http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/jsonSmallFormat.js?callback=myFunction'></script>
+    <script src='http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz.js?callback=mySlickQuiz'></script>
+-->
 
     <!--
         <script charset="utf-8" src="controllers/config.js"></script>
@@ -82,30 +82,92 @@
             //$('#loader').show();
 
         }
-        // cordova is ready
-        //
-        function onDeviceReady() {
+            // cordova is ready
+            //
+            function onDeviceReady() {
 
 
 
-            //    $('#loader').hide();
-            // console.log(navigator.notification);
-            noNet(base_url + '/json.php',
-                    function ( data ) {
-                        for (i = 0; i < data.length; i++) {
-                            //document.getElementById("result1").innerHTML += '<li> ' + data[i]['name'] + '</li>';
-                            console.log(data[i]['name']);
+                //    $('#loader').hide();
+                // console.log(navigator.notification);
+                noNet(base_url + '/json.php',
+                        function ( data ) {
+                            for (i = 0; i < data.length; i++) {
+                                //document.getElementById("result1").innerHTML += '<li> ' + data[i]['name'] + '</li>';
+                                console.log(data[i]['name']);
+                            }
                         }
-                    }
-            );
+                );
+
+                /* var myDivision = localStorage.getItem("user_division");
+                 var str = myDivision.replace(/\s/g, '');
+                 console.log('My Division is:', str);
 
 
-            setTimeout(function() {
-                navigator.splashscreen.hide();
-            }, 2000);
+                 var quizlink = localStorage.getItem('fizzquizz');
+
+
+                 $('#getStarted2').on('click', function () {
+
+                 window.location.replace(quizlink);
+                 console.log('Confirm my Quiz link:', quizlink);
+
+                 });*/
+                /*  function imageProfile() {
+
+
+                 $(document).ready(function () {
+
+                 $('#user_iddddddd').val(localStorage.getItem('user_id'));
+
+
+                 var options = {
+                 // target: '#upload_loading',
+                 beforeSubmit: showRequest,
+                 // correctOrientation: true,
+                 success: showResponse
+                 };
+                 $('#myForms').ajaxForm(options);
+                 });
+
+                 function showRequest( formData, jqForm, options ) {
+                 var queryString = $.param(formData);
+                 console.log(formData);
+                 }
+
+                 function showResponse( responseText, statusText, xhr, $form ) {
+
+                 // $('#loader-mini').show();
+                 console.log(statusText);
+                 console.log(responseText);
+                 if (statusText == 'success') {
+                 // $('#page_loader_cb').fadeOut(100);
+
+                 $('#upload_input').val('');
+
+                 //  $('#upload_input').val('');
+                 console.log('upload complete');
+
+                 //   $('#loader-mini').hide(); *.
+                 /*$('#smallImage').val('');
+                 $('#largeImage').val('');*/
+                /*   if (responseText == '0') {
+                 console.log('Error or file not supported! required format :png,gif,jpeg sie: less than 3mb');
+                 } else {
+                 console.log('Upload success!');
+                 alert('Process complete');
+
+
+
+                 }
+                 }
+                 }
+
+                 } */
 
 
         }
+
 
 
         function getStarted3() {
@@ -117,15 +179,53 @@
         }
 
 
+
+
+        function get_Quiz_History() {
+            $('#output').empty();
+            var user_id = localStorage.getItem('user_id');
+            $('#output').html('<th colspan="4" style="padding: 0 5px; background: silver;"><h5>Stats</h5></th>');
+            $.getJSON(base_url + '/index.php/get_user_quiz_history/' + user_id, function ( results ) {
+
+
+                //$.each(result, function ( i, field ) {
+                $.each(results, function ( i, fields ) {
+
+                    $("#output").append("<tr><td><label>Set</label></td><td> " + fields.datefrom + " </td><td><label>Score</label></td><td>" + fields.score_bottle + "</td></tr>");
+                    //$('#user_id').text(field.id);
+                    //    console.log(field.attempts);
+                    //  console.log(field.datefrom);
+                    //  console.log(field.score_bottle);
+                    $("#output2").append("<li> " + fields.datefrom + " </li>");
+                    //$('#user_id').text(field.id);
+                    //    console.log(field.attempts);
+                    //  console.log(field.datefrom);
+                    //  console.log(field.score_bottle);
+                    var checkLQuiz = $("#output2 li:last-child").text();
+                    console.log("checkLQuiz", checkLQuiz);
+                    localStorage.setItem('checkLQuiz', checkLQuiz);
+
+
+
+                });
+            })
+        }
+        get_Quiz_History();
+
+
+
         /*  function get_Quiz_Data() {
 
-         $.get(base_url + "/index.php/jsonSmallFormat/2016-11-10/", {callback : "?" }, "jsonp",  function(data) {
-         $('#summary').text(data.result);
-         alert(data.result);
-         });
+              $.get(base_url + "/index.php/jsonSmallFormat/2016-11-10/", {callback : "?" }, "jsonp",  function(data) {
+                  $('#summary').text(data.result);
+                  alert(data.result);
+              });
 
-         }
-         */
+          }
+  */
+        $('html').on('click', function () {
+            getQuizData();
+        });
 
 
         function myFunction() {
@@ -152,6 +252,8 @@
             setTimeout(myFunction, 3000);
 
         }
+
+
 
 
     </script>
@@ -212,7 +314,7 @@
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
             <a href="#fixed-tab-home" class="mdl-layout__tab is-active muidocs-icon-action-home">Home</a>
 
-            <a href="#fixed-tab-profile" onclick="get_Quiz_History();" class="mdl-layout__tab">Profile</a>
+            <a href="#fixed-tab-profile" class="mdl-layout__tab">Profile</a>
             <!-- <a href="#fixed-tab-board" class="mdl-layout__tab">Leader Board</a>-->
 
             <a href="#" class="mdl-layout__tab"
@@ -293,6 +395,7 @@
 
 
                             </ul>
+
 
 
                         </div>
@@ -419,6 +522,7 @@
 
 
                     <table style="border: 1px solid silver;" id="output" class="responsive-table profile">
+
 
 
                     </table>

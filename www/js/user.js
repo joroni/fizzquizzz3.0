@@ -8,36 +8,6 @@ function log_out() {
 var base_url = "http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver";
 
 
-function get_Quiz_History() {
-    $('#output').empty();
-    var user_id = localStorage.getItem('user_id');
-    $('#output').html('<th colspan="4" style="padding: 0 5px; background: silver;"><h5>Stats</h5></th>');
-    $.getJSON(base_url + '/index.php/get_user_quiz_history/' + user_id, function ( results ) {
-
-
-        //$.each(result, function ( i, field ) {
-        $.each(results, function ( i, fields ) {
-
-            $("#output").append("<tr><td><label>Set</label></td><td> " + fields.datefrom + " </td><td><label>Score</label></td><td>" + fields.score_bottle + "</td></tr>");
-            //$('#user_id').text(field.id);
-            //    console.log(field.attempts);
-            //  console.log(field.datefrom);
-            //  console.log(field.score_bottle);
-            $("#output2").append("<li> " + fields.datefrom + " </li>");
-            //$('#user_id').text(field.id);
-            //    console.log(field.attempts);
-            //  console.log(field.datefrom);
-            //  console.log(field.score_bottle);
-            var checkLQuiz = $("#output2 li:last-child").text();
-            console.log("checkLQuiz", checkLQuiz);
-            localStorage.setItem('checkLQuiz', checkLQuiz);
-
-
-
-        });
-    })
-}
-
 
 
 
@@ -124,7 +94,7 @@ $(function () {
             localStorage.setItem('user_area', field.area);
             localStorage.setItem('user_aunit', field.aunit);
             // console.log(field.lang);
-            get_Quiz_History();
+           // get_Quiz_History();
 
             var myDivision = localStorage.getItem("user_division");
             var str = myDivision.replace(/\s/g, '');
@@ -302,8 +272,6 @@ function imageProfile() {
     }
 
 }
-
-
 
 
 

@@ -36,33 +36,34 @@ function register(){
 	var division = $('#division').val();
 	var aunit = $('#aunit').val();
 	var area = $('#reg_area').val();
-	//var lang = $('#reg_lang').val();
+	var lang = $('#reg_lang').val();
 
  	if(username == '' || password == '' || fname == '' || lname == ''){
 
  		if(username == ''){ $('#reg_username_err').show(); }
  		if(password == ''){ $('#reg_password_err').show(); }
  		if(fname == ''){ $('#reg_fname_err').show(); }
- 		if(lname == ''){ $('#reg_lname_err').show(); }
+ 		if(lname == ''){ $('#reg_lastname_err').show(); }
  		if(email == ''){ $('#reg_email_err').show(); }
         if(division == ''){ $('#reg_division_err').show(); }
         if(aunit == ''){ $('#reg_aunit_err').show(); }
         if(area == ''){ $('#reg_area_err').show(); }
-      //  if(lang == ''){ $('#reg_lang_err').show(); }
+        if(lang == ''){ $('#reg_lang_err').show(); }
         console.log('err empty field');
  	}else{
 
 
-$.post( base_url + '/index.php/register/user', { username: username, password: password, fname: fname, lname: lname, email:email, division:division, aunit:aunit, area:area })
+$.post( base_url + '/index.php/register/user', { username: username, password: password, fname: fname, lname: lname, email:email, division:division, aunit:aunit,
+	area:area, lang:lang })
   .done(function( data ) {
 		if(data == 0){
 	 		if(username == ''){ $('#reg_username_err').show(); }
 	 		if(password == ''){ $('#reg_password_err').show(); }
 	 		if(fname == ''){ $('#reg_fname_err').show(); }
-	 		if(lname == ''){ $('#reg_lname_err').show(); }		
+	 		if(lname == ''){ $('#reg_lastname_err').show(); }
 	 		if(email == ''){ $('#reg_email_err').show(); }
-            if(division == ''){ $('#reg_division_err').show(); }
-            if(aunit == ''){ $('#reg_aunit_err').show(); }
+            if(division == ''){ $('#division_err').show(); }
+            if(aunit == ''){ $('#aunit_err').show(); }
             if(area == ''){ $('#reg_area_err').show(); }
             if(lang == ''){ $('#reg_lang_err').show(); }
             console.log('err empty field');
@@ -76,7 +77,7 @@ $.post( base_url + '/index.php/register/user', { username: username, password: p
 			        localStorage.setItem("division", division);
 			        localStorage.setItem("aunit", aunit);
 			        localStorage.setItem("area", area);
-					//localStorage.setItem("lang", lang);
+					localStorage.setItem("lang", lang);
 
 					window.location.href = "main.html";
 

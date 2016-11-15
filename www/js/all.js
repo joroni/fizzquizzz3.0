@@ -138,7 +138,7 @@ function getInitQuizData() {
             console.log('date_published', result.date_published);
             console.log('date_expire', result.date_expire);
             localStorage.setItem('dateFrString', result.date_published);
-        localStorage.setItem('dateToString', result.date_expire);
+            localStorage.setItem('dateToString', result.date_expire);
         });
 
 
