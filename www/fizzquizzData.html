@@ -414,21 +414,58 @@
 
 
 
-
-    /************ NEW ***************/
+    escapeHtml = function (s) {
+        return s ? s.replace(
+                /[&<>'"]/g,
+                function (c, offset, str) {
+                    if (c === "&") {
+                        var substr = str.substring(offset, offset + 6);
+                        if (/&(amp|lt|gt|apos|quot);/.test(substr)) {
+                            // already escaped, do not re-escape
+                            return c;
+                        }
+                    }
+                    return "&" + {
+                                "&": "amp",
+                                "<": "lt",
+                                ">": "gt",
+                                "'": "apos",
+                                '"': "quot"
+                            }[c] + ";";
+                }
+        ) : "";
+    };
 
     function post_score_new() {
 
+
+        htmlspecialchars = function(s) {
+            return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\//g, "-");;
+        };
         //  var attempts = localstorage.getitem("attempts");
 
-        var user_id = $('#user_id').val();
+        /* var user_id = $('#user_id').val();
 
-        var datefromDynamic = $('#datefrom').val();
-        var score_bottle = $('#score_bottle').val();
+         var datefromDynamic = $('#datefrom').val();
+         var score_bottle = $('#score_bottle').val();
+         var attempts = $('#attempts').val();
+         var divisions = $('#divisions').val();
+         var area = $('#area').val();
+         var aunit = $('#aunit').val();*/
+
+
+
+
+        var user_id =  htmlspecialchars($('#user_id').val());
+
+        var datefromDynamic = htmlspecialchars($('#datefrom').val());
+        var score_bottle = htmlspecialchars($('#score_bottle').val());
         var attempts = $('#attempts').val();
-        var divisions = $('#divisions').val();
-        var area = $('#area').val();
-        var aunit = $('#aunit').val();
+        var divisions = htmlspecialchars($('#divisions').val());
+        var area = htmlspecialchars($('#area').val());
+        var aunit = htmlspecialchars($('#aunit').val());
+
+
         console.log('Attempts', attempts);
 
         // var user_email = $('#email').val();
@@ -444,7 +481,7 @@
             } else if (data == 1) {
                 attempts = 1;
                 localStorage.setItem("attempts", attempts);
-                  alert('score recorded!');
+                alert('score recorded!');
                 console.log('score recorded');
                 window.location.replace('main.html');
 

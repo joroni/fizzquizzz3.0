@@ -1,5 +1,5 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.coca-cola.fizzquizz"
-        version="1.0.14">
+        version="1.0.15">
     <name>Fizz Quizz</name>
     <description>Newsletter App</description>
     <author href="http://phonegap.com" email="support@phonegap.com">SDC Manila Team</author>
@@ -20,6 +20,7 @@
     <preference name="ios-statusbarstyle" value="black-opaque"/>
     <preference name="detect-data-types" value="true"/>
     <preference name="exit-on-suspend" value="false"/>
+    <preference name="SplashScreenDelay" value="10000" />
     <preference name="show-splash-screen-spinner" value="true"/>
     <preference name="auto-hide-splash-screen" value="true"/>
     <preference name="disable-cursor" value="false"/>

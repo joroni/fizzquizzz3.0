@@ -10,6 +10,10 @@ document.getElementById("result").innerHTML = localStorage.getItem("lastname");
 
 
 
+htmlspecialchars = function(s) {
+	return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\//g, "-");;
+};
+
 
 function check_storage(){
 
@@ -28,15 +32,24 @@ check_storage();
 // register
 function register(){
 
- 	var username = $('#reg_username').val();
- 	var password = $('#reg_password').val();
- 	var fname = $('#reg_fname').val();
- 	var lname = $('#reg_lastname').val();
- 	var email = $('#reg_email').val();
-	var division = $('#division').val();
-	var aunit = $('#aunit').val();
-	var area = $('#reg_area').val();
-	//var lang = $('#reg_lang').val();
+	var username = htmlspecialchars($('#reg_username').val());
+	var password = htmlspecialchars($('#reg_password').val());
+	var fname = htmlspecialchars($('#reg_fname').val());
+	var lname = htmlspecialchars($('#reg_lastname').val());
+	var email = htmlspecialchars($('#reg_email').val());
+	var division = htmlspecialchars($('#division').val());
+	var aunit = htmlspecialchars($('#aunit').val());
+	var area = htmlspecialchars($('#reg_area').val());
+	var lang = htmlspecialchars($('#reg_lang').val());
+	/*var username = $('#reg_username').val();
+	 var password = $('#reg_password').val();
+	 var fname = $('#reg_fname').val();
+	 var lname = $('#reg_lastname').val();
+	 var email = $('#reg_email').val();
+	 var division = $('#division').val();
+	 var aunit = $('#aunit').val();
+	 var area = $('#reg_area').val();
+	 var lang = $('#reg_lang').val();*/
 
  	if(username == '' || password == '' || fname == '' || lname == ''){
 
@@ -53,48 +66,50 @@ function register(){
  	}else{
 
 
-$.post( base_url + '/index.php/register/user', { username: username, password: password, fname: fname, lname: lname, email:email, division:division, aunit:aunit, area:area })
-  .done(function( data ) {
-		if(data == 0){
-	 		if(username == ''){ $('#reg_username_err').show(); }
-	 		if(password == ''){ $('#reg_password_err').show(); }
-	 		if(fname == ''){ $('#reg_fname_err').show(); }
-	 		if(lname == ''){ $('#reg_lname_err').show(); }		
-	 		if(email == ''){ $('#reg_email_err').show(); }
-            if(division == ''){ $('#reg_division_err').show(); }
-            if(aunit == ''){ $('#reg_aunit_err').show(); }
-            if(area == ''){ $('#reg_area_err').show(); }
-            if(lang == ''){ $('#reg_lang_err').show(); }
-            console.log('err empty field');
-		}else if(data == 1){   
+		$.post( base_url + '/index.php/register/user', { username: username, password: password, fname: fname, lname: lname, email:email, division:division, aunit:aunit,
+				area:area, lang:lang })
+			.done(function( data ) {
+				if(data == 0){
+					if(username == ''){ $('#reg_username_err').show(); }
+					if(password == ''){ $('#reg_password_err').show(); }
+					if(fname == ''){ $('#reg_fname_err').show(); }
+					if(lname == ''){ $('#reg_lastname_err').show(); }
+					if(email == ''){ $('#reg_email_err').show(); }
+					if(division == ''){ $('#division_err').show(); }
+					if(aunit == ''){ $('#aunit_err').show(); }
+					if(area == ''){ $('#reg_area_err').show(); }
+					if(lang == ''){ $('#reg_lang_err').show(); }
+					console.log('err empty field');
+				}else if(data == 1){
 					localStorage.setItem("username", username);
 					localStorage.setItem("password", password);
 					localStorage.setItem("email", email);
 					localStorage.setItem("fname", fname);
 					localStorage.setItem("lname", lname);
-            		localStorage.setItem("userlogin", username);
-			        localStorage.setItem("division", division);
-			        localStorage.setItem("aunit", aunit);
-			        localStorage.setItem("area", area);
-					//localStorage.setItem("lang", lang);
+					localStorage.setItem("userlogin", username);
+					localStorage.setItem("division", division);
+					localStorage.setItem("aunit", aunit);
+					localStorage.setItem("area", area);
+					localStorage.setItem("lang", lang);
 
 					window.location.href = "main.html";
 
-		}else {      
-			alert(data);
-			$('#reg_username').val('');
-			$('#user_taken').show();
-			console.log('err'); 
-		}
-  });
+				}else {
+					alert(data);
+					$('#reg_username').val('');
+					$('#user_taken').show();
+					console.log('err');
+				}
+			});
 
 
 
- 	}
+	}
 
 }
 
- 
+
+
 function login(){
 		var user_name_input = $('#user_name_input').val();
 		var user_pass_input = $('#user_pass_input').val();

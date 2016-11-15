@@ -22,12 +22,52 @@
     <link rel="stylesheet" href="css/custom.css" type="text/css">
     <link rel="stylesheet" href="css/animate.css" type="text/css">
     <!--<script src="https://code.jquery.com/jquery-3.1.0.min.js"
-          integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>-->
-    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+          integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>-->
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script>
+        var encodedString = "&lt;p&gt;name&lt;/p&gt;&lt;p&gt;&lt;span style=\"font-size:xx-small;\"&gt;ajde&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;da&lt;/em&gt;&lt;/p&gt;";
+    </script>
     <script type="text/javascript" src="js/jquery.validate.js"></script>
     <script src="js/jquery.touchSwipe.min.js"></script>
     <!-- Material Design Lite -->
+
+
+    <script src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+            //$('#loader').show();
+
+        }
+        // cordova is ready
+        //
+        function onDeviceReady() {
+
+
+
+            //    $('#loader').hide();
+            // console.log(navigator.notification);
+            noNet(base_url + '/json.php',
+                    function ( data ) {
+                        for (i = 0; i < data.length; i++) {
+                            //document.getElementById("result1").innerHTML += '<li> ' + data[i]['name'] + '</li>';
+                            console.log(data[i]['name']);
+                        }
+                    }
+            );
+
+
+
+        }
+
+    </script>
+
     <script>
+
+
 
         function get_Quiz_History() {
             $('#output').empty();
@@ -124,84 +164,87 @@
                 <div style='clear:both;'></div>
                 <!--  <div class="typo-styles__demo mdl-typography--display-1">Register</div> -->
                 <form id="signupForm" method="post" class="form-horizontal" action="">
-                <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="text" id="reg_username">
-                    <label class="mdl-textfield__label" for="reg_username">EID: (Ex. l23855) <span id='reg_username_err'
-                                                                                                   style='color:red; display:none;'>required</span></label>
-                    <span id='user_taken' style='color:red; display:none;'>Username already taken!</span>
-                </div>
-                <div style='clear:both;'></div>
-                <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="password" id="reg_password">
-                    <label class="mdl-textfield__label" for="reg_password">Password: <span id='reg_password_err'
-                                                                                           style='color:red; display:none;'>required</span></label>
-                </div>
-                <div style='clear:both;'></div>
-                <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="text" id="reg_fname">
-                    <label class="mdl-textfield__label" for="reg_fname">Firstname: <span id='reg_fname_err'
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="reg_username" name="reg_username">
+                        <label class="mdl-textfield__label" for="reg_username">EID: (Ex. l23855) <span id='reg_username_err'
+                                                                                                       style='color:red; display:none;'>required</span></label>
+                        <span id='user_taken' style='color:red; display:none;'>Username already taken!</span>
+                    </div>
+                    <div style='clear:both;'></div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="password" id="reg_password">
+                        <label class="mdl-textfield__label" for="reg_password">Password: <span id='reg_password_err'
+                                                                                               style='color:red; display:none;'>required</span></label>
+                    </div>
+                    <div style='clear:both;'></div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="reg_fname">
+                        <label class="mdl-textfield__label" for="reg_fname">Firstname: <span id='reg_fname_err'
+                                                                                             style='color:red; display:none;'>required</span></label>
+                    </div>
+                    <div style='clear:both;'></div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="reg_lastname">
+                        <label class="mdl-textfield__label" for="reg_lastname">Lastname: <span id='reg_lname_err'
+                                                                                               style='color:red; display:none;'>required</span></label>
+                    </div>
+                    <div style='clear:both;'></div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="email" id="reg_email">
+                        <label class="mdl-textfield__label" for="reg_email">Email: <span id='reg_email_err'
                                                                                          style='color:red; display:none;'>required</span></label>
-                </div>
-                <div style='clear:both;'></div>
-                <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="text" id="reg_lastname">
-                    <label class="mdl-textfield__label" for="reg_lastname">Lastname: <span id='reg_lname_err'
-                                                                                           style='color:red; display:none;'>required</span></label>
-                </div>
-                <div style='clear:both;'></div>
-                <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="email" id="reg_email">
-                    <label class="mdl-textfield__label" for="reg_email">Email: <span id='reg_email_err'
-                                                                                     style='color:red; display:none;'>required</span></label>
-                </div>
-                <div style='clear:both;'></div>
-                <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                    <select class="mdl-select__input" id="division" name="division">
-                        <option value="base">Please Select</option>
-                        <option value="Small Format">Small Format</option>
-                        <option value="Large Format">Large Format</option>
-                        <option value="Generalist">Generalist</option>
-                        <option value="Merchandiser">Merchandiser</option>
-                    </select>
-                    <label class="mdl-select__label" for="division">Channel/Créneau<span id='division_err'
-                                                                                         style='color:red; display:none;'>required</span></label>
-                </div>
-                <div style='clear:both;'></div>
-                <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                    <select class="mdl-select__input" id="aunit" name="aunit">
-                        <option value="base">Please Select</option>
-                        <option value="west">West</option>
-                        <option value="central">Central</option>
-                        <option value="east">East</option>
-                    </select>
-                    <label class="mdl-select__label" for="aunit">Sales Unit/Unité de ventes<span id='aunit_err'
-                                                                                                 style='color:red; display:none;'>required</span></label>
-                </div>
-                <div style='clear:both;'></div>
-                <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                    <select class="mdl-select__input" id="reg_area" name="area">
-                        <option>Please choose from above</option>
-                    </select>
-                    <label class="mdl-select__label" for="reg_area">Sales Area/Secteur de vente<span id='reg_area_err'
+                    </div>
+                    <div style='clear:both;'></div>
+                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                        <select class="mdl-select__input" id="division" name="division">
+                            <option>--Please Select--</option>
+                            <option value="Small Format">Small Format</option>
+                            <option value="Large Format">Large Format</option>
+                            <option value="Generalist">Generalist</option>
+                            <option value="Merchandiser">Merchandiser</option>
+                        </select>
+                        <label class="mdl-select__label" for="division">Channel/Créneau<span id='division_err'
+                                                                                             style='color:red; display:none;'>required</span></label>
+                    </div>
+                    <div style='clear:both;'></div>
+                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                        <select class="mdl-select__input" id="aunit" name="aunit">
+                            <option>--Please Select--</option>
+                            <option value="west">West</option>
+                            <option value="central">Central</option>
+                            <option value="east">East</option>
+                        </select>
+                        <label class="mdl-select__label" for="aunit">Sales Unit/Unité de ventes<span id='aunit_err'
                                                                                                      style='color:red; display:none;'>required</span></label>
-                </div>
-                <div style='clear:both;'></div>
-                <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                    <select class="mdl-select__input" id="reg_lang" name="lang">
-                        <option value="English">English</option>
-                        <!--   <option value="f">French</option>-->
-                    </select>
-                    <label class="mdl-select__label" for="lang">Language</label>
-                </div>
-                <div style='clear:both;'></div>
-                <!-- Accent-colored raised button with ripple -->
-                <a type='button'
-                   class="mdl-layout__tab mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
-                   onclick='register();'>
-                    Register
-                </a>
+                    </div>
+                    <div style='clear:both;'></div>
+                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                        <select class="mdl-select__input" id="reg_area" name="reg_area">
+                            <option value="">Please choose from above</option>
+                        </select>
+                        <label class="mdl-select__label" for="reg_area">Sales Area/Secteur de vente<span id='reg_area_err'
+                                                                                                         style='color:red; display:none;'>required</span></label>
+                    </div>
+                    <div style='clear:both;'></div>
+                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                        <select class="mdl-select__input" id="reg_lang" name="lang">
+                            <option value="English">English</option>
+                            <!--   <option value="f">French</option>-->
+                        </select>
+                        <label class="mdl-select__label" for="reg_lang">Language<span id='reg_lang_err'
+                                                                                      style='color:red; display:none;'>required</span></label>
+                    </div>
+                    <div style='clear:both;'></div>
+                    <!-- Accent-colored raised button with ripple -->
+                    <a type='button'
+                       class="mdl-layout__tab mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+                       onclick='register();'>
+                        Register
+                    </a>
+
+
             </div>
-            </section>
+        </section>
         </section>
     </main>
     <!--<footer class="mdl-mega-footer">
@@ -219,6 +262,10 @@
 
 
 <script type="text/javascript">
+
+
+
+
     $.validator.setDefaults( {
         submitHandler: function () {
             alert( "submitted!" );
@@ -228,27 +275,64 @@
     $( document ).ready( function () {
         $("#signupForm").validate({
             rules: {
+                reg_username: {
+                    required: true
+                },
+                reg_fname: {
+                    required: true
+                },
+                reg_lastname: {
+                    required: true
+                },
                 reg_email: {
                     required: true,
                     email: true
+                },
+                division: {
+                    required: true
+                },
+                aunit: {
+                    required: true
+                },
+                reg_area:  {
+                    required: true
                 }
             },
             messages: {
 
-                reg_email: "Please enter a valid email address",
-                agree: "Please accept our policy"
-            },
-            errorElement: "em",
-            errorPlacement: function ( error, element ) {
-                // Add the `help-block` class to the error element
-                error.addClass("help-block");
+                reg_username: {
+                    required: "Please enter your KO ID."
+                },
+                reg_fname: {
+                    required: "Please enter your first name."
+                },
+                reg_lastname: {
+                    required: "Please enter your last name."
+                },
+                division: {
+                    required: "Please enter your division"
+                },
+                aunit: {
+                    required: "Please enter your unit"
+                },
+                reg_area:  {
+                    required: "Please enter your area"
+                },
 
-                if (element.prop("type") === "checkbox") {
-                    error.insertAfter(element.parent("label"));
-                } else {
-                    error.insertAfter(element);
-                }
+                reg_email: "Please enter a valid email address"
+                // agree: "Please accept our policy"
             },
+            /*  errorElement: "em",
+             errorPlacement: function ( error, element ) {
+             // Add the `help-block` class to the error element
+             error.addClass("help-block");
+
+             if (element.prop("type") === "checkbox") {
+             error.insertAfter(element.parent("label"));
+             } else {
+             error.insertAfter(element);
+             }
+             },*/
             highlight: function ( element, errorClass, validClass ) {
                 $(element).parents(".mdl-textfield, .mdl-select").addClass("has-error").removeClass("has-success");
             },

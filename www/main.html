@@ -99,71 +99,17 @@
                         }
                 );
 
-                /* var myDivision = localStorage.getItem("user_division");
-                 var str = myDivision.replace(/\s/g, '');
-                 console.log('My Division is:', str);
+                setTimeout(function(){
+                    //  $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
+                    //loaderSpinMini();
+                    getInitQuizData();
+                    get_Quiz_History();
+                    loadQuizDetails();
+
+                    getQuizData();
 
 
-                 var quizlink = localStorage.getItem('fizzquizz');
-
-
-                 $('#getStarted2').on('click', function () {
-
-                 window.location.replace(quizlink);
-                 console.log('Confirm my Quiz link:', quizlink);
-
-                 });*/
-                /*  function imageProfile() {
-
-
-                 $(document).ready(function () {
-
-                 $('#user_iddddddd').val(localStorage.getItem('user_id'));
-
-
-                 var options = {
-                 // target: '#upload_loading',
-                 beforeSubmit: showRequest,
-                 // correctOrientation: true,
-                 success: showResponse
-                 };
-                 $('#myForms').ajaxForm(options);
-                 });
-
-                 function showRequest( formData, jqForm, options ) {
-                 var queryString = $.param(formData);
-                 console.log(formData);
-                 }
-
-                 function showResponse( responseText, statusText, xhr, $form ) {
-
-                 // $('#loader-mini').show();
-                 console.log(statusText);
-                 console.log(responseText);
-                 if (statusText == 'success') {
-                 // $('#page_loader_cb').fadeOut(100);
-
-                 $('#upload_input').val('');
-
-                 //  $('#upload_input').val('');
-                 console.log('upload complete');
-
-                 //   $('#loader-mini').hide(); *.
-                 /*$('#smallImage').val('');
-                 $('#largeImage').val('');*/
-                /*   if (responseText == '0') {
-                 console.log('Error or file not supported! required format :png,gif,jpeg sie: less than 3mb');
-                 } else {
-                 console.log('Upload success!');
-                 alert('Process complete');
-
-
-
-                 }
-                 }
-                 }
-
-                 } */
+                }, 3000);
 
 
         }
@@ -179,15 +125,33 @@
         }
 
 
-      /*  function get_Quiz_Data() {
+        function loadQuizDetails() {
 
-            $.get(base_url + "/index.php/jsonSmallFormat/2016-11-10/", {callback : "?" }, "jsonp",  function(data) {
-                $('#summary').text(data.result);
-                alert(data.result);
-            });
+            setTimeout(myFunctionLoading, 3000);
 
-        }
-*/
+            function myFunctionLoading() {
+                $('#loader-mini').show();
+                $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
+                getQuizData();
+                get_Quiz_History();
+
+
+                setTimeout(myFunctionLoadingOut, 3000);
+                function myFunctionLoadingOut() {
+                    $('#loader-mini').hide();
+                }
+            }
+
+
+            /*  function get_Quiz_Data() {
+
+                  $.get(base_url + "/index.php/jsonSmallFormat/2016-11-10/", {callback : "?" }, "jsonp",  function(data) {
+                      $('#summary').text(data.result);
+                      alert(data.result);
+                  });
+
+              }
+      */
 
 
 
@@ -214,7 +178,7 @@
             $('#loader-mini').show();
             setTimeout(myFunction, 3000);
 
-        }
+        }}
 
 
 

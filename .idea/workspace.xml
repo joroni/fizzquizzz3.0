@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22c9e585-4f85-409c-8670-7d404e50f077" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/indexBAK11-16-16.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/user.js" afterPath="$PROJECT_DIR$/www/js/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/browser.json" afterPath="$PROJECT_DIR$/plugins/browser.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/fizzquizzData.html" afterPath="$PROJECT_DIR$/www/fizzquizzData.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/main.html" afterPath="$PROJECT_DIR$/www/main.html" />
     </list>
     <ignored path="fizzquizzz3.0.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
-              <caret line="689" column="39" selection-start-line="689" selection-start-column="33" selection-end-line="689" selection-end-column="39" />
+            <state relative-caret-position="315">
+              <caret line="173" column="12" selection-start-line="173" selection-start-column="12" selection-end-line="173" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -47,27 +52,8 @@
                 <element signature="n#style#0;n#div#10;n#div#1;n#div#0;n#section#1;n#main#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#11;n#div#1;n#div#0;n#section#1;n#main#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#11;n#div#1;n#div#0;n#section#1;n#main#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1479240924000" expanded="true" signature="4713:4726" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fizzquizzSmallFormat.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/fizzquizzSmallFormat.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1395">
-              <caret line="93" column="62" selection-start-line="93" selection-start-column="62" selection-end-line="93" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fizzquizzLargeFormat.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/fizzquizzLargeFormat.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1545">
-              <caret line="103" column="46" selection-start-line="103" selection-start-column="46" selection-end-line="103" selection-end-column="46" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -75,18 +61,71 @@
       <file leaf-file-name="fizzquizzData.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/fizzquizzData.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2145">
-              <caret line="143" column="25" selection-start-line="143" selection-start-column="25" selection-end-line="143" selection-end-column="25" />
+            <state relative-caret-position="3379">
+              <caret line="589" column="7" selection-start-line="589" selection-start-column="7" selection-end-line="589" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fizzquizzData2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/fizzquizzData2.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+            <state relative-caret-position="4290">
+              <caret line="324" column="35" selection-start-line="324" selection-start-column="35" selection-end-line="324" selection-end-column="35" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#header#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#1;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#2;n#div#1;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#2;n#div#1;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#1;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#2;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#4;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#6;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#7;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#8;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#9;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#10;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#11;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#12;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#13;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#14;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#15;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#16;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#17;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1479241450000" expanded="true" signature="3171:3206" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indexBAK11-16-16.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/indexBAK11-16-16.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1479137378000" expanded="true" signature="2096:2131" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -95,7 +134,7 @@
       <file leaf-file-name="all.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/all.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
+            <state relative-caret-position="1170">
               <caret line="79" column="49" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
               <folding />
             </state>
@@ -105,7 +144,7 @@
       <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
+            <state relative-caret-position="3705">
               <caret line="247" column="19" selection-start-line="247" selection-start-column="19" selection-end-line="247" selection-end-column="19" />
               <folding>
                 <marker date="1479163193000" expanded="true" signature="388:423" placeholder="..." />
@@ -180,8 +219,6 @@
         <option value="$PROJECT_DIR$/www/photo.html" />
         <option value="$PROJECT_DIR$/www/js/image.js" />
         <option value="$PROJECT_DIR$/www/css/custom.css" />
-        <option value="$PROJECT_DIR$/www/js/app.js" />
-        <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/www/config.xml" />
         <option value="$PROJECT_DIR$/www/fizzquizzGeneralist.html" />
@@ -190,10 +227,12 @@
         <option value="$PROJECT_DIR$/www/fizzquizzSmallFormat.html" />
         <option value="$PROJECT_DIR$/www/fizzquizzData2.html" />
         <option value="$PROJECT_DIR$/www/quizgame/js/slickquiz.js" />
-        <option value="$PROJECT_DIR$/www/main.html" />
-        <option value="$PROJECT_DIR$/www/fizzquizzData.html" />
         <option value="$PROJECT_DIR$/www/js/all.js" />
         <option value="$PROJECT_DIR$/www/js/user.js" />
+        <option value="$PROJECT_DIR$/www/main.html" />
+        <option value="$PROJECT_DIR$/www/fizzquizzData.html" />
+        <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/js/app.js" />
       </list>
     </option>
   </component>
@@ -205,7 +244,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="724" />
+    <option name="height" value="725" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -232,32 +271,32 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fizzquizzz3.0" />
+              <option name="myItemId" value="fizzquizzz3.0 2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fizzquizzz3.0" />
+              <option name="myItemId" value="fizzquizzz3.0 2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fizzquizzz3.0" />
+              <option name="myItemId" value="fizzquizzz3.0 2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fizzquizzz3.0" />
+              <option name="myItemId" value="fizzquizzz3.0 2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fizzquizzz3.0" />
+              <option name="myItemId" value="fizzquizzz3.0 2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -267,51 +306,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fizzquizzz3.0" />
+              <option name="myItemId" value="fizzquizzz3.0 2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fizzquizzz3.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quizgame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fizzquizzz3.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fizzquizzz3.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quizgame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fizzquizzz3.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fizzquizzz3.0" />
+              <option name="myItemId" value="fizzquizzz3.0 2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -320,26 +319,12 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fizzquizzz3.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fizzquizzz3.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -356,19 +341,19 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/johnraymundniconi/Documents/phonegap/Alpha/fizzquizzz3.0/www/css/rays.css" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/www/fizzquizz" />
-      <recent name="$PROJECT_DIR$/www/quizgame/js" />
-      <recent name="$PROJECT_DIR$/www/css" />
-      <recent name="$PROJECT_DIR$/www/js" />
-      <recent name="$PROJECT_DIR$/www" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/www" />
       <recent name="$PROJECT_DIR$/www/js" />
       <recent name="$PROJECT_DIR$/platforms/browser/www" />
       <recent name="$PROJECT_DIR$/platforms/browser" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/www/fizzquizz" />
+      <recent name="$PROJECT_DIR$/www/quizgame/js" />
+      <recent name="$PROJECT_DIR$/www/css" />
+      <recent name="$PROJECT_DIR$/www/js" />
+      <recent name="$PROJECT_DIR$/www" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.fizzquizzData.html">
@@ -570,7 +555,8 @@
       <workItem from="1479026730384" duration="13584000" />
       <workItem from="1479128012280" duration="13113000" />
       <workItem from="1479145732201" duration="10697000" />
-      <workItem from="1479163143066" duration="105000" />
+      <workItem from="1479163143066" duration="773000" />
+      <workItem from="1479239908525" duration="1269000" />
     </task>
     <task id="LOCAL-00001" summary="ok">
       <created>1473540519297</created>
@@ -604,10 +590,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="470872000" />
+    <option name="totallyTimeSpent" value="472809000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="724" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="725" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.253125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -667,13 +653,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11085">
-          <caret line="739" column="17" selection-start-line="739" selection-start-column="17" selection-end-line="739" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3180">
@@ -882,22 +861,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="52" column="58" selection-start-line="52" selection-start-column="58" selection-end-line="52" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/PhonegapFileUpload-master/PhonegapFileUpload/www/index.html" />
     <entry file="file://$PROJECT_DIR$/www/PhonegapFileUpload-master/PhonegapFileUpload/www/js/index.js" />
-    <entry file="file://$PROJECT_DIR$/www/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1935">
-          <caret line="136" column="31" selection-start-line="136" selection-start-column="31" selection-end-line="136" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/PhonegapFileUpload-master/PhonegapFileUpload/config.xml" />
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -935,10 +900,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/fizzquizzSmallFormat.html">
+    <entry file="file://$PROJECT_DIR$/www/js/all.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="93" column="62" selection-start-line="93" selection-start-column="62" selection-end-line="93" selection-end-column="62" />
+        <state relative-caret-position="1170">
+          <caret line="79" column="49" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3705">
+          <caret line="247" column="19" selection-start-line="247" selection-start-column="19" selection-end-line="247" selection-end-column="19" />
+          <folding>
+            <marker date="1479163193000" expanded="true" signature="388:423" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/fizzquizzLargeFormat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1545">
+          <caret line="103" column="46" selection-start-line="103" selection-start-column="46" selection-end-line="103" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -951,44 +934,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/fizzquizzLargeFormat.html">
+    <entry file="file://$PROJECT_DIR$/www/fizzquizzSmallFormat.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
-          <caret line="103" column="46" selection-start-line="103" selection-start-column="46" selection-end-line="103" selection-end-column="46" />
+        <state relative-caret-position="574">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/fizzquizzData.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2145">
-          <caret line="143" column="25" selection-start-line="143" selection-start-column="25" selection-end-line="143" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/all.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="79" column="49" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="247" column="19" selection-start-line="247" selection-start-column="19" selection-end-line="247" selection-end-column="19" />
-          <folding>
-            <marker date="1479163193000" expanded="true" signature="388:423" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="689" column="39" selection-start-line="689" selection-start-column="33" selection-end-line="689" selection-end-column="39" />
+        <state relative-caret-position="315">
+          <caret line="173" column="12" selection-start-line="173" selection-start-column="12" selection-end-line="173" selection-end-column="12" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1002,7 +959,73 @@
             <element signature="n#style#0;n#div#10;n#div#1;n#div#0;n#section#1;n#main#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#11;n#div#1;n#div#0;n#section#1;n#main#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#11;n#div#1;n#div#0;n#section#1;n#main#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1479240924000" expanded="true" signature="4713:4726" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/fizzquizzData.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3379">
+          <caret line="589" column="7" selection-start-line="589" selection-start-column="7" selection-end-line="589" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/indexBAK11-16-16.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1479137378000" expanded="true" signature="2096:2131" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4290">
+          <caret line="324" column="35" selection-start-line="324" selection-start-column="35" selection-end-line="324" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#header#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#1;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#2;n#div#1;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#2;n#div#1;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#center#0;n#div#0;n#section#0;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#2;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#4;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#6;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#7;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#8;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#9;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#10;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#11;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#12;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#13;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#14;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#15;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#16;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#17;n#form#0;n#div#0;n#section#1;n#main#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1479241450000" expanded="true" signature="3171:3206" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
