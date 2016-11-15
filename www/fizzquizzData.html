@@ -33,44 +33,20 @@
 
             function onDeviceReady() {
 
-              //  $('#loader').hide();
+                checkQuizTake();
+
+                //  $('#loader').hide();
                 console.log('cordova is ready');
 
 
-
-
-
-
-           /*     var attempted = localStorage.getItem('attempts');
-                // if (attempted < 1) {
-                if (attempted < 1) {
-
-                    $('#playQuiz').removeAttr('disabled');
-                    window.open(base_url + "/app/views/media/video.php", "_blank", "location=no", "closebuttoncaption=Return");
-
-                    //$('#playQuiz').attr('disabled','');
-
-                } else {
-
-
-
-
-
-
-
-                    //navigator.notification.alert('Thank you for taking the quiz! See you for the next rounds.');
-
-                    //  $('#playQuiz').attr('disabled','disabled');
-                    //  window.location.replace('main.html');
-
-                }
-*/
 
                 $('#playQuiz').on('click', function () {
                     $('#raysDemoHolder').hide();
                 })
 
-        }
+
+            }
+
 
 
     </script>
@@ -112,11 +88,11 @@
     <script src='https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js'></script>
     <!-- <script src='js/bootstrap.min.js'></script>-->
     <script src='js/material-modal.min.js'></script>
-    <script src='js/material-modal.min.js'></script>
     <script src='js/jquery.touchSwipe.min.js'></script>
     <script src='js/all.js'></script>
     <script src='js/myApp.js'></script>
     <script src='js/user.js'></script>
+    <script src='js/quizinfo.js'></script>
     <script>
 
 
@@ -137,21 +113,6 @@
         });
         loaderSpin();
 
-
-
-     var checkAttempt = localStorage.getItem('checkLQuiz');
-        var checkDateFrString = localStorage.getItem('dateFrString');
-        console.log("checkAttempt:", checkAttempt);
-        console.log("checkDateFrString", checkDateFrString );
-        if (checkAttempt == checkDateFrString){
-            window.alert("Thank you for taking the quiz! See you for the next rounds.");
-            window.location.replace("main.html")
-        } else {
-            console.log("First Time");
-            $('#playQuiz').removeAttr('disabled');
-            window.open(base_url + "/app/views/media/video.php", "_blank", "location=no", "closebuttoncaption=Return");
-
-        }
 
     </script>
 
@@ -436,6 +397,29 @@
         ) : "";
     };
 
+
+    escapeHtml = function (s) {
+        return s ? s.replace(
+                /[&<>'"]/g,
+                function (c, offset, str) {
+                    if (c === "&") {
+                        var substr = str.substring(offset, offset + 6);
+                        if (/&(amp|lt|gt|apos|quot);/.test(substr)) {
+                            // already escaped, do not re-escape
+                            return c;
+                        }
+                    }
+                    return "&" + {
+                                "&": "amp",
+                                "<": "lt",
+                                ">": "gt",
+                                "'": "apos",
+                                '"': "quot"
+                            }[c] + ";";
+                }
+        ) : "";
+    };
+
     function post_score_new() {
 
 
@@ -444,7 +428,11 @@
         };
         //  var attempts = localstorage.getitem("attempts");
 
+<<<<<<< HEAD
         /* var user_id = $('#user_id').val();
+=======
+       /* var user_id = $('#user_id').val();
+>>>>>>> origin/master
 
          var datefromDynamic = $('#datefrom').val();
          var score_bottle = $('#score_bottle').val();
@@ -461,6 +449,21 @@
         var datefromDynamic = htmlspecialchars($('#datefrom').val());
         var score_bottle = htmlspecialchars($('#score_bottle').val());
         var attempts = $('#attempts').val();
+<<<<<<< HEAD
+=======
+        var divisions = $('#divisions').val();
+        var area = $('#area').val();
+        var aunit = $('#aunit').val();*/
+
+
+
+
+        var user_id =  htmlspecialchars($('#user_id').val());
+
+        var datefromDynamic = htmlspecialchars($('#datefrom').val());
+        var score_bottle = htmlspecialchars($('#score_bottle').val());
+        var attempts = htmlspecialchars($('#attempts').val());
+>>>>>>> origin/master
         var divisions = htmlspecialchars($('#divisions').val());
         var area = htmlspecialchars($('#area').val());
         var aunit = htmlspecialchars($('#aunit').val());

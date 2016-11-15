@@ -43,7 +43,7 @@ function fillmod() {
                 var textF_db = item.textF;
                 var image_db = item.image;
 
-                alert('Hi');
+               // alert('Hi');
 
               /*  if (empty(video_db)) {
                 } else {
@@ -119,59 +119,6 @@ noNet(base_url +'/json.php',
 );
 
 
-
-
-function getInitQuizData() {
-
-
-    var myDivision2 = localStorage.getItem('user_division');
-   
-
-    $.getJSON(base_url + '/index.php/jsonQuiz/' + myDivision2, function ( result ) {
-
-
-      //  $.each(result, function ( i, field ) {
-          // $("#output3").append("<tr><td>date_published:  "+ field.date_published + " </td></tr><tr><td>date_expire: "+ field.date_expire + "</td></tr>");
-            //  $('#userid').val(field.id);
-            // $('#username').val(field.username);
-           // $('#date_published').val(field.date_published);
-            console.log('date_published', result.date_published);
-            console.log('date_expire', result.date_expire);
-            localStorage.setItem('dateFrString', result.date_published);
-        localStorage.setItem('dateToString', result.date_expire);
-        });
-
-
-        // });
-}
-
-
-
-
-
-function getQuizData() {
-
-
-    var myDivision2 = localStorage.getItem('user_division');
-    var endDate = localStorage.getItem('dateToString');
-
-
-
-    $.get( "http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/jsonQuiz/"+ myDivision2 +"/"+ endDate, function( data ) {
-        // $( ".result" ).html( data );
-        console.log(data);
-        // alert( "Load was performed." );
-        localStorage.setItem('QuizData', data);
-    });
-
-
-}
-
-
-getQuizData();
-
-
-getInitQuizData();
 
 
 
