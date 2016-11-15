@@ -25,6 +25,9 @@
           integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/jquery-1.11.1.js"></script>-->
     <script src="js/jquery-3.1.0.min.js"></script>
+    <script>
+        var encodedString = "&lt;p&gt;name&lt;/p&gt;&lt;p&gt;&lt;span style=\"font-size:xx-small;\"&gt;ajde&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;da&lt;/em&gt;&lt;/p&gt;";
+    </script>
     <script type="text/javascript" src="js/jquery.validate.js"></script>
     <script src="js/jquery.touchSwipe.min.js"></script>
     <!-- Material Design Lite -->
@@ -238,6 +241,8 @@
                    onclick='register();'>
                     Register
                 </a>
+
+                    <input type=button onclick="document.body.innerHTML=decode(encodedString)"/>
             </div>
             </section>
         </section>

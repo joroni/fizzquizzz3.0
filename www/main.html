@@ -55,6 +55,7 @@
     <script src="js/all.js"></script>
     <script src="js/myApp.js"></script>
     <script src="js/user.js"></script>
+    <script src="js/quizinfo.js"></script>
 
  <!--   <script src='http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/jsonSmallFormat.js?callback=myFunction'></script>
     <script src='http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz.js?callback=mySlickQuiz'></script>
@@ -80,6 +81,15 @@
         function onLoad() {
             document.addEventListener("deviceready", onDeviceReady, false);
             //$('#loader').show();
+
+            loadQuizDetails();
+           /* setTimeout(function(){
+                    $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
+                    loaderMiniShow();
+                    getQuizData();
+                    get_Quiz_History();
+            }, 5000);
+*/
 
         }
             // cordova is ready
@@ -181,57 +191,6 @@
 
 
 
-        function get_Quiz_History() {
-            $('#output').empty();
-            var user_id = localStorage.getItem('user_id');
-            $('#output').html('<th colspan="4" style="padding: 0 5px; background: silver;"><h5>Stats</h5></th>');
-            $.getJSON(base_url + '/index.php/get_user_quiz_history/' + user_id, function ( results ) {
-
-
-                //$.each(result, function ( i, field ) {
-                $.each(results, function ( i, fields ) {
-
-                    $("#output").append("<tr><td><label>Set</label></td><td> " + fields.datefrom + " </td><td><label>Score</label></td><td>" + fields.score_bottle + "</td></tr>");
-                    //$('#user_id').text(field.id);
-                    //    console.log(field.attempts);
-                    //  console.log(field.datefrom);
-                    //  console.log(field.score_bottle);
-                    $("#output2").append("<li> " + fields.datefrom + " </li>");
-                    //$('#user_id').text(field.id);
-                    //    console.log(field.attempts);
-                    //  console.log(field.datefrom);
-                    //  console.log(field.score_bottle);
-                    var checkLQuiz = $("#output2 li:last-child").text();
-                    console.log("checkLQuiz", checkLQuiz);
-                    localStorage.setItem('checkLQuiz', checkLQuiz);
-
-
-
-                });
-            })
-        }
-        get_Quiz_History();
-
-
-
-        /*  function get_Quiz_Data() {
-
-              $.get(base_url + "/index.php/jsonSmallFormat/2016-11-10/", {callback : "?" }, "jsonp",  function(data) {
-                  $('#summary').text(data.result);
-                  alert(data.result);
-              });
-
-          }
-  */
-        $('html').on('click', function () {
-            getQuizData();
-        });
-
-
-        function myFunction() {
-            $('#capturePhoto').hide();
-            // window.location.replace('main.html');
-        }
         /* $("input[name=upload_file[]]").trigger('click', function () {
          /// $('
 
@@ -246,6 +205,26 @@
          setTimeout(myFunction, 3000);
          });
          */
+        function loadQuizDetails() {
+
+            setTimeout(myFunctionLoading, 3000);
+
+            function myFunctionLoading() {
+                $('#loader-mini').show();
+                $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
+                getQuizData();
+                get_Quiz_History();
+
+
+                setTimeout(myFunctionLoadingOut, 3000);
+                function myFunctionLoadingOut() {
+                $('#loader-mini').hide();
+                }
+            }
+
+
+        }
+
 
         function uploadingImg() {
             $('#loader-mini').show();
@@ -407,8 +386,14 @@
 
                     </li>
                     <li>
+                        <script>
 
-                        <a href="#" id="getStarted2" style="min-width: 100%; z-index: 100"
+                            setTimeout(function(){
+                                $('#getStarted2').show();
+                        }, 6000);
+
+                        </script>
+                        <a href="#" id="getStarted2" style="display: none; min-width: 100%; z-index: 100"
                            class="btn-text button btn btn-lg mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Get
                             Started</a>
 

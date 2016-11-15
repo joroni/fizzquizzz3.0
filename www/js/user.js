@@ -111,7 +111,7 @@ $(function () {
 
             $('#getStarted2').on('click', function (e) {
                 e.preventDefault();
-                var checkLQuiz = localStorage.getItem('fizzquizz');
+               // var checkLQuiz = localStorage.getItem('fizzquizz');
 
                // window.location.replace(fizzquizz);
                 window.location.replace('fizzquizzData.html');

@@ -10,6 +10,9 @@ document.getElementById("result").innerHTML = localStorage.getItem("lastname");
 
 
 
+htmlspecialchars = function(s) {
+	return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\//g, "-");;
+};
 
 function check_storage(){
 
@@ -27,8 +30,17 @@ check_storage();
 
 // register
 function register(){
-
- 	var username = $('#reg_username').val();
+	
+	var username = htmlspecialchars($('#reg_username').val());
+	var password = htmlspecialchars($('#reg_password').val());
+	var fname = htmlspecialchars($('#reg_fname').val());
+	var lname = htmlspecialchars($('#reg_lastname').val());
+	var email = htmlspecialchars($('#reg_email').val());
+	var division = htmlspecialchars($('#division').val());
+	var aunit = htmlspecialchars($('#aunit').val());
+	var area = htmlspecialchars($('#reg_area').val());
+	var lang = htmlspecialchars($('#reg_lang').val());
+ 	/*var username = $('#reg_username').val();
  	var password = $('#reg_password').val();
  	var fname = $('#reg_fname').val();
  	var lname = $('#reg_lastname').val();
@@ -36,7 +48,7 @@ function register(){
 	var division = $('#division').val();
 	var aunit = $('#aunit').val();
 	var area = $('#reg_area').val();
-	var lang = $('#reg_lang').val();
+	var lang = $('#reg_lang').val();*/
 
  	if(username == '' || password == '' || fname == '' || lname == ''){
 
