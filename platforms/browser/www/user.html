@@ -1,0 +1,257 @@
+<html>
+<head>
+    <!-- Material Design Lite -->
+    <!--<script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+	<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.pink-purple.min.css" />-->
+
+    <script src="js/material.min.js"></script>
+    <link rel="stylesheet" href="css/material.pink-purple.min.css" />
+
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
+    <meta content="width=device-width,initial-scale=1" name=viewport>
+
+
+
+    <!--<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>-->
+    <script src="js/jquery-3.1.0.min.js" ></script>
+    <script src="js/jquery.touchSwipe.min.js" ></script>
+    <script src="js/user.js" ></script>
+    <script src="js/all.js" ></script>
+
+    <script type="text/javascript">
+
+    </script>
+
+</head>
+<body >
+
+<!-- Simple header with fixed tabs. -->
+<div  class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+                mdl-layout--fixed-tabs">
+
+    <header class="mdl-layout__header">
+
+        <div class="mdl-layout__header-row">
+
+
+            <div id='swipe_menu'>
+
+                <span class="mdl-layout-title" id='top_title'>Fizz Quiz</span>
+            </div>
+
+
+            <button   id="right_btn"
+                      class="mdl-button mdl-js-button mdl-button--icon ">
+                <i class="material-icons">more_vert</i>
+            </button>
+
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                for="right_btn">
+                <li class="mdl-menu__item">Some Action</li>
+                <li class="mdl-menu__item">Another Action</li>
+                <li disabled class="mdl-menu__item">Disabled Action</li>
+                <li class="mdl-menu__item">Yet Another Action</li>
+            </ul>
+
+        </div>
+
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+            <a href="#fixed-tab-3" class="mdl-layout__tab is-active">Home</a>
+            <a href="#fixed-tab-4" class="mdl-layout__tab ">Leader Board</a>
+            <a href="#fixed-tab-1" class="mdl-layout__tab ">Profile</a>
+            <a href="#fixed-tab-2" class="mdl-layout__tab">Account</a>
+        </div>
+
+    </header>
+
+
+
+    <div class="mdl-layout__drawer">
+
+
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Welcome</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Mauris sagittis pellentesque lacus eleifend lacinia...
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a href='#' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Link #1
+                </a>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a href='#' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Link #2
+                </a>
+            </div>
+            <div class="mdl-card__menu">
+                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <i class="material-icons">perm_identity</i>
+
+
+                </button>
+                <button id="user_menu"
+                        class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">mode_edit</i>
+                </button>
+
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                    for="user_menu">
+                    <li class="mdl-menu__item">Some Action</li>
+                    <li class="mdl-menu__item">Another Action</li>
+                    <li disabled class="mdl-menu__item">Disabled Action</li>
+                    <li class="mdl-menu__item">Yet Another Action</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <main class="mdl-layout__content">
+
+        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-3">
+            <div class="page-content">
+
+                <h1>Home</h1>
+
+            </div>
+        </section>
+
+        <section class="mdl-layout__tab-panel " id="fixed-tab-1">
+            <div class="page-content">
+
+
+                <table class="table table-bordered">
+                    <div id="output"></div>
+                </table>
+
+                <input type='hidden' id='user_username'><Br>
+                Firstname:<span id='user_firstname'></span><Br>
+                <div style='clear:both;'></div>
+
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="fname">
+                </div>
+                <button type='button' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect " onclick='update_user();'>
+                    Update
+                </button>
+                <div id='update_1' style='display:none;'>user updated</div>
+                <div id='update_0' style='display:none;'>Error</div>
+
+
+            </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+            <div class="page-content">
+
+                <!-- Icon List -->
+                <style>
+                    .demo-list-icon {
+                        width: 300px;
+                    }
+                </style>
+
+                <ul class="demo-list-icon mdl-list">
+
+                    <li class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+     <i class="material-icons">face</i> &nbsp; User Full name
+    </span>
+                    </li>
+
+
+
+                    <li class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+     <i class="material-icons">note</i> &nbsp; Test Link
+    </span>
+                    </li>
+
+
+
+                    <li class="mdl-list__item" onclick='log_out();'>
+      <span class="mdl-list__item-primary-content">
+      <i class="material-icons">error</i> &nbsp; Logout
+    </span>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+        <section class="mdl-layout__tab-panel " id="fixed-tab-3">
+            <div class="page-content">
+
+
+                <table class='table table-bordered'>
+                    <div id='output'></div>
+                </table>
+
+                <input type='hidden' id='user_username'><Br>
+                Firstname:<span id='user_firstname'></span><Br>
+                <div style='clear:both;'></div>
+
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="fname">
+                </div>
+                <button type='button' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect " onclick='update_user();'>
+                    Update
+                </button>
+                <div id='update_1' style='display:none;'>user updated</div>
+                <div id='update_0' style='display:none;'>Error</div>
+
+
+            </div>
+        </section>
+        <section class="mdl-layout__tab-panel " id="fixed-tab-4">
+            <div class="page-content">
+
+
+                <table class='table table-bordered'>
+                    <div id='output'></div>
+                </table>
+
+                <input type='hidden' id='user_username'><Br>
+                Firstname:<span id='user_firstname'></span><Br>
+                <div style='clear:both;'></div>
+
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="fname">
+                </div>
+                <button type='button' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect " onclick='update_user();'>
+                    Update
+                </button>
+                <div id='update_1' style='display:none;'>user updated</div>
+                <div id='update_0' style='display:none;'>Error</div>
+
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mdl-mega-footer">
+        <div class="mdl-mega-footer__middle-section">
+            <div class="mdl-mini-footer__left-section">
+
+                <ul class="mdl-mini-footer__link-list">
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Privacy & Terms</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>

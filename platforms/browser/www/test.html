@@ -1,0 +1,212 @@
+<?php
+	// Database details
+	include '../config.php';
+	
+	// Get job (and id)
+	$job = '';
+	$id  = '';
+	if (isset($_GET['job'])){
+	  $job = $_GET['job'];
+	  if ($job == 'get_questions' ||
+	      $job == 'get_question'   ||
+	      $job == 'add_question'   ||
+	      $job == 'edit_question'  ||
+	      $job == 'delete_question'){
+	    if (isset($_GET['id'])){
+	      $id = $_GET['id'];
+	      if (!is_numeric($id)){
+	        $id = '';
+	      }
+	    }
+	  } else {
+	    $job = '';
+	  }
+	}
+	
+	// Prepare array
+	$mysql_data = array();
+	
+	// Valid job found
+	if ($job != ''){
+	
+	  // Connect to database
+	  $db_connection = mysqli_connect($db_server, $db_username, $db_password, $db_name);
+	  if (mysqli_connect_errno()){
+	    $result  = 'error';
+	    $message = 'Failed to connect to database: ' . mysqli_connect_error();
+	    $job     = '';
+	  }
+	
+	  // Execute job
+	  if ($job == 'get_questions'){
+	  		
+	    // Get companies
+	    $query = "SELECT * FROM it_questions ORDER BY datefrom DESC";
+	    //$query = "SELECT a.*, q.* FROM it_answers a, it_questions q WHERE a.question_id=q.question_id ORDER BY division";
+	
+	    $query = mysqli_query($db_connection, $query);
+	    if (!$query){
+	      $result  = 'error';
+	      $message = 'query error';
+	    } else {
+	      $result  = 'success';
+	      $message = 'query success';
+	      while ($question = mysqli_fetch_array($query)){
+	        $functions  = '<div class="function_buttons">
+<ul class="col-sm-12">';
+    $functions .= '
+    <li class="col-sm-4 function_addq">
+        <a href="#" id="add_answer" data-toggle="modal" data-id="'   . $question['question_id'] .'"><span
+                class="fa fa-plus"></span></a></li>
+    ';
+    $qid = $question['question_id'];
+    $functions .= '
+    <li class="col-sm-4 function_edit"><a data-id="'   . $question['question_id'] . '"
+                                          data-name="' . $question['question_question'] . '"><span>Edit</span></a></li>
+    ';
+    $functions .= '
+    <li class="col-sm-4 function_delete"><a data-id="' . $question['question_id'] . '"
+                                            data-name="' . $question['question_question'] . '"><span>Delete</span></a>
+    </li>
+    ';
+    $functions .= '
+</ul></div>';
+$mysql_data[] = array(
+"division"          => $question['division'],
+"question_question"  => $question['question_question'],
+"datefrom"    => $question['datefrom'],
+"dateto"       => $question['dateto'],
+
+
+"status"   => number_format($question['status'], 0, '.', ','),
+//"employees"     => number_format($question['employees'], 0, '.', ','),
+//"market_cap"    => '$ ' . $question['market_cap'],
+"headquarters"  => $question['headquarters'],
+"functions"     => $functions
+);
+}
+}
+
+} elseif ($job == 'get_question'){
+
+// Get question
+if ($id == ''){
+$result  = 'error';
+$message = 'id missing';
+} else {
+$query = "SELECT * FROM it_questions WHERE question_id = '" . mysqli_real_escape_string($db_connection, $id) . "'";
+
+/* $query = "SELECT q.*, a.* FROM it_questions q, it_answers a
+WHERE q.question_id='" . mysqli_real_escape_string($db_connection, $id) . "'";*/
+
+
+/* $query = "SELECT q.*, a.* FROM it_questions q, it_answers a
+WHERE q.question_id='" . mysqli_real_escape_string($db_connection, $id) . "'";*/
+$query = mysqli_query($db_connection, $query);
+if (!$query){
+$result  = 'error';
+$message = 'query error';
+} else {
+$result  = 'success';
+$message = 'query success';
+while ($question = mysqli_fetch_array($query)){
+$mysql_data[] = array(
+"division"          => $question['division'],
+"question_question"  => $question['question_question'],
+
+"datefrom"    => $question['datefrom'],
+"dateto"       => $question['dateto'],
+"status"   => $question['status'],
+//"employees"     => $question['employees'],
+//"market_cap"    => $question['market_cap'],
+"headquarters"  => $question['headquarters']
+);
+}
+}
+}
+
+} elseif ($job == 'add_question'){
+
+// Add question
+$query = "INSERT INTO it_questions SET ";
+if (isset($_GET['division']))         { $query .= "division         = '" . mysqli_real_escape_string($db_connection, $_GET['division'])         . "', "; }
+if (isset($_GET['question_question'])) { $query .= "question_question = '" . mysqli_real_escape_string($db_connection, $_GET['question_question']) . "', "; }
+if (isset($_GET['datefrom']))   { $query .= "datefrom   = '" . mysqli_real_escape_string($db_connection, $_GET['datefrom'])   . "', "; }
+if (isset($_GET['dateto']))      { $query .= "dateto      = '" . mysqli_real_escape_string($db_connection, $_GET['dateto'])      . "', "; }
+if (isset($_GET['status']))    { $query .= "status    = '" . mysqli_real_escape_string($db_connection, $_GET['status'])    . "', "; }
+//if (isset($_GET['employees']))    { $query .= "employees    = '" . mysqli_real_escape_string($db_connection, $_GET['employees'])    . "', "; }
+//if (isset($_GET['market_cap']))   { $query .= "market_cap   = '" . mysqli_real_escape_string($db_connection, $_GET['market_cap'])   . "', "; }
+if (isset($_GET['headquarters'])) { $query .= "headquarters = '" . mysqli_real_escape_string($db_connection, $_GET['headquarters']) . "'";   }
+$query = mysqli_query($db_connection, $query);
+if (!$query){
+$result  = 'error';
+$message = 'query error';
+} else {
+$result  = 'success';
+$message = 'query success';
+}
+
+} elseif ($job == 'edit_question'){
+
+// Edit question
+if ($id == ''){
+$result  = 'error';
+$message = 'id missing';
+} else {
+$query = "UPDATE it_questions SET ";
+if (isset($_GET['division']))         { $query .= "division         = '" . mysqli_real_escape_string($db_connection, $_GET['division'])         . "', "; }
+if (isset($_GET['question_question'])) { $query .= "question_question = '" . mysqli_real_escape_string($db_connection, $_GET['question_question']) . "', "; }
+if (isset($_GET['datefrom']))   { $query .= "datefrom   = '" . mysqli_real_escape_string($db_connection, $_GET['datefrom'])   . "', "; }
+if (isset($_GET['dateto']))      { $query .= "dateto      = '" . mysqli_real_escape_string($db_connection, $_GET['dateto'])      . "', "; }
+if (isset($_GET['status']))    { $query .= "status    = '" . mysqli_real_escape_string($db_connection, $_GET['status'])    . "', "; }
+//if (isset($_GET['employees']))    { $query .= "employees    = '" . mysqli_real_escape_string($db_connection, $_GET['employees'])    . "', "; }
+//  if (isset($_GET['market_cap']))   { $query .= "market_cap   = '" . mysqli_real_escape_string($db_connection, $_GET['market_cap'])   . "', "; }
+if (isset($_GET['headquarters'])) { $query .= "headquarters = '" . mysqli_real_escape_string($db_connection, $_GET['headquarters']) . "'";   }
+$query .= "WHERE question_id = '" . mysqli_real_escape_string($db_connection, $id) . "'";
+$query  = mysqli_query($db_connection, $query);
+if (!$query){
+$result  = 'error';
+$message = 'query error';
+} else {
+$result  = 'success';
+$message = 'query success';
+}
+}
+
+} elseif ($job == 'delete_question'){
+
+// Delete question
+if ($id == ''){
+$result  = 'error';
+$message = 'id missing';
+} else {
+$query = "DELETE FROM it_questions WHERE question_id = '" . mysqli_real_escape_string($db_connection, $id) . "'";
+$query = mysqli_query($db_connection, $query);
+if (!$query){
+$result  = 'error';
+$message = 'query error';
+} else {
+$result  = 'success';
+$message = 'query success';
+}
+}
+
+}
+
+// Close database connection
+mysqli_close($db_connection);
+
+}
+
+// Prepare data
+$data = array(
+"result"  => $result,
+"message" => $message,
+"data"    => $mysql_data
+);
+
+// Convert PHP array to JSON array
+$json_data = json_encode($data);
+print $json_data;
+?>
+

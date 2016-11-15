@@ -1,0 +1,22 @@
+{
+  "questions": [ 
+       {
+           "question": "True or False: American Idol is a reality show",
+           "answers": ["True", "False"],
+       	   "correctAnswer": 1,
+          "userStat": 75
+       },
+       {
+           "question": "Chemical term for water?",
+           "answers": ["Au", "Br", "HO2", "H20"],
+       	   "correctAnswer": 4,
+          "userStat": 85
+       },
+       {
+           "question": "The rice dish ‘paella’ comes from what country?",
+           "answers": ["Philippines", "Hawaii", "Spain"],
+       	   "correctAnswer": 3,
+         "userStat": 10
+       }
+     ]
+ }

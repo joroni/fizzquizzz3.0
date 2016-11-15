@@ -10,7 +10,7 @@
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.coca-cola.fizzquizz"
         },
-        "cordova-plugin-dialogs": {
+        "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.coca-cola.fizzquizz"
         },
         "cordova-plugin-whitelist": {

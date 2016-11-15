@@ -1,0 +1,74 @@
+<div class="quiz-area" ng-show="inProgress">
+	<div ng-show="!quizOver">
+		<h5 id="question" class="animated fadeInBig">{{question}}</h5>
+		<ul id="options">
+			<li ng-repeat="option in options" class="animated fadeInLeftBig">
+				<label>
+					<input type="radio" name="answer" class="selections" value="{{option}}">
+					{{option}}
+				</label>
+			</li>
+		</ul>
+		<a ng-click="checkAnswer()" style="display: none !important;" ng-show="answerMode" id="show-dialog" type="button" class="animated fadeInLeftBig mdl-layout__tab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Submit</a>
+
+		<dialog class="mdl-dialog">
+			<!--<h4 class="mdl-dialog__title">Allow data collection?</h4>-->
+			<div class="mdl-dialog__content">
+				<div ng-show="!answerMode" >
+
+					<span ng-show="correctAns" class="isIt">That is correct!</span>
+					<span ng-show="!correctAns" class="isIt">Sorry, that is an incorrect answer.</span>
+
+				</div>
+			</div>
+			<div class="mdl-dialog__actions">
+
+				<button ng-click="nextQuestion()" class="close mdl-layout__tab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Next</button>
+                <!--<button type="button" class="back mdl-button mdl-layout__tab mdl-layout__tab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Back</button>
+              utton type="button" class="mdl-button">Agree</button>
+              <button type="button" class="mdl-button close">Disagree</button>-->
+			</div>
+		</dialog>
+		<script>
+			var dialog = document.querySelector('dialog');
+
+			var showDialogButton = document.querySelector('#show-dialog');
+			if (! dialog.showModal) {
+				dialogPolyfill.registerDialog(dialog);
+			}
+
+			showDialogButton.addEventListener('click', function() {
+				dialog.showModal();
+			});
+			dialog.querySelector('.close').addEventListener('click', function() {
+				dialog.close();
+			});
+
+
+
+		</script>
+
+	</div>
+
+	<div ng-show="quizOver">
+		<h4>Quiz is over</h4>
+		<a ng-click="reset()" class="mdl-layout__tab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Play again</a>
+        <br /><br />
+        <a onclick="window.location='main.html'" class="mdl-layout__tab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" >Submit</a>
+	</div>
+<br />
+	<div id="score">
+		Score: {{score}}
+	</div>
+</div>
+
+<div class="intro animated fadeInUpBig" ng-show="!inProgress">
+	<video width="100%" controls>
+		<source src="media/sample.mp4" type="video/mp4">
+		<!--  <source src="mov_bbb.ogg" type="video/ogg">-->
+		Your browser does not support HTML5 video.
+	</video>
+	<br />
+	<br />
+	<a id="startQuiz" ng-click="start()" class="mdl-layout__tab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored animated pulse">Start</a>
+</div>
