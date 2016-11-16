@@ -63,7 +63,7 @@
 
         }
 
-</script>
+    </script>
 
     <script>
 
@@ -164,7 +164,6 @@
                 <div style='clear:both;'></div>
                 <!--  <div class="typo-styles__demo mdl-typography--display-1">Register</div> -->
                 <form id="signupForm" method="post" class="form-horizontal" action="">
-
                     <div class="mdl-textfield mdl-js-textfield">
                         <input class="mdl-textfield__input" type="text" id="reg_username" name="reg_username">
                         <label class="mdl-textfield__label" for="reg_username">EID: (Ex. l23855) <span id='reg_username_err'
@@ -243,6 +242,9 @@
                         Register
                     </a>
 
+
+            </div>
+        </section>
         </section>
     </main>
     <!--<footer class="mdl-mega-footer">
@@ -318,21 +320,19 @@
                 },
 
                 reg_email: "Please enter a valid email address"
-
-               // agree: "Please accept our policy"
+                // agree: "Please accept our policy"
             },
             /*  errorElement: "em",
-          errorPlacement: function ( error, element ) {
-                // Add the `help-block` class to the error element
-                error.addClass("help-block");
+             errorPlacement: function ( error, element ) {
+             // Add the `help-block` class to the error element
+             error.addClass("help-block");
 
-                if (element.prop("type") === "checkbox") {
-                    error.insertAfter(element.parent("label"));
-                } else {
-                    error.insertAfter(element);
-                }
-            },*/
-
+             if (element.prop("type") === "checkbox") {
+             error.insertAfter(element.parent("label"));
+             } else {
+             error.insertAfter(element);
+             }
+             },*/
             highlight: function ( element, errorClass, validClass ) {
                 $(element).parents(".mdl-textfield, .mdl-select").addClass("has-error").removeClass("has-success");
             },

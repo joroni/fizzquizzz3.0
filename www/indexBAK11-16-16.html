@@ -202,7 +202,7 @@
                 </a>
             </div>
             </section>
-        </section>
+
     </main>
     <!--<footer class="mdl-mega-footer">
        <div class="mdl-mega-footer__middle-section">
@@ -219,6 +219,10 @@
 
 
 <script type="text/javascript">
+
+
+
+
     $.validator.setDefaults( {
         submitHandler: function () {
             alert( "submitted!" );
@@ -228,27 +232,66 @@
     $( document ).ready( function () {
         $("#signupForm").validate({
             rules: {
+                reg_username: {
+                    required: true
+                },
+                reg_fname: {
+                    required: true
+                },
+                reg_lastname: {
+                    required: true
+                },
                 reg_email: {
                     required: true,
                     email: true
+                },
+                division: {
+                    required: true
+                },
+                aunit: {
+                    required: true
+                },
+                reg_area:  {
+                    required: true
                 }
             },
             messages: {
 
-                reg_email: "Please enter a valid email address",
-                agree: "Please accept our policy"
-            },
-            errorElement: "em",
-            errorPlacement: function ( error, element ) {
-                // Add the `help-block` class to the error element
-                error.addClass("help-block");
+                reg_username: {
+                    required: "Please enter your KO ID."
+                },
+                reg_fname: {
+                    required: "Please enter your first name."
+                },
+                reg_lastname: {
+                    required: "Please enter your last name."
+                },
+                division: {
+                    required: "Please enter your division"
+                },
+                aunit: {
+                    required: "Please enter your unit"
+                },
+                reg_area:  {
+                    required: "Please enter your area"
+                },
 
-                if (element.prop("type") === "checkbox") {
-                    error.insertAfter(element.parent("label"));
-                } else {
-                    error.insertAfter(element);
-                }
+                reg_email: "Please enter a valid email address"
+
+                // agree: "Please accept our policy"
             },
+            /*  errorElement: "em",
+             errorPlacement: function ( error, element ) {
+             // Add the `help-block` class to the error element
+             error.addClass("help-block");
+
+             if (element.prop("type") === "checkbox") {
+             error.insertAfter(element.parent("label"));
+             } else {
+             error.insertAfter(element);
+             }
+             },*/
+
             highlight: function ( element, errorClass, validClass ) {
                 $(element).parents(".mdl-textfield, .mdl-select").addClass("has-error").removeClass("has-success");
             },

@@ -25,7 +25,7 @@ function loaderSpin() {
 
 
 
-$('#modal1').modal('open');
+
 
 
 
