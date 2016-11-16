@@ -8,24 +8,30 @@
     },
     "installed_plugins": {
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.coca-cola.fizzquizz"
+            "PACKAGE_NAME": "com.cocacola.fizzqzuizz"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.coca-cola.fizzquizz"
+            "PACKAGE_NAME": "com.cocacola.fizzqzuizz"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.coca-cola.fizzquizz"
+            "PACKAGE_NAME": "com.cocacola.fizzqzuizz"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.cocacola.fizzqzuizz"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.cocacola.fizzqzuizz"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.coca-cola.fizzquizz"
+            "PACKAGE_NAME": "com.cocacola.fizzqzuizz"
         },
         "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.coca-cola.fizzquizz"
+            "PACKAGE_NAME": "com.cocacola.fizzqzuizz"
         },
         "cordova-plugin-screen-orientation": {
-            "PACKAGE_NAME": "com.coca-cola.fizzquizz"
+            "PACKAGE_NAME": "com.cocacola.fizzqzuizz"
         }
     }
 }
