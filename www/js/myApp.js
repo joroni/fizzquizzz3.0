@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
     $('#loader').show();
     setTimeout(myLoading, 3000);
@@ -7,6 +9,14 @@ $(document).ready(function () {
         $('#loader').hide();
 
     }
+
+
+    var current = 7;
+
+    $("#notiFier > a [data-badge='" + current +"']");
+
+
+   // $("#notiFier").find("a:data(5)").on('mouse')
 
 });
 

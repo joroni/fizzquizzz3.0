@@ -51,6 +51,7 @@
         function onLoad() {
             document.addEventListener("deviceready", onDeviceReady, false);
             loadQuizDetails();
+            getInitQuizData();
         }
 
         // cordova is ready
@@ -68,7 +69,8 @@
             setTimeout(function(){
                 //  $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
                 //loaderSpinMini();
-                getInitQuizData();
+
+               // getInitQuizData();
                 get_Quiz_History();
                 loadQuizDetails();
 
@@ -142,6 +144,7 @@
             function myFunctionLoading() {
                 $('#loader-mini').show();
                 $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
+                get_Last_Quiz_Record();
                 getQuizData();
                 get_Quiz_History();
 
@@ -220,7 +223,7 @@
                 <li class="mdl-menu__item">
 
                     Hi, <span id="user_firstname" class="truncate"></span></li>
-                <li class="mdl-menu__item"><a href="#modal1" class="mdl-badge" data-badge="5">Notifications</a>
+                <li id="notiFier" class="mdl-menu__item"><a  href="#modal1" class="mdl-badge" data-badge="5">Notifications</a>
 
 
                 <!-- <li class="mdl-menu__item"><a href="image.html">Photo</a></li>-->

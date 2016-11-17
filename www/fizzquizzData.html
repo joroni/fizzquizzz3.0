@@ -334,76 +334,11 @@ function loadQuestionItems() {
 -->
 
 
-
-<!--<script src='http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/jsonSmallFormat.js?callback=myFunction'></script>-->
-
-<script>
-    var Quizes = localStorage.getItem("QuizData");
-    document.writeln('<script>');
-    document.writeln(Quizes);
-    document.writeln('<'+'/script>');
-</script>
-
-<script src='http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz.js?callback=mySlickQuiz'></script>
-
-<script>
-    mySlickQuiz();
-
-</script>
-
-
-
-
-
 <script>
 
 
 
 
-    escapeHtml = function (s) {
-        return s ? s.replace(
-                /[&<>'"]/g,
-                function (c, offset, str) {
-                    if (c === "&") {
-                        var substr = str.substring(offset, offset + 6);
-                        if (/&(amp|lt|gt|apos|quot);/.test(substr)) {
-                            // already escaped, do not re-escape
-                            return c;
-                        }
-                    }
-                    return "&" + {
-                                "&": "amp",
-                                "<": "lt",
-                                ">": "gt",
-                                "'": "apos",
-                                '"': "quot"
-                            }[c] + ";";
-                }
-        ) : "";
-    };
-
-
-    escapeHtml = function (s) {
-        return s ? s.replace(
-                /[&<>'"]/g,
-                function (c, offset, str) {
-                    if (c === "&") {
-                        var substr = str.substring(offset, offset + 6);
-                        if (/&(amp|lt|gt|apos|quot);/.test(substr)) {
-                            // already escaped, do not re-escape
-                            return c;
-                        }
-                    }
-                    return "&" + {
-                                "&": "amp",
-                                "<": "lt",
-                                ">": "gt",
-                                "'": "apos",
-                                '"': "quot"
-                            }[c] + ";";
-                }
-        ) : "";
-    };
 
     function post_score_new() {
 
@@ -414,7 +349,7 @@ function loadQuestionItems() {
         //  var attempts = localstorage.getitem("attempts");
 
 
-       /* var user_id = $('#user_id').val();
+        /* var user_id = $('#user_id').val();
 
 
          var datefromDynamic = $('#datefrom').val();
@@ -429,7 +364,7 @@ function loadQuestionItems() {
 
         var user_id =  htmlspecialchars($('#user_id').val());
 
-        var datefromDynamic = htmlspecialchars($('#datefrom').val());
+        var datefromDynamic = $('#datefrom').val();
         var score_bottle = htmlspecialchars($('#score_bottle').val());
         var attempts = $('#attempts').val();
 
@@ -437,7 +372,7 @@ function loadQuestionItems() {
 
         var user_id =  htmlspecialchars($('#user_id').val());
 
-        var datefromDynamic = htmlspecialchars($('#datefrom').val());
+        var datefromDynamic = $('#datefrom').val();
         var score_bottle = htmlspecialchars($('#score_bottle').val());
         var attempts = htmlspecialchars($('#attempts').val());
 
@@ -494,6 +429,26 @@ function loadQuestionItems() {
         });
     }
 </script>
+
+
+<!--<script src='http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/jsonSmallFormat.js?callback=myFunction'></script>-->
+
+<script>
+    var Quizes = localStorage.getItem("QuizData");
+    document.writeln('<script>');
+    document.writeln(Quizes);
+    document.writeln('<'+'/script>');
+</script>
+
+<script src='http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz.js?callback=mySlickQuiz'></script>
+
+<script>
+    mySlickQuiz();
+
+</script>
+
+
+
 <!--
 <script>
 

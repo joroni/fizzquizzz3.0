@@ -14,12 +14,36 @@ function get_Quiz_History() {
             //    console.log(field.attempts);
             //  console.log(field.datefrom);
             //  console.log(field.score_bottle);
+           // $("#output2").append("<li> " + fields.datefrom + " </li>");
+            //$('#user_id').text(field.id);
+            //    console.log(field.attempts);
+            //  console.log(field.datefrom);
+            //  console.log(field.score_bottle);
+
+
+
+
+        });
+    })
+}
+
+
+function get_Last_Quiz_Record() {
+    //$('#output').empty();
+    var user_id = localStorage.getItem('user_id');
+
+    $.getJSON(base_url + '/index.php/get_user_quiz_last_record/' + user_id, function ( results ) {
+
+
+        //$.each(result, function ( i, field ) {
+        $.each(results, function ( i, fields ) {
+
             $("#output2").append("<li> " + fields.datefrom + " </li>");
             //$('#user_id').text(field.id);
             //    console.log(field.attempts);
             //  console.log(field.datefrom);
             //  console.log(field.score_bottle);
-            var checkLQuiz = $("#output2 li:last-child").text();
+            var checkLQuiz = fields.datefrom;
 
             localStorage.setItem('checkLQuiz', checkLQuiz);
             console.log("checkLQuiz", checkLQuiz);
@@ -70,6 +94,18 @@ function getInitQuizData() {
         console.log('date_expire', result.date_expire);
         localStorage.setItem('dateFrString', result.date_published);
         localStorage.setItem('dateToString', result.date_expire);
+        dateFrStringVerify = localStorage.getItem('dateFrString')
+        var checkLastQuiz = localStorage.getItem('checkLQuiz');
+        if (dateFrStringVerify === checkLastQuiz) {
+            console.log('Already took');
+            $('#getStarted2').attr('disabled', 'disabled');
+            $('#getStarted2').html('<p>See you on the next round...</p>');
+
+
+        } else {
+            console.log('Ok really first time');
+            $('#getStarted2').removeAttr('disabled', 'disabled');
+        }
     });
 
 
@@ -113,7 +149,7 @@ function checkQuizTake() {
     Date.parse(checkDateFrString);
     //console.log("checkAttempt:", checkAttempt);
     //console.log("checkDateFrString", checkDateFrString);
-    if (checkAttempt == checkDateFrString) {
+    if (checkAttempt === checkDateFrString) {
         console.log("2nd Time");
         // $('#popupDialog').show();
         // $('#playQuiz').hide();
@@ -133,7 +169,7 @@ function checkQuizTake() {
 
 $('#playQuiz').on('click', function () {
     $('#raysDemoHolder').hide();
-})
+});
 
 
 
