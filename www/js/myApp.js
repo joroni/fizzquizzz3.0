@@ -35,6 +35,22 @@ function loaderSpin() {
 
 
 
+function loaderSpinMini() {
+
+
+    $('#loader-mini').show();
+    setTimeout(myLoading, 3000);
+
+    function myLoading() {
+
+
+        $('#loader-mini').hide();
+
+    }
+
+}
+
+
 
 
 
@@ -50,7 +66,7 @@ $(document).ready(function () {
 
         $('#userProf').on('click', function(){
 
-            window.location = 'main.html';
+            window.location = 'index.html';
             //$('.main-buttons li a').addClass('animated zoomIn');
         });
 

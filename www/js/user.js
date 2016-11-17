@@ -132,6 +132,82 @@ $(function () {
 
 
 
+
+function myProfile() {
+    var user = localStorage.getItem('userlogin');
+    loaderSpinMini();
+    $.getJSON(base_url + '/index.php/get_user_details/' + user, function ( result ) {
+
+
+        $.each(result, function ( i, field ) {
+            // $("#output").append("<tr><td>Username:  "+ field.username + " </td></tr><tr><td>Password: "+ field.password + "</td></tr>");
+            //  $('#userid').val(field.id);
+            $('#username').val(field.username);
+            $('#password').val(field.password);
+            $('#firstname').val(field.fname);
+            $('#lastname').val(field.lname);
+            $('#email').val(field.email);
+            $('#division').val(field.division);
+            $('#unit').val(field.aunit);
+            $('#area').val(field.area);
+            $('#avatar').val(field.avatar);
+
+            if ($('#avatar').val() == "" || $('#avatar').val() == null) {
+                var profile_photo = base_url + '/upload/files/' + 'daenerys.png';
+            } else {
+                var profile_photo = base_url + '/upload/files/' + field.avatar;
+            }
+
+
+            //var profile_photo =  base_url + '/upload/files/' + field.avatar;
+            // $('#avatar').html('<div class="avatar" style="background-image: url("+ profile_photo +")');
+            $('#avatar').css('background-image', 'url(' + profile_photo + ')');
+            $("#avatar").empty();
+            //for profile
+            $('#userfirstname').text(field.fname);
+            $('#userusername').text(field.username);
+            $('#userlastname').text(field.lname);
+            $('#useremail').text(field.email);
+            $('#userdivision').text(field.division);
+            $('#userunit').text(field.aunit);
+            $('#userarea').text(field.area);
+            $('#avatar').text(field.avatar);
+
+
+            //$('#user_id').text(field.id);
+            $('#user_name').text(field.username);
+            $('#user_username').text(field.username);
+            $('#user_password').text(field.password);
+            $('#user_division').text(field.division);
+            $('#user_aunit').text(field.aunit);
+            $('#user_firstname').text(field.fname);
+            $('#user_lastname').text(field.lname);
+            $('#user_email').text(field.email);
+            $('#user_privilege').text(field.privilege);
+
+
+            console.log('ID:', field.id);
+            console.log('User Name:', field.username);
+
+            console.log('Password:', field.password);
+            console.log(field.fname);
+            console.log(field.lname);
+            console.log(field.email);
+            console.log(field.division);
+            console.log(field.aunit);
+            console.log(field.area);
+            console.log(field.avatar);
+
+
+
+        });
+    });
+}
+
+
+
+
+
 function update_cancel() {
     $('#profileContent').show();
     $('#editmyProfile').hide();

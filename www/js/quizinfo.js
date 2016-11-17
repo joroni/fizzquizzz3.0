@@ -154,7 +154,7 @@ function checkQuizTake() {
         // $('#popupDialog').show();
         // $('#playQuiz').hide();
         alert("Thank you for taking the quiz! See you for the next rounds.");
-        window.location.replace("main.html");
+        window.location.replace("index.html");
 
     } else {
         console.log("First Time");
