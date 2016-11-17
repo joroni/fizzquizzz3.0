@@ -7,7 +7,7 @@
     <feature name="Notification">
         <param name="wp-package" value="Notification"/>
     </feature>
-    <gap:plugin name="org.apache.cordova.dialogs" />
+
     <preference name="fullscreen" value="true"/>
     <preference name="webviewbounce" value="true"/>
     <preference name="phonegap-version" value="3.7.0"/>
@@ -75,7 +75,7 @@
     <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
     <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
     <access origin="*"/>
-    <plugin name="cordova-plugin-whitelist" version="1"/>
+
     <allow-intent href="http://*/*"/>
     <allow-intent href="https://*/*"/>
     <allow-intent href="tel:*"/>
