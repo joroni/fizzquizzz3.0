@@ -1,59 +1,52 @@
 <html>
 <head>
-    <script src="cordova.js"></script>
+
+    <!-- Material Design Lite -->
+    <meta content='width=device-width,initial-scale=1' name='viewport'>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-        function onLoad() {
-            document.addEventListener("deviceready", onDeviceReady, false);
-            //$('#loader').show();
+        // Wait for device API libraries to load
+        //
+        document.addEventListener("deviceready", onDeviceReady, false);
 
-          /*  var url = "http://ec2-54-191-6-205.us-west-2.compute.amazonaws.com/fizzquizzserver/index.php/jsonQuiz/2016-11-10";
-            var getJSON = function(url, callback) {
-                var xhr = new XMLHttpRequest();
-                xhr.open("get", url, true);
-                xhr.responseType = "json";
-                xhr.onload = function() {
-                    var status = xhr.status;
-                    if (status == 200) {
-                        callback(null, xhr.response);
-                        alert(status);
-                    } else {
-                        callback(status);
-                        alert(status);
-                    }
-                };
-                xhr.send();
-            };*/
+        // Global InAppBrowser reference
+        var iabRef = null;
 
+        // Inject our custom JavaScript into the InAppBrowser window
+        //
+        function replaceHeaderImage() {
+            iabRef.executeScript({
+                code: "var img=document.querySelector('#header img'); img.src='http://cordova.apache.org/images/cordova_bot.png';"
+            }, function() {
+                alert("Image Element Successfully Hijacked");
+            });
         }
 
+        function iabClose(event) {
+            iabRef.removeEventListener('loadstop', replaceHeaderImage);
+            iabRef.removeEventListener('exit', iabClose);
+        }
 
+        // device APIs are available
+        //
+        function onDeviceReady() {
+          /*  iabRef = window.open('http://apache.org', '_blank', 'location=no');
+            iabRef.addEventListener('loadstop', replaceHeaderImage);
+            iabRef.addEventListener('exit', iabClose);*/
+        }
 
+        console.log('cordova is ready');
 
-
-            function onDeviceReady() {
-
-                checkQuizTake();
-
-                //  $('#loader').hide();
-                console.log('cordova is ready');
-
-
-
-                $('#playQuiz').on('click', function () {
-                    $('#raysDemoHolder').hide();
-                })
-
-
-            }
 
 
 
     </script>
 
 
-    <!-- Material Design Lite -->
-    <meta content='width=device-width,initial-scale=1' name='viewport'>
+
+
+
     <script src='https://code.getmdl.io/1.1.3/material.min.js'></script>
     <link href='css/media.css' media='screen' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='css/material.red-purple.min.css'/>
@@ -100,25 +93,26 @@
 
 
 
-        function playMessage() {
+        checkQuizTake();
 
-            // document.getElementById('player').play();
-
-        }
 
 
         $(function () {
             $('#slickQuiz').slickQuiz();
-            playMessage();
+          //  playMessage();
         });
         loaderSpin();
+
+
+function loadQuestionItems() {
+    $('#raysDemoHolder').hide();
+}
 
 
     </script>
 
 </head>
-<body id="slickQuiz" onload="onLoad()">
-
+<body id="slickQuiz">
 
 <div id='loader' style='display: block;'>
     <div class='mdl-spinner mdl-js-spinner is-active'></div>
@@ -140,6 +134,7 @@
 </dialog>-->
 
 <div class='mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs'>
+
     <header class='mdl-layout__header'>
         <div class='mdl-layout__header-row'>
             <div id='swipe_menu'>
@@ -160,13 +155,14 @@
                 <li class='mdl-menu__item'>
                     Hi, <span id='user_firstname' class='truncate'></span>
                 </li>
-                <li disabled class='mdl-menu__item'>Notifications</li>
+                <li class="mdl-menu__item"><a href="#modal1" class="mdl-badge" data-badge="5">Notifications</a>
                 <li onclick='log_out();' class='mdl-menu__item'>Logout</li>
             </ul>
         </div>
     </header>
     <main class='mdl-layout__content2' id="fizzquiz">
         <div class='mdl-layout__tab-panel is-active' id='fixed-tab-home'>
+
 
             <div id="raysDemoHolder" class="animated fadeInUpBig quiz"
                  style="width: 250px; height: 250px; margin: 40% auto;">
@@ -188,7 +184,7 @@
 
                     </div> -->
                 <!-- <div id="scored" class="score">score</div>-->
-                <a id="playQuiz" style="color: #d10000 !important;"
+                <a id="playQuiz" onclick="loadQuestionItems();" style="color: #d10000 !important;"
                    class='btn-text button btn btn-lg mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored startQuiz'
                    href='#'>Play</a>
                 <!-- where the quiz gets built -->
@@ -206,18 +202,7 @@
                 </div>
                 -->
         </div>
-        <div id="popupDialog" class="mdl-dialog" style="display: none;">
-            <!-- <h4 class="mdl-dialog__title">Allow data collection?</h4>-->
-            <div class="mdl-dialog__content">
-                <p>
-                    Thank you for taking the quiz! See you for the next rounds.
-                </p>
-            </div>
-            <div class="mdl-dialog__actions">
-                <button type="button" class="mdl-button close">Ok</button>
-                <!-- <button type="button" class="mdl-button close">Disagree</button>-->
-            </div>
-        </div>
+
         <div class='quizResults'>
             <div class='quizScore scoring'>SCORE:
                 <span><!-- where the quiz score goes --></span>

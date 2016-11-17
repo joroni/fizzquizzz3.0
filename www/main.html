@@ -1,8 +1,7 @@
 <html>
 <head>
 
-    <!-- <script src='quizgame/js/jquery-1.7.min.js'></script>
-    Material Design Lite -->
+
 
 
     <meta content="width=device-width,initial-scale=1" name="viewport">
@@ -45,6 +44,43 @@
         ; /* works */
     </style>
 
+    <script src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+            loadQuizDetails();
+        }
+
+        // cordova is ready
+        //
+        function onDeviceReady() {
+            noNet(base_url + '/json.php',
+                    function ( data ) {
+                        for (i = 0; i < data.length; i++) {
+                            //document.getElementById("result1").innerHTML += '<li> ' + data[i]['name'] + '</li>';
+                            console.log(data[i]['name']);
+                        }
+                    }
+            );
+
+            setTimeout(function(){
+                //  $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
+                //loaderSpinMini();
+                getInitQuizData();
+                get_Quiz_History();
+                loadQuizDetails();
+
+                getQuizData();
+
+
+            }, 3000);
+        }
+    </script>
+
+
+
 
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -83,55 +119,10 @@
     <script src="http://malsup.github.com/jquery.form.js"></script>
 
 
-    <script src="cordova.js"></script>
+
     <script type="text/javascript" charset="utf-8">
 
 
-        function onLoad() {
-            document.addEventListener("deviceready", onDeviceReady, false);
-            //$('#loader').show();
-
-            loadQuizDetails();
-           /* setTimeout(function(){
-                    $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
-                    loaderMiniShow();
-                    getQuizData();
-                    get_Quiz_History();
-            }, 5000);
-*/
-
-        }
-            // cordova is ready
-            //
-            function onDeviceReady() {
-
-
-
-                //    $('#loader').hide();
-                // console.log(navigator.notification);
-                noNet(base_url + '/json.php',
-                        function ( data ) {
-                            for (i = 0; i < data.length; i++) {
-                                //document.getElementById("result1").innerHTML += '<li> ' + data[i]['name'] + '</li>';
-                                console.log(data[i]['name']);
-                            }
-                        }
-                );
-
-                setTimeout(function(){
-                    //  $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
-                    //loaderSpinMini();
-                    getInitQuizData();
-                    get_Quiz_History();
-                    loadQuizDetails();
-
-                    getQuizData();
-
-
-                }, 3000);
-
-
-        }
 
 
 
@@ -165,40 +156,6 @@
 
 
 
-        /* $("input[name=upload_file[]]").trigger('click', function () {
-         /// $('
-
-         input#upload_input {').on('change', function () {
-         $('#uploadImage').show();
-         });
-
-
-         */
-        /*  $('#uploadImage').on('click', function () {
-         $('#loader-mini').show();
-         setTimeout(myFunction, 3000);
-         });
-         */
-        function loadQuizDetails() {
-
-            setTimeout(myFunctionLoading, 3000);
-
-            function myFunctionLoading() {
-                $('#loader-mini').show();
-                $('#raysLogo').append('<span style="z-index: 200;">Loading Quiz Data</span>');
-                getQuizData();
-                get_Quiz_History();
-
-
-                setTimeout(myFunctionLoadingOut, 3000);
-                function myFunctionLoadingOut() {
-                $('#loader-mini').hide();
-                }
-            }
-
-
-        }
-
 
         function uploadingImg() {
             $('#loader-mini').show();
@@ -210,22 +167,15 @@
 
 
 
+
+
     </script>
 
 
 </head>
 <body onload="onLoad()">
 
-<!-- Modal Structure -->
-<div id="modal1" class="modal bottom-sheet">
-    <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-</div>
+
 
 <div id="loader" style="display: none;">
     <div class="mdl-spinner mdl-js-spinner is-active"></div>
@@ -388,7 +338,7 @@
                         }, 6000);
 
                         </script>
-                        <a href="#" id="getStarted2" style="display: none; min-width: 100%; z-index: 100"
+                        <a href="#"  id="getStarted2" style="display: none; min-width: 100%; z-index: 100"
                            class="btn-text button btn btn-lg mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Get
                             Started</a>
 

@@ -107,18 +107,33 @@ function getQuizData() {
 function checkQuizTake() {
     var checkAttempt = localStorage.getItem('checkLQuiz');
     var checkDateFrString = localStorage.getItem('dateFrString');
-    console.log("checkAttempt:", checkAttempt);
-    console.log("checkDateFrString", checkDateFrString);
+   // $('#modal1').show();
+
+    Date.parse(checkAttempt);
+    Date.parse(checkDateFrString);
+    //console.log("checkAttempt:", checkAttempt);
+    //console.log("checkDateFrString", checkDateFrString);
     if (checkAttempt == checkDateFrString) {
+        console.log("2nd Time");
+        // $('#popupDialog').show();
+        // $('#playQuiz').hide();
         alert("Thank you for taking the quiz! See you for the next rounds.");
-        window.location.replace("main.html")
-    } else if (checkAttempt == "" || checkAttempt == null) {
+        window.location.replace("main.html");
+
+    } else {
         console.log("First Time");
         $('#playQuiz').removeAttr('disabled');
-        window.open(base_url + "/app/views/media/video.php", "_blank", "location=no", "closebuttoncaption=Return");
+      //  videoScreen();
+       // window.open(base_url + "/app/views/media/video.php", "_blank", "location=no", "closebuttoncaption=Return");
+        window.open(base_url + "/app/views/media/teaser.html", "_blank", "location=no", "closebuttoncaption=Return");
 
     }
 }
+
+
+$('#playQuiz').on('click', function () {
+    $('#raysDemoHolder').hide();
+})
 
 
 
