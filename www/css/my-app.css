@@ -6,7 +6,41 @@
 @import "../quizgame/css/master.css";
 */
 
+/****************** CLOCK **********/
 
+
+
+
+#clockdiv{
+    font-family: sans-serif;
+    color: #fff;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+}
+
+#clockdiv > div{
+    padding: 10px;
+    border-radius: 3px;
+    background: #00BF96;
+    display: inline-block;
+}
+
+#clockdiv div > span{
+    padding: 15px;
+    border-radius: 3px;
+    background: #00816A;
+    display: inline-block;
+}
+
+.smalltext{
+    padding-top: 5px;
+    font-size: 16px;
+}
+
+
+/***VCLOCK **/
 .toolbar.bottom {
   position: fixed;
 }
@@ -270,7 +304,21 @@ a#getStarted2 {
   background:  rgb(209, 0, 0) !important;
 }
 
+.navbar .left > a.icon-only {
 
+  left: -10px !important;
+  display: none;
+}
+
+.navbar .right > a.icon-only {
+  top: 2px !important;
+    left: 20px !important;
+}
+
+
+.navbar .center img {
+  max-height: 35px !important;
+}
 
 
 .panel {

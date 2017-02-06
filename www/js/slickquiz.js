@@ -5,6 +5,9 @@
 
 
         /*************** DATE *********************/
+      
+
+
         var dateFormat = function () {
             var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,
                 timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,
@@ -25,6 +28,7 @@
                     mask = date;
                     date = undefined;
                 }
+
 
                 // Passing date through Date applies Date.parse, if necessary
                 date = date ? new Date(date) : new Date;
@@ -117,15 +121,27 @@
         };
 
 
+
+        var today = new Date();
+        var timenow;
+        timenow = today.getTime();
+        console.log('timenow', timenow);
+
+        localStorage.setItem('mylocaltime', timenow);
+
+
+
+
+
         var date = new Date();
         var dateto = new Date();
         var dateto2 = new Date();
         var dateto3 = new Date();
 
-        var today = new Date();
+//        var today = new Date();
 
 
-		var dateFrString = localStorage.getItem('dateFrString');
+		    var dateFrString = localStorage.getItem('dateFrString');
 
         var dateToString = localStorage.getItem('dateToString');
 

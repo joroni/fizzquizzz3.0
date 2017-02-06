@@ -1,6 +1,6 @@
 // Initialize your app
 var myApp = new Framework7({
-  //  popupCloseByOutside:false, //changed this to false to avoid auto close
+    //popupCloseByOutside:false, //changed this to false to avoid auto close
     pushState: false,
     autoLayout: true,
     animateNavBackIcon: true,
@@ -30,6 +30,9 @@ function initApp(){
       	myProfile();
         pullFreshQuizItems();
         LoggedInButtons();
+
+
+
        }else{
          LoggedOutButtons();
        }
@@ -51,6 +54,7 @@ $$('a.close-popup').on('click', function () {
 // Setup your FizzQuizzAWS applicationId and API key
 var applicationId = 'xxx';
 var restApiKey = 'yyy';
+
 
 
 localStorage.setItem("bottomBar", 'none');
@@ -700,22 +704,31 @@ function LoggedOutButtons() {
 
 function loadPages() {
     pullFreshQuizItems();
-     //var loc = "game.html";
+  //   var loc = base_url+"/app/views/media/teaser.html?callback=onDeviceReady();";
+     var loc = "video-single.html";
      // document.getElementById("myFrame").setAttribute("src", loc);
-      //$$("#myFrame").attr("src", loc);
+     $$("#myFrame").attr("src", loc);
+
+  $$("#bottomBtns, .toolbar.bottom").show();
       $$(".raysDemo").removeClass('hidden');
       $$(".play-quiz").css('display', 'block !important');
-}
 
 
-function loadPages() {
-    pullFreshQuizItems();
-     //var loc = "game.html";
-     // document.getElementById("myFrame").setAttribute("src", loc);
-      //$$("#myFrame").attr("src", loc);
-      $$(".raysDemo").removeClass('hidden');
-      $$(".play-quiz").css('display', 'block !important');
+      mainView.router.load({
+          template: Template7.templates.videosplashTemplate,
+          context: {
+              //  name: username
+          }
+      });
+
+      
+    /*  $('#toolbarHold').appendChild('<div class="toolbar bottom" style="display:block !important;">'+
+                                      '<div class="toolbar-inner">'+
+                                        '<a href="#welcome" class="link">Welcome y</a>'+
+                                        '<a href="#about" class="link">Skip</a>'+
+                                    '</div>');*/
 }
+
 
 
 $(function(){
@@ -1030,17 +1043,39 @@ function pullFreshQuizItems() { //getQuizData
 }
 
 function bottomBarShow() {
-  localStorage.setItem("bottomBar", 'block');
+//  localStorage.setItem("bottomBar", 'block');
  // var bottomBar = localStorage.getItem("bottomBar");
   var bottomBar = localStorage.getItem("show");
-  $('.toolbarHold').html('<div class="toolbar bottom" style="display:'+bottomBar+';">'+
+  $('.toolbarHold').appendChild('<div class="toolbar bottom" style="display:block;">'+
                                   '<div class="toolbar-inner">'+
                                     '<a href="#welcome" class="link">Welcome y</a>'+
-                                    '<a href="#index" class="link">Index x</a>'+
+                                    '<a href="#about" class="link">Skip</a>'+
                                 '</div>');
   //myApp.alert(bottomBar);
 }
 //pullFreshQuizItems();
+
+
+
+$$(function(){
+  var $refreshButton = $('#refresh');
+  var $results = $('#css_result');
+
+  function refresh(){
+    var css = $('style.cp-pen-styles').text();
+    $results.html(css);
+  }
+
+  refresh();
+  $refreshButton.click(refresh);
+
+  // Select all the contents when clicked
+  $results.click(function(){
+    $(this).select();
+  });
+});
+
+
 
 function playMessage() {
     function onDeviceReady() {
@@ -1064,6 +1099,133 @@ function playMessage() {
         });
     }
 }
+
+/*
+function messagesList() {
+
+      $(document).ready(function(){
+
+
+          $.post( "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/getvideo")
+                  .done(function( data ) {
+                      $('#externalLoad').html(data);
+                  });
+
+      });
+}
+*/
+
+
+function messagesList() {
+
+
+  var myList = myApp.virtualList('.list-block', {
+      // Array with items data
+      items:  [
+           {
+             "id": 20,
+             "name": "Jeff Kirkland December Video Message",
+             "video": "Jeff Kirkland December Video Message-SD.mp4",
+             "text": "Jeff Kirkland December Video Message",
+             "audio": "",
+             "textF": "",
+             "image": "",
+             "is_live": 1,
+             "timestamp": "2017-01-22 14:55:05"
+           },
+           {
+             "id": 15,
+             "name": "Vestibulum quis tortor auctor",
+             "video": "freedoginrain.mp4",
+             "text": "Vestibulum quis tortor auctor, tempor orci vel, mattis neque. Morbi sagittis finibus lacus, vel congue nibh fringilla vitae. Donec et lorem sit amet nisi ornare vestibulum non nec est. Praesent ultrices nunc ligula, eget condimentum sapien malesuada eget. ",
+             "audio": "nkkjk",
+             "textF": "",
+             "image": "",
+             "is_live": 1,
+             "timestamp": "2017-02-02 19:03:48"
+           },
+           {
+             "id": 12,
+             "name": "Testing Video",
+             "video": "test2.mp4",
+             "text": "xcvxcvxcvxv",
+             "audio": "vxcvxcv",
+             "textF": "",
+             "image": "",
+             "is_live": 1,
+             "timestamp": "2017-02-02 19:04:07"
+           }
+         ],
+      // Custom render function to render item's HTML
+      renderItem: function (index, item) {
+          return '<li class="item-content">' +
+                    '<div class="item-media"><img src="'+ base_url +'/app/views/media/'+ item.video + '"></div>' +
+                    '<div class="item-inner">' +
+                        '<div class="item-title">' + item.name + '</div>' +
+                    '</div>' +
+                 '</li>';
+      }
+  });
+
+
+localStorage.setItem('MediaList', myList);
+
+//$$('.list-block').appendChild(myList);
+
+/*
+var myList = myApp.virtualList('.list-block', {
+    // Array with items data
+    items:  [
+         {
+           "id": 20,
+           "name": "Jeff Kirkland December Video Message",
+           "video": "Jeff Kirkland December Video Message-SD.mp4",
+           "text": "Jeff Kirkland December Video Message",
+           "audio": "",
+           "textF": "",
+           "image": "",
+           "is_live": 1,
+           "timestamp": "2017-01-22 14:55:05"
+         },
+         {
+           "id": 15,
+           "name": "Vestibulum quis tortor auctor",
+           "video": "freedoginrain.mp4",
+           "text": "Vestibulum quis tortor auctor, tempor orci vel, mattis neque. Morbi sagittis finibus lacus, vel congue nibh fringilla vitae. Donec et lorem sit amet nisi ornare vestibulum non nec est. Praesent ultrices nunc ligula, eget condimentum sapien malesuada eget. ",
+           "audio": "nkkjk",
+           "textF": "",
+           "image": "",
+           "is_live": 1,
+           "timestamp": "2017-02-02 19:03:48"
+         },
+         {
+           "id": 12,
+           "name": "Testing Video",
+           "video": "test2.mp4",
+           "text": "xcvxcvxcvxv",
+           "audio": "vxcvxcv",
+           "textF": "",
+           "image": "",
+           "is_live": 1,
+           "timestamp": "2017-02-02 19:04:07"
+         }
+       ],
+    // Custom render function to render item's HTML
+    renderItem: function (index, item) {
+        return '<li class="item-content">' +
+                  '<div class="item-media"><img src="' + item.video + '"></div>' +
+                  '<div class="item-inner">' +
+                      '<div class="item-title">' + item.name + '</div>' +
+                  '</div>' +
+               '</li>';
+    }
+});*/
+
+}
+
+
+
+
 /*function runScanProfile(){
 
          myProfile();

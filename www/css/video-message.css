@@ -1,0 +1,38 @@
+body {
+	background: #000 none repeat scroll 0 0;
+}
+.media-container {
+	height: 100%;
+	margin: 0 auto;
+	position: absolute;
+	width: 100%;
+}
+button {
+	background: #000 none repeat scroll 0 0;
+	border: 1px solid #d10000;
+	border-radius: 2px;
+	color: #d10000;
+	height: 30px;
+	text-transform: uppercase;
+	width: auto;
+}
+body.message {
+	width: 100%;
+	height: 100%;
+	background: #000;
+}
+.controllers {
+	margin: 0 auto;
+	position: relative;
+	text-align: center;
+	top: -18%;
+	width: 300px;
+}
+video#player {
+	height: 100%;
+	margin: auto;
+	max-width: 100%;
+	min-width: 100%;
+	position: relative;
+}
+</style>

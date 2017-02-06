@@ -220,9 +220,9 @@ function pullFreshQuizItems() {
 
 }
 
-
+/*
 		pullFreshQuizItems();
 		var Quizes = localStorage.getItem("QuizData");
 		document.writeln("<script>");
 		document.writeln(Quizes);
-		document.writeln("<"+"/script>");
+		document.writeln("<"+"/script>");*/
