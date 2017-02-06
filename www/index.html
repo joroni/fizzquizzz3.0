@@ -1,346 +1,938 @@
+<!DOCTYPE html>
 <html>
-<head>
-    <!-- Material Design Lite -->
-    <meta content="width=device-width,initial-scale=1" name="viewport">
-    <link href="images/icon/ios/icon.png" rel="apple-touch-icon" />
-    <link href="images/icon/ios/icon-72.png" rel="apple-touch-icon" sizes="72x72" />
-    <link href="images/icon/ios/icon-57-2x.png" rel="apple-touch-icon" sizes="114x114" />
-    <link href="images/icon/ios/icon-72-2x.png" rel="apple-touch-icon" sizes="144x144" />
-    <link href="images/icon/ios/icon.png" rel="icon" sizes="128x128" />
-    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-    <link rel="stylesheet" href="css/material.red-purple.min.css"/>
-    <!-- Material Design icon font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href='css/media.css' media='screen' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/material-modal.css">
-    <link rel="stylesheet" href="css/index.css">
-    <!--<script src="js/material.min.js"></script>
-       <link rel="stylesheet" href="css/material.pink-purple.min.css" />-->
-    <!-- Material Design icon font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-    <link rel="stylesheet" href="css/custom.css" type="text/css">
-    <link rel="stylesheet" href="css/animate.css" type="text/css">
-    <!--<script src="https://code.jquery.com/jquery-3.1.0.min.js"
-          integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>-->
-    <script src="js/jquery-3.1.0.min.js"></script>
-    <script>
-        var encodedString = "&lt;p&gt;name&lt;/p&gt;&lt;p&gt;&lt;span style=\"font-size:xx-small;\"&gt;ajde&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;da&lt;/em&gt;&lt;/p&gt;";
-    </script>
-    <script type="text/javascript" src="js/jquery.validate.js"></script>
-    <script src="js/jquery.touchSwipe.min.js"></script>
-    <!-- Material Design Lite -->
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>FizzQuizz</title>
+		<!-- Path to your custom app styles-->
+        <link rel="stylesheet" href="css/my-app.css">
+        <link href="css/quiz/reset.css" media="screen" rel="stylesheet" type="text/css">
+		<link href="css/quiz/slickQuiz.css" media="screen" rel="stylesheet" type="text/css">
+		<link href="css/quiz/master.css" media="screen" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" href="css/quiz/custom.css" type="text/css">
+		<link rel="stylesheet" href="css/animate/animate.css" type="text/css">
+		<!--<link rel="stylesheet" href="css/quiz/custom.css" type="text/css">
+		<link rel="stylesheet" href="css/animate/animate.css" type="text/css">-->
+
+		 <link rel="stylesheet" href="css/parallax-star-background-in-css/stars.css" type="text/css">
+		<!-- Path to Framework7 Library CSS-->
+		<link rel="stylesheet" href="css/framework7/framework7.min.css">
+		<link rel="stylesheet" href="css/framework7-icons.css">
+		<link rel="stylesheet" href="fonts/font_awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/framework7/framework7.ios.colors.min.css">
+		<link rel="stylesheet" href="css/rays/rays.css" type="text/css">
+
+		<script>
+		var base_url = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver";
+
+		</script>
 
 
-    <script src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8">
+		<script type="text/javascript" src="vendor/jquery-1.7.min.js"></script>
+	<!--
+
+		-->
+		<!--<link rel="stylesheet" href="quizgame/quiz/css/custom.css" type="text/css">
+		<link rel="stylesheet" href="quizgame/quiz/css/animate.css" type="text/css">-->
+	</head>
+	<body id="main">
+		<!-- Status bar overlay for fullscreen mode-->
+		<div class="statusbar-overlay"></div>
+		<!-- Panels overlay-->
+		<div class="panel-overlay"></div>
+		<!---********************** Left panel with reveal effect ****************************-->
+		<div class="panel panel-left panel-cover layout-light">
+			<!--<div class="content-block-title">Left Panel</div>-->
+			<!--<a href="#" class="close-panel">Close</a>-->
+			<div class="profile-card">
+				<!--<img id="avatar" src="img/5388738458_ea9fd2a7d7_q.jpg" class="avatar profile-image">-->
+				<div id="avatar" class="avatar profile-image"></div>
+				<div><span id="userfirstname" class="profile-name profile-firstname"></span> <span id="userlastname" class="profile-name profile-lastname"></span></div>
+				<div id="userusername" class="profile-id">@davegraham</div>
+				<div id="useremail" class="profile-desc profile-email">Freelance designer, software engineer and cyclist</div>
+				<br />
+				<a href="#index" onclick="log_out();" class="close-panel">Logout</a>
+			</div>
+			<div class="list-block no-margin">
+				<ul>
+					<li>
+						<a href="#about" class="item-link close-panel">
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-f7"></i></div>
+								<div class="item-inner">
+									<div class="item-title">Home</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#profile" class="item-link close-panel">
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-f7"></i></div>
+								<div class="item-inner">
+									<div class="item-title">Profile</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#leaderboard" class="item-link close-panel">
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-f7"></i></div>
+								<div class="item-inner">
+									<div class="item-title">Leader Board</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#messages" class="item-link close-panel">
+							<div class="item-content">
+								<div class="item-media"><i class="icon icon-f7"></i></div>
+								<div class="item-inner">
+									<div class="item-title">Messages</div>
+								</div>
+							</div>
+						</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+		<!---********************** Right panel with cover effect ****************************-->
+		<div class="panel panel-right panel-cover">
+			<div class="content-block">
+				<p>Right pannel can have custom content.<br />
+					Another line<br />
+					Yet another line<br />
+				</p>
+			</div>
+		</div>
+		<!---********************** Navbars ****************************-->
+		<div class="views">
+		<!-- Your main view, should have "view-main" class-->
+		<div class="view view-main">
+			<!-- Top Navbar-->
+			<div class="navbar">
+				<!-- Navbar inner for Index page-->
+				<div data-page="index" class="navbar-inner">
+					<!-- We have home navbar without left link-->
+					<div class="left sliding">
+						<a href="#" class="icon-only back link"><span><i class="f7-icons">left</i></span></a>
+					</div>
+					<div class="center sliding"><img src="img/logo-horizontal2x.png" style="max-height:40px;"></div>
+					<div class="right">
+						<!-- Right link contains only icon - additional "icon-only" class-->
+						<a href="#" class="link icon-only open-panel"><i class="f7-icons">bars</i></a>
+					</div>
+				</div>
+				<!-- Navbar inner for Welcome page-->
+				<div data-page="welcome" id="welcomenav" class="navbar-inner cached">
+					<div class="left sliding">
+						<a href="#" class="icon-only back link"><span><i class="f7-icons">left</i></span></a>
+					</div>
+					<div class="center sliding"><img src="img/logo-horizontal2x.png" style="max-height:40px;"></div>
+					<div class="right">
+						<!-- Right link contains only icon - additional "icon-only" class-->
+						<a href="#" class="link icon-only open-panel"><i class="f7-icons">bars</i></a>
+					</div>
+				</div>
+				<!-- Navbar inner for Register page-->
+				<div data-page="register" class="navbar-inner cached">
+					<div class="left sliding"><a href="#" class="icon-only back link"><span><i class="f7-icons">left</i></span></a></div>
+					<div class="center sliding">Register</div>
+				</div>
+				<!-- Navbar inner for Login page-->
+				<div data-page="form" class="navbar-inner cached">
+					<div class="left sliding"><a href="#" class="icon-only back link"><span><i class="f7-icons">left</i></span></a></div>
+					<div class="center sliding">Login</div>
+				</div>
+				<!-- Navbar inner for Services page-->
+				<div data-page="about" class="navbar-inner cached">
+					<div class="left sliding"><a href="#" class="icon-only back link"><span><i class="f7-icons white">left</i></span></a></div>
+					<div class="center sliding">About</div>
+				</div>
+				<!-- Navbar inner for Profile page-->
+				<div data-page="profile" class="navbar-inner cached">
+					<div class="left sliding"><a href="#" class="icon-only back link"><span><i class="f7-icons white">left</i></span></a></div>
+					<div class="center sliding">Profile</div>
+				</div>
+				<!-- Navbar inner for Leader Board page-->
+				<div data-page="leaderboard" class="navbar-inner cached">
+					<div class="left sliding"><a href="#" class="icon-only back link"><span><i class="f7-icons white">left</i></span></a></div>
+					<div class="center sliding">Leader Board</div>
+				</div>
+				<!-- Navbar inner for Messages page-->
+				<div data-page="messages" class="navbar-inner cached">
+					<div class="left sliding"><a href="#" class="icon-only back link"><span><i class="f7-icons white">left</i></span></a></div>
+					<div class="center sliding">Videos</div>
+				</div>
+			</div>
+			<!---********************** Pages ****************************-->
+			<!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+			<div class="pages navbar-through toolbar-through">
+				<!-- Index Page-->
+				<div data-page="index" class="page">
+
+					<div class="page-content">
+						<div class="content-block-title">Example Application</div>
+						<div class="content-block">
+							<div class="content-block-inner">
+								<p>Very simple HTML5 mobile web app.</p>
+								<p>With the help of Framework7.<br />
+									Framework7 has bunch of pre built generic UI elements
+								</p>
+							</div>
+						</div>
+						<div class="content-block-title">Example Menu</div>
+						<div class="list-block">
+							<ul>
+								<li>
+									<a href="#register" class="register-button item-link">
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">Register</div>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#form" class="login-button item-link">
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">Login</div>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#index" onclick="log_out();" class="logout-button item-link">
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">Logout</div>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#about" class="item-link">
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title">About</div>
+											</div>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- About Page-->
+				<div data-page="about" class="page cached">
+					<div class="page-content">
+						<div class="content-block">
 
 
-        function onLoad() {
-            document.addEventListener("deviceready", onDeviceReady, false);
-            //$('#loader').show();
-
-        }
-        // cordova is ready
-        //
-        function onDeviceReady() {
 
 
 
-            //    $('#loader').hide();
-            // console.log(navigator.notification);
-            noNet(base_url + '/json.php',
-                    function ( data ) {
-                        for (i = 0; i < data.length; i++) {
-                            //document.getElementById("result1").innerHTML += '<li> ' + data[i]['name'] + '</li>';
-                            console.log(data[i]['name']);
-                        }
-                    }
-            );
+
+
+<link href="css/quiz/reset.css" media="screen" rel="stylesheet" type="text/css">
+<link href="css/quiz/slickQuiz.css" media="screen" rel="stylesheet" type="text/css">
+<link href="css/quiz/master.css" media="screen" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="css/quiz/custom.css" type="text/css">
+<link rel="stylesheet" href="css/animate/animate.css" type="text/css">
+
+
+<link rel="stylesheet" href="css/parallax-star-background-in-css/stars.css" type="text/css">
+
+<script src="vendor/jquery-1.7.min.js"></script>
 
 
 
-        }
+<div id="slickQuiz">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	<div class="" id="fizzquizzA">
 
-    </script>
-
-    <script>
-
-
-
-        function get_Quiz_History() {
-            $('#output').empty();
-            var user_id = localStorage.getItem('user_id');
-            $('#output').html('<th colspan="4" style="padding: 0 5px; background: silver;"><h5>Stats</h5></th>');
-            $.getJSON(base_url + '/index.php/get_user_quiz_history/' + user_id, function ( results ) {
-
-
-                //$.each(result, function ( i, field ) {
-                $.each(results, function ( i, fields ) {
-
-                    $("#output").append("<tr><td><label>Set</label></td><td> " + fields.datefrom + " </td><td><label>Score</label></td><td>" + fields.score_bottle + "</td></tr>");
-                    //$('#user_id').text(field.id);
-                    //    console.log(field.attempts);
-                    //  console.log(field.datefrom);
-                    //  console.log(field.score_bottle);
-                    $("#output2").append("<li> " + fields.datefrom + " </li>");
-                    //$('#user_id').text(field.id);
-                    //    console.log(field.attempts);
-                    //  console.log(field.datefrom);
-                    //  console.log(field.score_bottle);
-                    var checkLQuiz = $("#output2 li:nth-child(1)").text();
-                    console.log("checkLQuiz", checkLQuiz);
-                    localStorage.setItem('checkLQuiz', checkLQuiz);
+			<div id="raysDemoHolder" class="raysDemo animated fadeInUpBig quiz hidden" style="width: 250px; height: 250px; margin: 20% auto;">
+				<img id="raysLogo" class="icon animated fadeInUpBig options fast" style="height:250px;" src="img/coke-bottle-real3.png">
+				<div id="rays"></div>
+			</div>
+			<!--  <div id="animated-img" class="animated fadeInUpBig options fast"> -->
+			<div id="fizzquizz" class="page-content" style="padding: 10px 5px 0 5px !important;">
+				<input name="questions" id="cand" type="hidden" />
+				<div class="quizArea options fast ">
+					<a href="#" id="playQuiz" onclick="showQuestions();" class="play-quiz button button-big startQuiz" style="display:block;">Play</a>
+					<!-- where the quiz gets built -->
+				</div>
+				<div class="quizResults">
+					<div class="quizScore scoring">
+						SCORE:
+						<span>
+							<!-- where the quiz score goes -->
+						</span>
+					</div>
+					<div class="earned scoring"><strong>YOU'VE EARNED</strong></div>
+					<div class="quizLevel scoring">
+						<h2 id="redeemScore">
+							<!-- where the quiz ranking level goes -->
+						</h2>
+						<span></span>
 
 
-                });
-            })
-        }
 
-    </script>
-    <script src="js/app.js"></script>
-    <script src="js/all.js"></script>
-    <script src="js/myApp.js"></script>
-</head>
-<!--div class="splash" style='align:center; position: fixed; z-index: 9999; width: 100%; background-color: black; height: 100%;'>
-   <center><img style='margin-top:200px;' src="images/ajax.gif" alt="splash" /></center>
-   </div-->
-<body onload="onLoad();">
-<div id="loader">
-    <div class="mdl-spinner mdl-js-spinner is-active"></div>
+
+						<input type="hidden" id="divisions" name="divisions" value=""/>
+						<input type="hidden" id="area" name="area" value=""/>
+						<input type="hidden" id="aunit" name="aunit" value=""/>
+						<input type="hidden" id="user_id" name="user_id" value=""/>
+						<!--<input type="hidden" id="setnames" name="setnames" value=""/>-->
+						<input type="hidden" id="datefrom" name="datefrom" value=""/>
+						<input type="hidden" id="attempts" name="attempts" value=""/>
+						<input type="hidden" id="score_bottle" name="score_bottle" value=""/>
+					</div>
+					<div class="bottles scoring">BOTTLES</div>
+
+				</div>
+			<!--</div>-->
+
+			<div id="endQuiBtn">
+				<a href="#" onclick="post_score_new();" id="sendScore" class="send-score button button-big red" style="display:none;">Save</a>
+			</div>
+
+		</div>
+	</div>
 </div>
-<!-- Simple header with fixed tabs. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
-         mdl-layout--fixed-tabs">
-    <header class="mdl-layout__header">
-        <div style='text-align:center; margin-top:10px;'>
-            <span class="mdl-layout-title"></span>
-        </div>
-        <!-- Tabs -->
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-            <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Login</a>
-            <a href="#fixed-tab-2" class="mdl-layout__tab">Register</a>
-        </div>
-    </header>
-    <main class="mdl-layout__content">
-        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
-            <div class="page-content">
-                <Br>
-                <div style='clear:both;'></div>
-                <center>
-                    <div class="typo-styles__demo mdl-typography--display-1"><img src="img/logo-red2x.png" style="width: 80px; border-radius: 10px;"> </div>
-                    <br /><br />
-                    <div class="row">
-                        <div class="mdl-textfield mdl-js-textfield">
-                            <input class="mdl-textfield__input" type="text" id="user_name_input">
-                            <label class="mdl-textfield__label" for="user_name_input">ECID:
-                                <span id='login_username' style='color:red; display:none;'>required</span></label>
-                            <span id='login_username_error' style='color:red; display:none;'>wrong ECID</span>
-                        </div>
-                        <div style='clear:both;'></div>
-                        <div class="mdl-textfield mdl-js-textfield">
-                            <input class="mdl-textfield__input" type="password" id="user_pass_input">
-                            <label class="mdl-textfield__label" for="user_pass_input">Password:
-                                <span id='login_password' style='color:red; display:none;'>required</span></label>
-                            <span id='login_password_error' style='color:red; display:none;'>wrong password</span>
-                        </div>
-                        <div style='clear:both;'></div>
-                        <!-- Accent-colored raised button with ripple -->
-                    </div>
-                    <br /><br />
-                    <a type="button"
-                       class="btn-text mdl-layout__tab mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
-                       onclick='login();loaderSpin();'>
-                        Sign in
-                    </a>
-                </center>
-            </div>
-        </section>
-
-        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
-            <div class="page-content">
-                <Br>
-                <div style='clear:both;'></div>
-                <!--  <div class="typo-styles__demo mdl-typography--display-1">Register</div> -->
-                <form id="signupForm" method="post" class="form-horizontal" action="">
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="text" id="reg_username" name="reg_username">
-                        <label class="mdl-textfield__label" for="reg_username">EID: (Ex. l23855) <span id='reg_username_err'
-                                                                                                       style='color:red; display:none;'>required</span></label>
-                        <span id='user_taken' style='color:red; display:none;'>Username already taken!</span>
-                    </div>
-                    <div style='clear:both;'></div>
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="password" id="reg_password">
-                        <label class="mdl-textfield__label" for="reg_password">Password: <span id='reg_password_err'
-                                                                                               style='color:red; display:none;'>required</span></label>
-                    </div>
-                    <div style='clear:both;'></div>
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="text" id="reg_fname">
-                        <label class="mdl-textfield__label" for="reg_fname">Firstname: <span id='reg_fname_err'
-                                                                                             style='color:red; display:none;'>required</span></label>
-                    </div>
-                    <div style='clear:both;'></div>
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="text" id="reg_lastname">
-                        <label class="mdl-textfield__label" for="reg_lastname">Lastname: <span id='reg_lname_err'
-                                                                                               style='color:red; display:none;'>required</span></label>
-                    </div>
-                    <div style='clear:both;'></div>
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="email" id="reg_email">
-                        <label class="mdl-textfield__label" for="reg_email">Email: <span id='reg_email_err'
-                                                                                         style='color:red; display:none;'>required</span></label>
-                    </div>
-                    <div style='clear:both;'></div>
-                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                        <select class="mdl-select__input" id="division" name="division">
-                            <option>--Please Select--</option>
-                            <option value="Small Format">Small Format</option>
-                            <option value="Large Format">Large Format</option>
-                            <option value="Generalist">Generalist</option>
-                            <option value="Merchandiser">Merchandiser</option>
-                        </select>
-                        <label class="mdl-select__label" for="division">Channel/Créneau<span id='division_err'
-                                                                                             style='color:red; display:none;'>required</span></label>
-                    </div>
-                    <div style='clear:both;'></div>
-                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                        <select class="mdl-select__input" id="aunit" name="aunit">
-                            <option>--Please Select--</option>
-                            <option value="west">West</option>
-                            <option value="central">Central</option>
-                            <option value="east">East</option>
-                        </select>
-                        <label class="mdl-select__label" for="aunit">Sales Unit/Unité de ventes<span id='aunit_err'
-                                                                                                     style='color:red; display:none;'>required</span></label>
-                    </div>
-                    <div style='clear:both;'></div>
-                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                        <select class="mdl-select__input" id="reg_area" name="reg_area">
-                            <option value="">Please choose from above</option>
-                        </select>
-                        <label class="mdl-select__label" for="reg_area">Sales Area/Secteur de vente<span id='reg_area_err'
-                                                                                                         style='color:red; display:none;'>required</span></label>
-                    </div>
-                    <div style='clear:both;'></div>
-                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                        <select class="mdl-select__input" id="reg_lang" name="lang">
-                            <option value="English">English</option>
-                            <!--   <option value="f">French</option>-->
-                        </select>
-                        <label class="mdl-select__label" for="reg_lang">Language<span id='reg_lang_err'
-                                                                                      style='color:red; display:none;'>required</span></label>
-                    </div>
-                    <div style='clear:both;'></div>
-                    <!-- Accent-colored raised button with ripple -->
-                    <a type='button'
-                       class="mdl-layout__tab mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
-                       onclick='register();'>
-                        Register
-                    </a>
 
 
-            </div>
-        </section>
-        </section>
-    </main>
-    <!--<footer class="mdl-mega-footer">
-       <div class="mdl-mega-footer__middle-section">
-       <div class="mdl-mini-footer__left-section">
-
-         <ul class="mdl-mini-footer__link-list">
-           <li><a href="#">Help</a></li>
-           <li><a href="#">Privacy & Terms</a></li>
-         </ul>
-       </div>
-       </div>
-       </footer>-->
+	<script src="js/slickquiz.js"></script>
+	<script src="js/master.js"></script>
+	<script src="js/actions.js"></script>
 </div>
 
 
-<script type="text/javascript">
 
 
 
 
-    $.validator.setDefaults( {
-        submitHandler: function () {
-            alert( "submitted!" );
-        }
-    } );
+						</div>
+					</div>
+				</div>
+				<!-- Welcome Page-->
+				<script id="welcomeTemplate" type="text/template7">
+					<div id="welcome" data-page="welcome" class="page cached">
 
-    $( document ).ready( function () {
-        $("#signupForm").validate({
-            rules: {
-                reg_username: {
-                    required: true
-                },
-                reg_fname: {
-                    required: true
-                },
-                reg_lastname: {
-                    required: true
-                },
-                reg_email: {
-                    required: true,
-                    email: true
-                },
-                division: {
-                    required: true
-                },
-                aunit: {
-                    required: true
-                },
-                reg_area:  {
-                    required: true
-                }
-            },
-            messages: {
+					<div class="page-content" style="overflow:hidden;">
+						<div id='stars' class="star-anim" style="z-index: 0;"></div>
+						<div id='stars2' class="star-anim" style="z-index: 0;"></div>
+						<div id='stars3' class="star-anim" style="z-index: 0;"></div>
 
-                reg_username: {
-                    required: "Please enter your KO ID."
-                },
-                reg_fname: {
-                    required: "Please enter your first name."
-                },
-                reg_lastname: {
-                    required: "Please enter your last name."
-                },
-                division: {
-                    required: "Please enter your division"
-                },
-                aunit: {
-                    required: "Please enter your unit"
-                },
-                reg_area:  {
-                    required: "Please enter your area"
-                },
 
-                reg_email: "Please enter a valid email address"
-                // agree: "Please accept our policy"
-            },
-            /*  errorElement: "em",
-             errorPlacement: function ( error, element ) {
-             // Add the `help-block` class to the error element
-             error.addClass("help-block");
+					<div class="content-block">
+					      <!-- <p>Hi, {{name}}-->
+								<!--	<span class="usfirstname"></span>, welcome to Framework7 application on HTMLCenter!</p>-->
+								<div id="output2" style="visibility:visible; position: absolute; bottom: -9999px;"></div>
+					<ul class="simple-list">
+					<li>
 
-             if (element.prop("type") === "checkbox") {
-             error.insertAfter(element.parent("label"));
-             } else {
-             error.insertAfter(element);
-             }
-             },*/
-            highlight: function ( element, errorClass, validClass ) {
-                $(element).parents(".mdl-textfield, .mdl-select").addClass("has-error").removeClass("has-success");
-            },
-            unhighlight: function ( element, errorClass, validClass ) {
-                $(element).parents(".mdl-textfield, .mdl-select").addClass("has-success").removeClass("has-error");
-            }
-        })
-    });
-</script>
-</body>
+									<div id="raysDemoHolder" class="animated fadeInUpBig" style="width: 250px; height: 250px; margin: 0 auto;">
+									 <img id="raysLogoCanada" class="icon" src="img/canada-icon.svg">
+									 <div id="rays"></div>
+
+								</div>
+							</li>
+						<li>
+						<a href="#about" id="getStarted2" onclick="loadPages();" data-popup=".quiz-popup" class="button open-popup with-animation" style="color:#d10000; display:none; font-weight:700;"></a>
+
+
+					<!--		<a href="#quiz" id="getStarted2" class="button"  style="color:#fff; display:none; font-weight:700;"><span class="animated-icon"></span></a>-->
+							<div id="getStarted3" style="display:none; color:#d10000 !important; font-weight:700; width: 100%; text-align:center;">SEE YOU ON THE NEXT ROUNDS...</div>
+
+					<!--  <a href="#index" onclick="log_out();" class="logout-button item-link">Logout</a>-->
+							</li>
+						</ul>
+					    </div>
+					  </div>
+					</div>
+				</script>
+				<div class="popup quiz-popup">
+					<div class="view navbar-fixed">
+						<div class="pages">
+							<div class="page">
+								<div class="navbar">
+									<div class="navbar-inner">
+										<div class="center" style="text-transform:uppercase; color:#fff;">Message of the Day</div>
+										<div class="right"><a href="#" class="link close-popup">Done</a></div>
+									</div>
+								</div>
+								<div class="page-content">
+									<div class="content-block">
+										<div class="wrapper">
+											<script>
+											function onDeviceReady() {
+
+													$.ajax({
+															url: base_url + "/getvideo/single",
+															dataType: "json",
+													}).success(function(data) {
+															for (i = 0; i < data.length; i++) {
+																	var videoFile = data[i]["video"];
+																	var nameFile = (data[i]["name"]);
+
+
+											$("#myFrame1").append("<video><source src=  '+ videoFile + '><meta property='og:video:secure_url' content='+ videoFile + ' > <meta property='og:video:type' content='video/mp4'><video>");
+
+																	$("#myFrame1").append("<video><source src=  '+ videoFile + '><meta property='og:video:secure_url' content='+ videoFile + ' > <meta property='og:video:type' content='video/mp4'><video>");
+																	console.log(nameFile);
+																	console.log(videoFile);
+															}
+
+													});
+											}
+											</script>
+											<div id="myFrame1">Video</div>
+										<style>
+											html,body        {height:100%;}
+											.wrapper         {width:100%;height:100%;margin:0 auto;background:#CCC}
+											.h_iframe        {position:relative;}
+											.h_iframe .ratio {display:none;width:100%;height:auto;}
+											.h_iframe iframe {position:absolute;top:0;left:0;width:100%; height:540px;}
+										</style>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Quiz Page-->
+
+				<div data-page="quiz" class="page cached">
+					<!--	<div id='stars' class="star-anim" style="z-index: 0;"></div>
+						<div id='stars2' class="star-anim" style="z-index: 0;"></div>
+						<div id='stars3' class="star-anim" style="z-index: 0;"></div> -->
+					<!-- Scrollable page content-->
+
+								<div class="page-content" style="height: 100%; padding-bottom: 0 !important;">
+									<!--<div class="content-block-title">Example Application</div>-->
+									<div class="content-block no-padding">
+										<div  class="wrapper">
+											<div class="h_iframe">
+
+												<!-- a transparent image is preferable -->
+											<!--	<img class="ratio" src="img/-text.png"/>-->
+											<iframe id="myFrame" src="" frameborder="0" allowfullscreen></iframe>
+											</div>
+										<!--	<p>Please scale the "result" window to notice the effect.</p>-->
+										</div>
+										<style>
+											#myFrame         {min-height:540px; width: 100%; top:0;}
+											html,body        {height:100%; width: 100%;}
+											.wrapper         {width:100%;height:540px;margin:0 auto;background:transparent;}
+											.h_iframe        {position:relative;}
+											.h_iframe .ratio {display:noje;width:100%;height:100%;}
+											.h_iframe iframe {position:absolute;top:0;left:0;width:100%; height:540px;}
+										</style>
+										<!--     <iframe src=""  style="height:540px; width:100%;" margin="0" align="middle" scrolling="auto"></iframe>-->
+										<!--  <iframe src="fizzquizzData.html" style="height:100%; width:100%;"></iframe>-->
+									</div>
+								</div>
+							</div>
+
+				<!-- Register Page-->
+				<div data-page="register" class="page cached">
+					<div class="page-content">
+
+						<form id="signupForm" method="post" class="form-horizontal" action="">
+							<div class="content-block-title"></div>
+							<div class="list-block">
+								<ul>
+									<li>
+										<div class="item-content">
+											<div class="item-media"><em class="f7-icons">person</em></div>
+											<div class="item-inner">
+												<!--<div class="item-title label">Username</div>-->
+												<div class="item-input">
+													<input type="text" ng-model="username" id="reg_username" name="reg_username" placeholder="ECID">
+													<span id="reg_username_err" style="color:red; display:none;">Required</span>
+													<span id="user_taken" style="color:red; display:none;">ID is not valid/available! </span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-media"><i class="f7-icons">right</i></div>
+											<div class="item-inner">
+												<!--  <div class="item-title label">First Name</div>-->
+												<div class="item-input">
+													<input type="text" id="reg_fname" name="reg_fname" placeholder="First Name">
+													<span id="reg_fname_err" style="color:red; display:none;">Required</span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-media"><i class="f7-icons">right</i></div>
+											<div class="item-inner">
+												<!--<div class="item-title label">Last Name</div>-->
+												<div class="item-input">
+													<input type="text" id="reg_lastname" name="reg_lastname" placeholder="Last Name">
+													<span id="reg_lastname_err" style="color:red; display:none;">Required</span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-media"><i class="f7-icons">email</i></div>
+											<div class="item-inner">
+												<!--<div class="item-title label">E-mail</div>-->
+												<div class="item-input">
+													<input type="text" id="reg_email" name="reg_email" placeholder="E-Mail">
+													<span id="reg_email_err" style="color:red; display:none;">Required</span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-media"><i class="f7-icons">lock</i></div>
+											<div class="item-inner">
+												<!--<div class="item-title label">Password</div>-->
+												<div class="item-input">
+													<input type="password" id="reg_password" name="reg_password" placeholder="Password">
+													<span id="reg_username_err" style="color:red; display:none;">Required</span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-media"><i class="f7-icons">persons</i></div>
+											<div class="item-inner">
+												<!--<div class="item-title label">Division</div>-->
+												<div class="item-input">
+													<select id="division" name="division">
+														<option class="placeholder label"> -- Division -- </option>
+														<option value="Small Format">Small Format</option>
+														<option value="Large Format">Large Format</option>
+														<option value="Generalist">Generalist</option>
+														<option value="Merchandiser">Merchandiser</option>
+													</select>
+													<span id="division_err" style="color:red; display:none;">Required</span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-media"><i class="f7-icons">persons</i></div>
+											<div class="item-inner">
+												<!--<div class="item-title label">Sales Unit/Unité de ventes</div>-->
+												<div class="item-input">
+													<select id="aunit" name="aunit">
+														<option class="placeholder label"> -- Sales Unit/Unité de ventes -- </option>
+														<option value="west">West</option>
+														<option value="central">Central</option>
+														<option value="east">East</option>
+													</select>
+													<span id="aunit_err" style="color:red; display:none;">Required</span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-media"><i class="f7-icons">persons</i></div>
+											<div class="item-inner">
+												<!--<div class="item-title label">Sales Area/Secteur de vente</div>-->
+												<div class="item-input">
+													<select id="reg_area" name="reg_area">
+														<option> -- Sales Area/Secteur de vente -- </option>
+													</select>
+													<span id="aunit_err" style="color:red; display:none;">Required</span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-media"><i class="f7-icons">chat</i></div>
+											<div class="item-inner">
+												<!-- <div class="item-title label">Language</div> -->
+												<div class="item-input">
+													<select id="reg_lang" name="lang">
+														<option value=""> -- Language -- </option>
+														<option value="English">English</option>
+														<!--   <option value="f">French</option>-->
+													</select>
+													<span id="reg_lang_err" style="color:red; display:none;">Required</span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+								</ul>
+								<div class="content-block">
+									<div class="row">
+										<div class="col-50">
+											<a href="#" class="button button-big red back link">Cancel</a>
+										</div>
+										<div class="col-50">
+											<input id="submmit-register" onclick="register();" type="submit" value="Submit" class="button button-big red">
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- Form Page-->
+				<div data-page="form" class="page cached">
+					<div class="page-content">
+						<div class="content-block">
+							<p>
+								Please login to HTMLCenter app.<br />
+								Once authenticated, you can access all the amazing tutorials, and books this site has to offer.<br />
+							</p>
+						</div>
+						<div class="content-block-title"></div>
+						<div class="list-block">
+							<ul>
+								<li>
+									<div class="item-content">
+										<div class="item-media"><em class="f7-icons">person</em></div>
+										<div class="item-inner">
+											<!--<div class="item-title label">ECID</div>-->
+											<div class="item-input">
+												<input id="user_name_input" type="text" placeholder="ECID">
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-media"><em class="f7-icons">lock</em></div>
+										<div class="item-inner">
+											<!--div class="item-title label">Password</div>-->
+											<div class="item-input">
+												<input id="user_pass_input" type="password" placeholder="Password">
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="content-block">
+							<div class="row">
+								<div class="col-50">
+									<a href="#" class="button button-big red back link">Cancel</a>
+								</div>
+								<div class="col-50">
+									<input id="submmit-login" onclick="signin();" type="submit" value="Submit" class="button button-big red">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Profile Page-->
+				<div data-page="profile" class="page cached">
+					<div class="page-content">
+						<div id="profileContent" class="content-block centered">
+							<a href="#" onclick="showImageLoader();">
+								<div id="avatar2"class="avatar profile-image"></div>
+							</a>
+						<!--	<a href="#" onclick="edittheProfile();" class="red">
+							<i class="f7-icons">compose</i>
+						</a>-->
+						<a href="#profile-edit" class="red">
+							<i class="f7-icons">compose</i>
+						</a>
+							<h3>
+								<span id="userfirstname" class="profile-firstname"></span>
+								<span id="userlastname" class="profile-lastname"></span>
+							</h3>
+							<h4><span id="userusername" class="profile-id"></span></h4>
+							<h5><span id="useremail" class="profile-email"></span></h5>
+						</div>
+						<div class="content-block">
+							<div id="capturePhoto" style="display: none;">
+								<form id="myForms" action="http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/uploadpicc"
+									method="post" enctype="multipart/form-data">
+									<input type="hidden" name="user_id_upload" id="user_iddddddd"/>
+									<!-- <div class="mdl-textfield mdl-js-textfield">
+										<input type="file" name="upload_file[]" class="form-control" class="upload_image"
+										       id="upload_input" value=""/>
+										</div>-->
+									<div class="box">
+										<input type="file" name="upload_file[]" id="upload_input" class="inputfile"
+											data-multiple-caption="{count} files selected"/>
+										<label for="upload_input">
+											<figure>
+												<!--<svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> -->
+												<img class="photoIcon"
+													src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDYwIDYwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MCA2MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxnPgoJPHBhdGggZD0iTTMwLDIwLjVjLTYuNjE3LDAtMTIsNS4zODMtMTIsMTJzNS4zODMsMTIsMTIsMTJzMTItNS4zODMsMTItMTJTMzYuNjE3LDIwLjUsMzAsMjAuNXoiIGZpbGw9IiNEODAwMjciLz4KCTxwYXRoIGQ9Ik01NS4yMDEsMTUuNWgtOC41MjRsLTQtMTBIMTcuMzIzbC00LDEwSDEydi01SDZ2NUg0Ljc5OUMyLjE1MiwxNS41LDAsMTcuNjUyLDAsMjAuMjk5djI5LjM2OCAgIEMwLDUyLjMzMiwyLjE2OCw1NC41LDQuODMzLDU0LjVoNTAuMzM0YzIuNjY1LDAsNC44MzMtMi4xNjgsNC44MzMtNC44MzNWMjAuMjk5QzYwLDE3LjY1Miw1Ny44NDgsMTUuNSw1NS4yMDEsMTUuNXogTTEwLDE1LjVIOHYtMyAgIGgyVjE1LjV6IE0zMCw1MC41Yy05LjkyNSwwLTE4LTguMDc1LTE4LTE4czguMDc1LTE4LDE4LTE4czE4LDguMDc1LDE4LDE4UzM5LjkyNSw1MC41LDMwLDUwLjV6IE01MiwyNy41Yy0yLjIwNiwwLTQtMS43OTQtNC00ICAgczEuNzk0LTQsNC00czQsMS43OTQsNCw0UzU0LjIwNiwyNy41LDUyLDI3LjV6IiBmaWxsPSIjRDgwMDI3Ii8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=="/>
+											</figure>
+											<span>Take a Photo</span>
+										</label>
+									</div>
+									<input id="uploadImage" onclick="uploadingImg();" type="submit" value="Use Photo"
+										class="btn_usephoto btn-info btn-block"/>
+									<input id="canceluploadImage" onclick="$('#capturePhoto').hide();" type="button"
+										value="Cancel"
+										class="btn_cancelphoto btn-danger btn-block"/>
+								</form>
+							</div>
+						</div>
+						<div class="list-block">
+							<ul>
+								<li>
+									<div class="item-content">
+										<div class="item-media">
+											<a href="#"><i class="fa fa-lock red"></i></a>
+										</div>
+										<div class="item-inner">
+											<div class="item-title label">Division</div>
+											<div id="userdivision"></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-media">
+											<a href="#"><i class="fa fa-lock red"></i></a>
+										</div>
+										<div class="item-inner">
+											<div class="item-title label">Unit</div>
+											<div id="userunit" class="capitalized"></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
+										<div class="item-media">
+											<a href="#"><i class="fa fa-lock red"></i></a>
+										</div>
+										<div class="item-inner">
+											<div class="item-title label">Area</div>
+											<div id="userarea"></div>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<div class="content-block">
+								<div class="col-100">
+									<table id="output">
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div data-page="profile-edit" class="page cached">
+						<div class="page-content">
+							<div id="editmyProfile" class="content-block centered">
+
+
+							<div class="item-title">Profile Edit</div>
+							<div class="mdl-textfield mdl-js-textfield readonly">
+								<input class="mdl-textfield__input" readonly type="text" id="username">
+								<label class="mdl-textfield__label" for="username"></label>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield">
+								<input class="mdl-textfield__input" type="password" id="password">
+								<label class="mdl-textfield__label" for="password"></label>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield">
+								<input class="mdl-textfield__input" type="text" id="firstname">
+								<label class="mdl-textfield__label" for="firstname"></label>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield">
+								<input class="mdl-textfield__input" type="text" id="lastname">
+								<label class="mdl-textfield__label" for="lastname"></label>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield readonly">
+								<input class="mdl-textfield__input" readonly type="text" id="email">
+								<label class="mdl-textfield__label" for="email"></label>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield readonly">
+								<input class="mdl-textfield__input" type="text" readonly id="division">
+								<label class="mdl-textfield__label" for="division"></label>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield readonly">
+								<input class="mdl-textfield__input" type="text" readonly id="unit">
+								<label class="mdl-textfield__label" for="unit"></label>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield readonly">
+								<input class="mdl-textfield__input" readonly type="text" id="area">
+								<label class="mdl-textfield__label" for="area"></label>
+							</div>
+							<div style='clear:both;'></div>
+							<div id="update_1" style="display:none; width: 100%; color: lawngreen;">Update Successful</div>
+							<div id="update_0" style="display:none;">Something wrong happen. Please Try again.</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="col-md-6" style="float: left;">
+										<button id="btnCancel" type='button'
+											class="mdl-layout__tab mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+											onclick="update_cancel();">
+										Cancel
+										</button>
+									</div>
+									<div class="col-md-6" style="float:left;">
+										<button id="btnUpdate" type='button'
+											class="mdl-layout__tab mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+											onclick="update_user();">
+										Update
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+					<!-- Leader Board Page-->
+					<div data-page="leaderboard" class="page cached">
+						<div class="page-content">
+							<div class="content-block">
+								<p>
+									In order to go back to main page, you can click <strong>Back</strong> button on the left side of Top menu.<br />
+									Or simply use this link to <a href="#" class="back link">go back</a>.
+								</p>
+								<p>
+									In fact you can load any page from this application, with the simple HTML link. <a href="#form">Load login page</a>.
+								</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel commodo massa, eu adipiscing mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ultricies dictum neque, non varius tortor fermentum at. Curabitur auctor cursus imperdiet. Nam molestie nisi nec est lacinia volutpat in a purus. Maecenas consectetur condimentum viverra. Donec ultricies nec sem vel condimentum. Phasellus eu tincidunt enim, sit amet convallis orci. Vestibulum quis fringilla dolor.</p>
+								<p>Thanks,<br />
+									HTMLCenter team
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- Messages Board Page-->
+					<div data-page="messages" class="page cached">
+						<div class="page-content">
+							<div class="content-block">
+								<p>
+									In order to go back to main page, you can click <strong>Back</strong> button on the left side of Top menu.<br />
+									Or simply use this link to <a href="#" class="back">go back</a>.
+								</p>
+								<p>
+									In fact you can load any page from this application, with the simple HTML link. <a href="#form">Load login page</a>.
+								</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel commodo massa, eu adipiscing mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ultricies dictum neque, non varius tortor fermentum at. Curabitur auctor cursus imperdiet. Nam molestie nisi nec est lacinia volutpat in a purus. Maecenas consectetur condimentum viverra. Donec ultricies nec sem vel condimentum. Phasellus eu tincidunt enim, sit amet convallis orci. Vestibulum quis fringilla dolor.</p>
+								<p>Thanks,<br />
+									HTMLCenter team
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+					<div class="toolbarHold"></div>
+				<!-- Bottom Toolbar
+
+				<div class="toolbar">
+					<div class="toolbar-inner"><a href="#" class="link">Bottom Toolbar y</a><a href="#" class="link">Bottom Toolbar x</a></div>
+				</div>
+
+			-->
+
+					<!--<div class="toolbar bottom" style="display:none;">
+					  <div class="toolbar-inner">
+							<a href="#welcome" class="link">Welcome y</a>
+							<a href="#index" class="link">Index x</a>
+						</div>
+					</div>-->
+			</div>
+		</div>
+		<!-- Path to Framework7 Library JS-->
+		<script type="text/javascript" src="js/framework7/framework7.min.js"></script>
+
+		<!-- Path to your app js-->
+
+		<script type="text/javascript" src="js/my-app.js"></script>
+
+
+
+
+
+
+
+
+		<!--<script type="text/javascript" src="js/quizinfo.js"></script>-->
+		<!--  <script type="text/javascript">
+			$$.validator.setDefaults( {
+			    submitHandler: function () {
+			        myApp.alert( "Submitted!" );
+			    }
+			} );
+
+			$( document ).ready( function () {
+			    $("#signupForm").validate({
+			        rules: {
+			            reg_username: {
+			                required: true
+			            },
+			            reg_fname: {
+			                required: true
+			            },
+			            reg_lastname: {
+			                required: true
+			            },
+			            reg_email: {
+			                required: true,
+			                email: true
+			            },
+			            division: {
+			                required: true
+			            },
+			            aunit: {
+			                required: true
+			            },
+			            reg_area:  {
+			                required: true
+			            }
+			        },
+			        messages: {
+
+			            reg_username: {
+			                required: "Please enter your KO ID."
+			            },
+			            reg_fname: {
+			                required: "Please enter your First Name."
+			            },
+			            reg_lastname: {
+			                required: "Please enter your Last Name."
+			            },
+			            division: {
+			                required: "Please enter your Division"
+			            },
+			            aunit: {
+			                required: "Please enter your Unit"
+			            },
+			            reg_area:  {
+			                required: "Please enter your Area"
+			            },
+
+			            reg_email: "Please enter a valid Email address"
+			            // agree: "Please accept our policy"
+			        },
+
+			        highlight: function ( element, errorClass, validClass ) {
+			            $(element).parents(".item-input, select").addClass("has-error").removeClass("has-success");
+			        },
+			        unhighlight: function ( element, errorClass, validClass ) {
+			            $(element).parents(".item-input, select").addClass("has-success").removeClass("has-error");
+			        }
+			    })
+			});
+			</script>-->
+	</body>
 </html>
