@@ -1,0 +1,93 @@
+
+<link rel="stylesheet" href="css/my-app.css">
+<!-- Path to Framework7 Library CSS-->
+<link rel="stylesheet" href="css/framework7/framework7.min.css">
+<link rel="stylesheet" href="fonts/font_awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/framework7/framework7.ios.colors.min.css">
+
+<link rel="stylesheet" href="css/rays/rays.css" type="text/css">
+
+
+<link href="css/quiz/reset.css" media="screen" rel="stylesheet" type="text/css">
+<link href="css/quiz/slickQuiz.css" media="screen" rel="stylesheet" type="text/css">
+<link href="css/quiz/master.css" media="screen" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="css/quiz/custom.css" type="text/css">
+<link rel="stylesheet" href="css/animate/animate.css" type="text/css">
+
+
+<link rel="stylesheet" href="css/parallax-star-background-in-css/stars.css" type="text/css">
+
+<script src="vendor/jquery-1.7.min.js"></script>
+<script>
+var base_url = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver";
+
+</script>
+
+<!-- Path to your app js-->
+  <script type="text/javascript" src="js/framework7/framework7.min.js"></script>
+<script type="text/javascript" src="js/my-app.js"></script>
+
+
+<body id="slickQuiz">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	<div class="" id="fizzquizzA">
+
+			<div id="raysDemoHolder" class="raysDemo animated fadeInUpBig quiz" style="width: 250px; height: 250px; margin: 20% auto;">
+				<img id="raysLogo" class="icon animated fadeInUpBig options fast" style="height:250px;" src="img/coke-bottle-real3.png">
+				<div id="rays"></div>
+			</div>
+			<!--  <div id="animated-img" class="animated fadeInUpBig options fast"> -->
+			<div id="fizzquizz" class="page-content" style="padding: 10px 5px 0 5px !important;">
+				<input name="questions" id="cand" type="hidden" />
+				<div class="quizArea  options fast">
+					<a href="#" id="playQuiz" onclick="showQuestions();" class="play-quiz button button-big startQuiz">Play</a>
+					<!-- where the quiz gets built -->
+				</div>
+				<div class="quizResults">
+					<div class="quizScore scoring">
+						SCORE:
+						<span>
+							<!-- where the quiz score goes -->
+						</span>
+					</div>
+					<div class="earned scoring"><strong>YOU'VE EARNED</strong></div>
+					<div class="quizLevel scoring">
+						<h2 id="redeemScore">
+							<!-- where the quiz ranking level goes -->
+						</h2>
+						<span></span>
+
+
+
+
+						<input type="hidden" id="divisions" name="divisions" value=""/>
+						<input type="hidden" id="area" name="area" value=""/>
+						<input type="hidden" id="aunit" name="aunit" value=""/>
+						<input type="hidden" id="user_id" name="user_id" value=""/>
+						<!--<input type="hidden" id="setnames" name="setnames" value=""/>-->
+						<input type="hidden" id="datefrom" name="datefrom" value=""/>
+						<input type="hidden" id="attempts" name="attempts" value=""/>
+						<input type="hidden" id="score_bottle" name="score_bottle" value=""/>
+					</div>
+					<div class="bottles scoring">BOTTLES</div>
+
+				</div>
+			<!--</div>-->
+
+			<div id="endQuiBtn">
+				<button type="submit" onclick="post_score_new();" id="sendScore" class="send-score button button-big">Save</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+	<script src="js/slickquiz.js"></script>
+
+
+
+	<script src="quizgame/js/master.js"></script>
+	<script src="quizgame/js/actions.js"></script>
+</body>
