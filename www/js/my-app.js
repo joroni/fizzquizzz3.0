@@ -38,7 +38,7 @@ function initApp(){
     //    pullFreshQuizItems();
         LoggedInButtons();
 
-          mainView.router.load("#welcome");
+          mainView.router.loadPage("#welcome");
 
        }else{
          LoggedOutButtons();
@@ -91,7 +91,7 @@ $('.view').append('<div class="toolbar bottom" style="display:'+bottomBar+';">'+
 */
 var base_url = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver";
 
-$(function(){
+
 function noNet(path, success, error) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -120,7 +120,7 @@ noNet(base_url + '/json.php',
 );
 
 
-});
+
 // END connection to server
 
 
@@ -404,22 +404,46 @@ function imageProfile() {
 
 
 function messageTimer(){
-var startQuiz = new Date();
-startQuiz=new Date(startQuiz.getTime());
-var timeOut = +10;
-$("#defaultCountdown.timer").countdown({
-  until: timeOut,
-  onExpiry: liftOff});
+    var startQuiz = new Date();
+    startQuiz=new Date(startQuiz.getTime());
+    var timeOut = +10;
+    $("#defaultCountdown.timer").countdown({
+      until: timeOut,
+      onExpiry: liftOff
 
-function liftOff() {
-$$("#defaultCountdown.timer").hide();
-  $$('.view').append('<div id="bottomBtns" class="toolbar bottom" style="display: block;">'+
-                                  '<div class="toolbar-inner">'+
-                                    '<a href="#index" onclick="hideToolbar();" class="link hide-toolbar" style="color:gray;"">CANCEL</a>'+
-                                    '<a href="#quizgame" onclick="hideToolbar();" class="link hide-toolbar" style="color:green;">PROCEED</a>'+
-                                '</div>');
-  // myApp.alert('We have lift off!');
-  }
+    });
+
+    function liftOff() {
+    $$("#defaultCountdown.timer").hide();
+    /*  $$('.view').append('<div id="bottomBtns" class="toolbar bottom" style="display: block;">'+
+                                      '<div class="toolbar-inner">'+
+                                        '<a href="#index" onclick="hideToolbar();" class="link hide-toolbar" style="color:gray;"">CANCEL</a>'+
+                                        '<a href="#slickquiz" onclick="hideToolbar();" class="link hide-toolbar" style="color:green;">PROCEED</a>'+
+                                    '</div>');*/
+
+                                    var buttons = [
+                                     {
+                                         text: 'Take Quiz',
+                                         bold: true,
+                                         onClick: function () {
+                                               //myApp.alert('Cancel clicked');
+                                               mainView.router.loadPage('#slickquiz');
+
+                                           }
+                                     },
+
+                                     {
+                                         text: 'Cancel',
+                                         color: 'red',
+                                         onClick: function () {
+                                               //myApp.alert('Cancel clicked');
+                                               mainView.router.loadPage('#index');
+                                           }
+                                     },
+                                   ];
+                                 myApp.actions(buttons);
+      // myApp.alert('We have lift off!');
+      }
 
 }
 
@@ -433,7 +457,7 @@ $$('a.close-popup').on('click', function () {
 
 
 function hideToolbar() {
-    $$("#bottomBtns, .toolbar.bottom").hide();
+    $$("#bottomBtns, .toolbar.bottom", this).hide();
     $$("#videosplash").addClass('cached');
 
 }
@@ -442,7 +466,7 @@ function hideToolbar() {
 $(function() {
 
 
-    $$("#reg_aunit,.reg_aunit").change(function() {
+    $$("#reg_aunit.reg_aunit_input").on("change", function() {
 
         var $dropdown = $(this);
 
@@ -482,7 +506,7 @@ function log_out() {
     window.localStorage.clear();
 
 
-    mainView.router.load('#index');
+    mainView.router.loadPage('#index');
 
     LoggedOutButtons();
 
@@ -537,7 +561,7 @@ function loadPages() {
      // document.getElementById("myFrame").setAttribute("src", loc);
      //$$("#myFrameVideoSplash").attr("src", loc);
 
-      $$("#bottomBtns, .toolbar.bottom").show();
+    //  $$("#bottomBtns, .toolbar.bottom").show();
       $$(".raysDemo").removeClass('hidden');
       $$(".play-quiz").css('display', 'block !important');
 
@@ -742,16 +766,16 @@ if (bottomShow === 'show') {
   $('.toolbar.bottom').hide();
 }*/
 function get_Quiz_History() {
-    $('#output').empty();
+    $('.output-list').empty();
     var user_id = localStorage.getItem('user_id');
-    $('#output')
+    $('output-list')
         .html('<th colspan="4" style="padding: 10px; background: silver; color:#fff; text-align: center;">Stat</th>');
     $.getJSON(base_url + '/get_user_quiz_history/' + user_id, function(results) {
 
         //$.each(result, function ( i, field ) {
         $.each(results, function(i, fields) {
 
-            $("#output")
+            $(".output-list")
                 .append('<tr><td><label>Set</label></td><td> ' + fields.datefrom + ' </td>'+
                 '<td><label>Score</label></td><td>' + fields.score_bottle + '</td></tr>');
 
@@ -1199,11 +1223,11 @@ ptrContent.on('ptr:refresh', function (e) {
 
 
     // Put all your page JS here
-    /*
+
      $(function () {
      $('#slickQuiz').slickQuiz();
      });
-     */
+
     /*
      var saveBtn = $('#score_bottle').value();
      if (saveBtn != ''){
@@ -1297,7 +1321,7 @@ ptrContent.on('ptr:refresh', function (e) {
 
 
 
- mainView.router.load("#messages");
+ mainView.router.loadPage("#messages");
 
       var loc =  base_url + "/getvideos";
        document.getElementById("myFrameList").setAttribute("src", loc);
@@ -1324,11 +1348,12 @@ ptrContent.on('ptr:refresh', function (e) {
 }
 
 
-/*
+
     function showQuestions() {
         $(".raysDemo").removeClass('fadeInUpBig');
         $(".raysDemo").addClass('fadeOut animated');
-        $(".raysDemo").css('top', '-9999px');
+        $(".raysDemo").css('display', 'none');
+          $("div#fizzquizz").css('top','40px');
 
         function onDeviceReady() {
 
@@ -1351,15 +1376,22 @@ ptrContent.on('ptr:refresh', function (e) {
             });
         }
 
+        /*$("li.question:last-child > .nextQuestion").on('click',function(){
+
+
+         $('.send-score').show();
+
+       });
+
 
         setTimeout(function () {
             $(".raysDemo").hide();
-        }, 600);
+        }, 600);*/
 
 
-    }*/
+    }
 
-
+/*
     function showQuestions() {
         $(".raysDemo").removeClass('fadeInUpBig');
         $(".raysDemo").addClass('fadeOut animated');
@@ -1373,7 +1405,7 @@ ptrContent.on('ptr:refresh', function (e) {
 
 
     }
-
+*/
 
     /*	$("li.question:last-child > .nextQuestion").on('click',function(){
 

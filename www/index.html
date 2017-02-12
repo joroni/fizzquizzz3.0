@@ -210,7 +210,7 @@
                         <a href="#" class="link icon-only open-panel"><i class="f7-icons">bars</i></a>
                     </div>
                 </div>
-                <div data-page="quizgame"  class="navbar-inner cached">
+                <div data-page="slickquiz"  class="navbar-inner cached">
 
                     <div class="center sliding"><img src="img/logo-horizontal2x.png" style="max-height:34px;"></div>
                     <div class="right">
@@ -504,7 +504,7 @@
                                 </li>
                             </ul>
                             <div class="col-100">
-                                    <table id="output">
+                                    <table id="output" class="output-list">
                                     </table>
                                 </div>
                           </div>
@@ -660,7 +660,7 @@
                     <div class="page-content">
 
 
-                      <div class="wrapper" style="min-height:250px; margin-top:0;">
+                      <div class="wrapper-leaderboard" style="min-height:250px; margin-top:0;">
                           <div class="h_iframe">
 
 
@@ -676,9 +676,9 @@
 
 
                 <!-- Quiz Game Page-->
-                <div id="quizgame" data-page="quizgame" class="page no-swipeback cached">
+                <div id="slickquiz" data-page="slickquiz" class="page no-swipeback cached">
 
-                  <script src="http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz2.js?callback=mySlickQuiz"></script>
+                <!--  <script src="http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz2.js?callback=mySlickQuiz"></script>
                   <script>
                       mySlickQuiz();
 
@@ -690,7 +690,8 @@
                       document.writeln("<script>");
                       document.writeln(Quizes);
                       document.writeln("<" + "/script>");
-                  </script>
+                  </script>-->
+
                     <div class="page-content">
                         <div class="content-block">
 
@@ -706,6 +707,22 @@
                                                 $('.send-score').hide();
                                             }
                                          </script>-->
+
+                                         <script>
+                                      
+                                       //      pullFreshQuizItems();
+                                             var Quizes = localStorage.getItem("QuizData");
+                                             document.writeln('<script>');
+                                             document.writeln(Quizes);
+                                             document.writeln('<'+'/script>');
+                                         </script>
+
+                                         <script src='http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz2.js?callback=mySlickQuiz'></script>
+
+                                         <script>
+                                             mySlickQuiz();
+
+                                         </script>
                                         <div id="raysDemoHolder" class="raysDemo animated fadeInUpBig quiz hidden" style="width: 250px; height: 250px; margin: 20% auto;">
                                             <img id="raysLogo" class="icon animated fadeInUpBig options fast" style="height:250px;" src="img/coke-bottle-real3.png">
                                             <div id="rays"></div>
@@ -713,11 +730,14 @@
 
                                         <!--  <div id="animated-img" class="animated fadeInUpBig options fast"> -->
                                         <div id="fizzquizz" class="page-content" style="padding: 40px 5px 0 5px !important;">
+
+
                                             <input name="questions" id="cand" type="hidden" />
                                             <div class="quizArea options fast">
                                                 <!--<a href="#" id="playQuiz" onclick="showQuestions();" class="button button-big red startQuiz" style="display:block;">Play</a>-->
                                                 <a href="#" id="playQuiz" onclick="showQuestions();" class="button button-big red startQuiz">Play</a>
                                                 <!-- where the quiz gets built -->
+
                                             </div>
                                             <div class="quizResults">
                                                 <div class="quizScore scoring">
@@ -750,9 +770,16 @@
                                             </div>
                                             <!--</div>-->
 
+
+
+
                                         </div>
                                     </div>
                                 </div>
+
+
+
+
                                 <!-- <script src="js/master.js"></script>-->
 
                                 <!-- <script src="js/actions.js"></script>-->
@@ -857,7 +884,7 @@
                                      <div class="item-inner">
                                         <!--<div class="item-title label">Sales Unit/Unité de ventes</div>-->
                                         <div class="item-input">
-                                           <select id="reg_aunit" name="reg_aunit">
+                                           <select id="reg_aunit" class="reg_aunit_input" name="reg_aunit">
                                               <option class="placeholder label"> -- Sales Unit/Unité de ventes -- </option>
                                               <option value="west">West</option>
                                               <option value="central">Central</option>
@@ -969,6 +996,16 @@
 							<a href="#index" class="link">Index x</a>
 						</div>
 					</div>-->
+            <div class="page-content">
+              <div class="content-block">
+                <p><a href="#" class="ac-1">One group, three buttons</a></p>
+                <p><a href="#" class="ac-2">One group, title, three buttons</a></p>
+                <p><a href="#" class="ac-3">Two groups</a></p>
+                <p><a href="#" class="ac-4">Three groups</a></p>
+                <p><a href="#" class="ac-5">With callbacks on click</a></p>
+              </div>
+            </div>
+
 
         </div>
 
@@ -978,6 +1015,9 @@
     <script type="text/javascript" src="js/framework7/framework7.min.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
+
+
+
 
     <script src="vendor/jquery.countdown.package-2.1.0/js/jquery.plugin.min.js"></script>
     <script src="vendor/jquery.countdown.package-2.1.0/js/jquery.countdown.js"></script>
