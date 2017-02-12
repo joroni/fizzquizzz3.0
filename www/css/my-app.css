@@ -6,37 +6,35 @@
 @import "../quizgame/css/master.css";
 */
 
-/****************** CLOCK **********/
-.quizArea {
-  overflow: hidden !important;
+#myFrameQuiz         {min-height:540px; width: 100%; top:0;}
+html,body        {height:100%; width: 100%;}
+#myFrameQuiz .wrapper         {width:100%;height:540px;margin:0 auto;background:transparent;}
+#myFrameQuiz .h_iframe        {position:relative;}
+#myFrameQuiz .h_iframe .ratio {display:none;width:100%;height:100%;}
+#myFrameQuiz .h_iframe iframe {position:absolute;top:0;left:0;width:100%; height:540px;}
+
+
+a.editProfile.red {
+  position: relative;
+  top: -50px;
+  right: -20px;
 }
+
 #defaultCountdown, #time{
   position: fixed;
   z-index: 200000;
-  top: 50px;
-  right::10px;
+  top: 0;
+  right:0 !important;
   background: #000;
   color: #fff;
-  padding: 10px;
+  padding: 0 10px !important;
 }
 
-/*
-.toolbar .link {
-  width: 100%;
-}
-*/
-
-:not(.countdown-section:last-child){
-  display: none !important;
-
-}
-.smalltext{
-    padding-top: 5px;
-    font-size: 16px;
+div#fizzquizz {
+  min-height: 420px !important;
+  padding-top: 40px !important;
 }
 
-
-/***VCLOCK **/
 .toolbar.bottom {
   position: fixed;
 }
@@ -80,6 +78,12 @@ html, body {
   font-feature-settings: "liga";
 }
 
+
+
+a.link.icon-only.open-panel {
+  right: -20px;
+  top: 5px;
+}
 .content-block {
 	margin:0 !important;
 }
@@ -92,6 +96,12 @@ html, body {
 #fizzquizz.page-content {
 				padding-bottom:0 !important;
 			}
+#welcome .page-content {
+  min-height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
 
 i.placeholder {
   color: #ddd !important;
@@ -104,7 +114,10 @@ i.placeholder {
 }
 
 
+#checkforquiz {
+  color:#fff !important; background:limegreen !important; font-weight:700; margin:20px 0 !important; padding:10px 5px !important;
 
+}
 
 .page-content {
   overflow-x: hidden !important;
@@ -152,7 +165,7 @@ ul.simple-list {
   margin: 0 auto;
 }
 body#slickQuiz, #slickQuiz {
-  background-color: : transparent !important;
+  background-color: transparent !important;
     background: none !important;
 }
 
@@ -191,15 +204,15 @@ body#main {
   width: 100%;
 }
 button, .button, a.button {
-float: left;
-font-weight:100;
+float: left !important;
+font-weight:500;
 font-size:1.2em !important;
   background: transparent none repeat scroll 0 0 !important;
   border: 0px solid rgba(0, 0, 0, 0.1); !important;
   border-width:0 !important;
-
+/*  border-radius: 2px;*/
   color: red !important;
-
+/*  height: 30px;*/
   padding:20px !important;
   height: auto !important;
   text-transform: uppercase;
@@ -212,8 +225,6 @@ button:hover, .button:hover, a.button:hover {
   color: #d10000 !important;
   background: rgba(209, 0, 0, 0.1) !important;
 }
-
-
 .button.checkAnswer {
   display: none;
 }
@@ -230,7 +241,7 @@ body.message {
   width: 300px;
 }
 video#player {
-  height: 100%;
+  height: auto;
   margin: auto;
   max-width: 100%;
   min-width: 100%;
@@ -300,21 +311,7 @@ a#getStarted2 {
   background:  rgb(209, 0, 0) !important;
 }
 
-.navbar .left > a.icon-only {
 
-  left: -10px !important;
-  display: none;
-}
-
-.navbar .right > a.icon-only {
-  top: 2px !important;
-    left: 20px !important;
-}
-
-
-.navbar .center img {
-  max-height: 35px !important;
-}
 
 
 .panel {
@@ -344,7 +341,7 @@ a#getStarted2 {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   background-color: black;
-  border 1px solid white;
+  border: 1px solid white;
   box-shadow:rgba(0, 0, 0, 0.2) 0px 2px 0px 0px;
   -webkit-box-shadow:rgba(0, 0, 0, 0.2) 0px 2px 0px 0px;
 }
@@ -392,6 +389,7 @@ h2#redeemScore {
   margin: 0 auto;
   height: 100px;
   width: 100px;
+  border: none !important;
   background-size: contain;
   background-position: center center;
   color: transparent !important;
@@ -436,12 +434,3 @@ i.tabbar-demo-icon-4 {
 .active i.tabbar-demo-icon-4 {
   background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 25 19' fill='%23007aff'><g><path d='M23,3h-4.1l-2.4-2.4c0,0,0,0,0,0l0,0C16.1,0.2,15.6,0,15.1,0h-5C9.5,0,9,0.3,8.6,0.6l0,0L6.2,3H2C0.9,3,0,3.9,0,5v12 c0,1.1,0.9,2,2,2h21c1.1,0,2-0.9,2-2V5C25,3.9,24.1,3,23,3z M12.5,16c-3,0-5.5-2.5-5.5-5.5C7,7.5,9.5,5,12.5,5c3,0,5.5,2.5,5.5,5.5 C18,13.5,15.5,16,12.5,16z'/><circle cx='12.5' cy='10.5' r='4.5'/></g></svg>");
 }
-
-
-
-/* boooo opera */
-	-o-transition:
-	rotate  (  3600  deg  ); /* works */
-	#Qfizzquizz.page-content {
-	padding-bottom:0 !important;
-	}

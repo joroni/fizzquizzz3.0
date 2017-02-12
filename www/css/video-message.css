@@ -35,4 +35,44 @@ video#player {
 	min-width: 100%;
 	position: relative;
 }
-</style>
+
+
+.video-js {
+	background-color:transparent !important;
+}
+
+.vjs-nofull .vjs-fullscreen-control {
+	display:none;
+}
+
+.vjs-fade-out {
+display: block;
+visibility: hidden;
+opacity: 0;
+
+-webkit-transition: visibility 1.5s, opacity 1.5s;
+	 -moz-transition: visibility 1.5s, opacity 1.5s;
+		-ms-transition: visibility 1.5s, opacity 1.5s;
+		 -o-transition: visibility 1.5s, opacity 1.5s;
+				transition: visibility 1.5s, opacity 1.5s;
+
+/* Wait a moment before fading out the control bar */
+-webkit-transition-delay: 2s;
+	 -moz-transition-delay: 2s;
+		-ms-transition-delay: 2s;
+		 -o-transition-delay: 2s;
+				transition-delay: 2s;
+}
+
+
+.vjs-default-skin.vjs-user-inactive .vjs-control-bar {
+display: block;
+visibility: hidden;
+opacity: 0;
+
+-webkit-transition: visibility 1.5s, opacity 1.5s;
+	 -moz-transition: visibility 1.5s, opacity 1.5s;
+		-ms-transition: visibility 1.5s, opacity 1.5s;
+		 -o-transition: visibility 1.5s, opacity 1.5s;
+				transition: visibility 1.5s, opacity 1.5s;
+}
