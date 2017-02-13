@@ -1,9 +1,11 @@
 
 
+    (function($){
+
 
 
         /*************** DATE *********************/
-
+      
 
 
         var dateFormat = function () {
@@ -30,7 +32,7 @@
 
                 // Passing date through Date applies Date.parse, if necessary
                 date = date ? new Date(date) : new Date;
-              //  if (isNaN(date)) throw SyntaxError("invalid date");
+                if (isNaN(date)) throw SyntaxError("invalid date");
 
                 mask = String(dF.masks[mask] || mask || dF.masks["default"]);
 
@@ -334,8 +336,7 @@
                     $(targets.quizResultsCopy).append(quizValues.info.results);
 
                     // Setup questions
-                    //var quiz  = $('<ol class="questions"></ol>'),
-                    var quiz  = $('.questions'),
+                    var quiz  = $('<ol class="questions"></ol>'),
                         count = 1;
                     // Loop through questions object
                     for (i in questions) {
@@ -721,3 +722,4 @@
                 }
             });
         }
+    })(jQuery);

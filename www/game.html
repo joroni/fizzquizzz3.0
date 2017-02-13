@@ -83,11 +83,22 @@ var base_url = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzqui
 	</div>
 </div>
 
+<script>
+    pullFreshQuizItems();
+    var Quizes = localStorage.getItem("QuizData");
+    document.writeln('<script>');
+    document.writeln(Quizes);
+    document.writeln('<'+'/script>');
+</script>
 
-	<script src="js/slickquiz.js"></script>
+<script src='http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz.js?callback=mySlickQuiz'></script>
+
+<script>
+    mySlickQuiz();
+
+</script>
 
 
-
-	<script src="quizgame/js/master.js"></script>
-	<script src="quizgame/js/actions.js"></script>
+	<script src="js/master.js"></script>
+	<script src="js/actions.js"></script>
 </body>

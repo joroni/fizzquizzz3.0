@@ -16,7 +16,6 @@
     <link href="css/quiz/master.css" media="screen" rel="stylesheet" type="text/css">
     <link href="css/quiz/slickQuiz.css" media="screen" rel="stylesheet" type="text/css">
 
-
     <link rel="stylesheet" href="css/parallax-star-background-in-css/stars.css" type="text/css">
         <!--***** QUIZ STYLES *****---->
 
@@ -28,7 +27,15 @@
     <link rel="stylesheet" href="css/framework7/framework7.ios.colors.min.css">
     <link rel="stylesheet" href="css/rays/rays.css" type="text/css">
     <link rel="stylesheet" href="vendor/jquery.countdown.package-2.1.0/css/jquery.countdown.css">
-    <style>
+    <link href="vendor/videojs/video-js.css" rel="stylesheet">
+
+    <!-- If you'd like to support IE8 -->
+    <script src="vendor/videojs/videojs-ie8.min.js"></script>
+
+    <style type="text/css">
+    .video-js {
+      background-color:transparent !important;
+    }
         #defaultCountdown {
             width: auto;
             height: auto;
@@ -72,7 +79,6 @@
         var base_url = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver";
     </script>
     <script src="vendor/jquery-1.7.min.js"></script>
-      <script src="vendor/jquery.validate.js"></script>
 
 
 
@@ -210,7 +216,7 @@
                         <a href="#" class="link icon-only open-panel"><i class="f7-icons">bars</i></a>
                     </div>
                 </div>
-                <div data-page="slickquiz"  class="navbar-inner cached">
+                <div data-page="quizgame" class="navbar-inner cached">
 
                     <div class="center sliding"><img src="img/logo-horizontal2x.png" style="max-height:34px;"></div>
                     <div class="right">
@@ -318,6 +324,8 @@
                     </div>
                 </div>
 
+
+
                 <div data-page="refresher" class="page no-swipeback cached">
                     <div class="page-content">
                         <div class="content-block-title">Refresher Page</div>
@@ -354,42 +362,42 @@
 
                 <!-- Message Page-->
                 <script id="videosplashTemplate" type="text/template7">
-                  <div id='stars' class="star-anim" style="z-index: 0;"></div>
-                  <div id='stars2' class="star-anim" style="z-index: 0;"></div>
-                  <div id='stars3' class="star-anim" style="z-index: 0;"></div>
-
                 <div id="videosplash" data-page="videosplash" class="page no-swipeback cached">
 
+                    <div class="page-content">
+                        <div class="content-block">
 
-                    <div class="page-content" style="padding:0;">
-                        <div class="content-block" style="padding:0; margin: auto;">
+                            <div class="wrapper" style="min-height:250px; margin-top:25%;">
+                                <div class="h_iframe">
 
+                                    <!-- a transparent image is preferable -->
+                                    <!--	<img class="ratio" src="img/-text.png"/>-->
+                                    <iframe id="myFrame" style="min-height:200px; width:100%;" margin="0" src="http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/media/teaser.html" frameborder="0" allowfullscreen="no"></iframe>
+                                </div>
+                                <!--	<p>Please scale the "result" window to notice the effect.</p>-->
+                            </div>
 
-                                                    <span class="media-container">
-                                                    <video width=100% id="player" controls autoplay>
-                                                     <div id="data"></div>
-                                                    </video>
-                                                    <div class="controllers" style="display:none;">
-                                                      <button onclick="document.getElementById('player').play()"> play </button>
-                                                      <button onclick="document.getElementById('player').pause()"> pause </button>
-                                                    </div>
-                                                    </span>
-
-
-
+                            <!--     <iframe src=""  style="height:540px; width:100%;" margin="0" align="middle" scrolling="auto"></iframe>-->
+                            <!--  <iframe src="fizzquizzData.html" style="height:100%; width:100%;"></iframe>-->
                         </div>
                     </div>
 
                 </div>
               </script>
+                <!-- Quiz Game Page-->
 
 
                 <!-- Welcome Page-->
+
                 <script id="welcomeTemplate" type="text/template7">
                     <div id="welcome" data-page="welcome" class="page no-swipeback cached">
 
-                        <div class="page-content">
-
+                        <div class="page-content pull-to-refresh-content">
+                          <!--  <div class="content-block-title">Welcome Page</div>
+                            <div class="pull-to-refresh-layer">
+                                <div class="preloader"></div>
+                                <div class="pull-to-refresh-arrow"></div>
+                            </div>-->
                             <div id='stars' class="star-anim" style="z-index: 0;"></div>
                             <div id='stars2' class="star-anim" style="z-index: 0;"></div>
                             <div id='stars3' class="star-anim" style="z-index: 0;"></div>
@@ -408,7 +416,9 @@
 
                                         </div>
                                     </li>
-
+                                    <!--<li>
+							<a href="#refresher"  id="checkforquiz"  class="button button-fill" style="color:#fff !important; background:limegreen !important; font-weight:700;">Look for Quiz</a>
+							</li>-->
                                     <li class="status">
 
                                     </li>
@@ -447,26 +457,52 @@
                     </div>
                 </div>
 
+
+
                 <!-- Profile Page-->
                 <div data-page="profile" class="page no-swipeback cached">
                     <div class="page-content">
                         <div id="profileContent" class="content-block centered">
-
+                            <!--<a href="#" onclick="showImageLoader();">-->
                             <div id="avatar2" class="avatar profile-image"></div>
-
+                            <!--</a>-->
+                            <!--	<a href="#" onclick="edittheProfile();" class="red">
+            <i class="f7-icons">compose</i>
+          </a>-->
                             <a href="#profile-edit" class="editProfilered">
                                 <i class="f7-icons">compose</i>
                             </a>
                             <h3>
-
+                            <!--<span id="userfirstname" class="profile-firstname"></span>
+                            <span id="userlastname" class="profile-lastname"></span>-->
                             <span class="profile-firstname"></span>
                             <span class="profile-lastname"></span>
                           </h3>
-
+                            <!--<h4><span id="userusername" class="profile-id"></span></h4>
+            <h5><span id="useremail" class="profile-email"></span></h5>-->
                             <h4><span class="profile-id"></span></h4>
                             <h5><span class="profile-email"></span></h5>
                         </div>
+                      <!--  <div class="content-block">
+                            <div id="capturePhoto" style="display: none;">
+                                <form id="myForms" action="http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/uploadpicc" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="user_id_upload" id="user_iddddddd" />
 
+                                    <div class="box">
+                                        <input type="file" name="upload_file[]" id="upload_input" class="inputfile" data-multiple-caption="{count} files selected" />
+                                        <label for="upload_input">
+                                            <figure>
+                                              ©
+                                                <img class="photoIcon" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDYwIDYwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MCA2MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxnPgoJPHBhdGggZD0iTTMwLDIwLjVjLTYuNjE3LDAtMTIsNS4zODMtMTIsMTJzNS4zODMsMTIsMTIsMTJzMTItNS4zODMsMTItMTJTMzYuNjE3LDIwLjUsMzAsMjAuNXoiIGZpbGw9IiNEODAwMjciLz4KCTxwYXRoIGQ9Ik01NS4yMDEsMTUuNWgtOC41MjRsLTQtMTBIMTcuMzIzbC00LDEwSDEydi01SDZ2NUg0Ljc5OUMyLjE1MiwxNS41LDAsMTcuNjUyLDAsMjAuMjk5djI5LjM2OCAgIEMwLDUyLjMzMiwyLjE2OCw1NC41LDQuODMzLDU0LjVoNTAuMzM0YzIuNjY1LDAsNC44MzMtMi4xNjgsNC44MzMtNC44MzNWMjAuMjk5QzYwLDE3LjY1Miw1Ny44NDgsMTUuNSw1NS4yMDEsMTUuNXogTTEwLDE1LjVIOHYtMyAgIGgyVjE1LjV6IE0zMCw1MC41Yy05LjkyNSwwLTE4LTguMDc1LTE4LTE4czguMDc1LTE4LDE4LTE4czE4LDguMDc1LDE4LDE4UzM5LjkyNSw1MC41LDMwLDUwLjV6IE01MiwyNy41Yy0yLjIwNiwwLTQtMS43OTQtNC00ICAgczEuNzk0LTQsNC00czQsMS43OTQsNCw0UzU0LjIwNiwyNy41LDUyLDI3LjV6IiBmaWxsPSIjRDgwMDI3Ii8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+                                            </figure>
+                                            <span>Take a Photo</span>
+                                        </label>
+                                    </div>
+                                    <input id="uploadImage" onclick="uploadingImg();" type="submit" value="Use Photo" class="btn_usephoto btn-info btn-block" />
+                                    <input id="canceluploadImage" onclick="$('#capturePhoto').hide();" type="button" value="Cancel" class="btn_cancelphoto btn-danger btn-block" />
+                                </form>
+                            </div>
+                        </div>-->
                         <div class="list-block">
                             <ul>
                                 <li>
@@ -504,7 +540,7 @@
                                 </li>
                             </ul>
                             <div class="col-100">
-                                    <table id="output" class="output-list">
+                                    <table id="output">
                                     </table>
                                 </div>
                           </div>
@@ -513,7 +549,7 @@
                   <!-- Profile EditPage-->
                 <div data-page="profile-edit" class="page  no-swipeback cached">
                     <div class="page-content">
-                        <div class="list-block centered">
+                        <div id="editmyProfile" class="list-block centered">
 
                             <ul>
                                 <li>
@@ -648,19 +684,28 @@
                 <!-- Leader Board Page-->
                 <div data-page="leaderboard" class="page no-swipeback cached">
                     <div class="page-content">
-
-                          <iframe id="myFrameLeaderBoard" src="" style="min-height:100%; width:100%; display:block;" margin="0" src="" frameborder="0" allowfullscreen="yes"></iframe>
-
-
+                        <div class="content-block">
+                            <p>
+                                In order to go back to main page, you can click <strong>Back</strong> button on the left side of Top menu.
+                                <br /> Or simply use this link to <a href="#" class="back link">go back</a>.
+                            </p>
+                            <p>
+                                In fact you can load any page from this application, with the simple HTML link. <a href="#form">Load login page</a>.
+                            </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel commodo massa, eu adipiscing mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ultricies dictum neque, non varius tortor fermentum at. Curabitur auctor cursus imperdiet. Nam molestie nisi nec est lacinia volutpat in a purus. Maecenas consectetur condimentum viverra. Donec ultricies nec sem vel condimentum. Phasellus eu tincidunt enim, sit amet convallis orci. Vestibulum quis fringilla dolor.</p>
+                            <p>Thanks,
+                                <br /> HTMLCenter team
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <!-- Messages Board Page-->
 
-                <div data-page="messages" class="page cached no-swipeback">
+                <div data-page="messages" class="page cached">
                     <div class="page-content">
 
 
-                      <div class="wrapper-leaderboard" style="min-height:250px; margin-top:0;">
+                      <div class="wrapper" style="min-height:250px; margin-top:0;">
                           <div class="h_iframe">
 
 
@@ -675,123 +720,28 @@
                 </div>
 
 
+
+
                 <!-- Quiz Game Page-->
-                <div id="slickquiz" data-page="slickquiz" class="page no-swipeback cached">
+                <div id="quizgame" data-page="quizgame" class="page no-swipeback cached">
+                  <!--  <div class="page-content">
+                      <div class="content-block">-->
 
-                <!--  <script src="http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz2.js?callback=mySlickQuiz"></script>
-                  <script>
-                      mySlickQuiz();
+                          <div class="wrapper" style="min-height:250px; margin-top:-0;">
+                              <div class="h_iframe">
 
-                      $(function() {
-                          $('#slickQuiz').slickQuiz();
-                      });
+                                  <!-- a transparent image is preferable -->
+                                  <!--	<img class="ratio" src="img/-text.png"/>-->
+                                  <iframe id="myFrame" style="min-height:200px; width:100%;" margin="0" src="game.html" frameborder="0" allowfullscreen="no"></iframe>
+                              </div>
+                              <!--	<p>Please scale the "result" window to notice the effect.</p>-->
+                          </div>
 
-                      var Quizes = localStorage.getItem("QuizData");
-                      document.writeln("<script>");
-                      document.writeln(Quizes);
-                      document.writeln("<" + "/script>");
-                  </script>-->
-
-                    <div class="page-content">
-                        <div class="content-block">
-
-                            <div id="slickQuiz">
-                                <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-                                    <div class="" id="fizzquizzA">
-                                        <!-- <script>
-
-                                            if ($$('#score_bottle').value() != ''){
-                                              $('.send-score').show();
-                                            }
-                                            else {
-                                                $('.send-score').hide();
-                                            }
-                                         </script>-->
-
-                                         <script>
-                                      
-                                       //      pullFreshQuizItems();
-                                             var Quizes = localStorage.getItem("QuizData");
-                                             document.writeln('<script>');
-                                             document.writeln(Quizes);
-                                             document.writeln('<'+'/script>');
-                                         </script>
-
-                                         <script src='http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/json/slickquiz2.js?callback=mySlickQuiz'></script>
-
-                                         <script>
-                                             mySlickQuiz();
-
-                                         </script>
-                                        <div id="raysDemoHolder" class="raysDemo animated fadeInUpBig quiz hidden" style="width: 250px; height: 250px; margin: 20% auto;">
-                                            <img id="raysLogo" class="icon animated fadeInUpBig options fast" style="height:250px;" src="img/coke-bottle-real3.png">
-                                            <div id="rays"></div>
-                                        </div>
-
-                                        <!--  <div id="animated-img" class="animated fadeInUpBig options fast"> -->
-                                        <div id="fizzquizz" class="page-content" style="padding: 40px 5px 0 5px !important;">
-
-
-                                            <input name="questions" id="cand" type="hidden" />
-                                            <div class="quizArea options fast">
-                                                <!--<a href="#" id="playQuiz" onclick="showQuestions();" class="button button-big red startQuiz" style="display:block;">Play</a>-->
-                                                <a href="#" id="playQuiz" onclick="showQuestions();" class="button button-big red startQuiz">Play</a>
-                                                <!-- where the quiz gets built -->
-
-                                            </div>
-                                            <div class="quizResults">
-                                                <div class="quizScore scoring">
-                                                    SCORE:
-                                                    <span>
-                                      <!-- where the quiz score goes -->
-                                                    </span>
-                                                </div>
-                                                <div class="earned scoring"><strong>YOU'VE EARNED</strong></div>
-                                                <div class="quizLevel scoring">
-                                                    <h2 id="redeemScore">
-                                      <!-- where the quiz ranking level goes -->
-                                                     </h2>
-                                                    <span></span>
-                                                    <input type="hidden" id="divisions" name="divisions" value="" />
-                                                    <input type="hidden" id="area" name="area" value="" />
-                                                    <input type="hidden" id="aunit" name="aunit" value="" />
-                                                    <input type="hidden" id="user_id" name="user_id" value="" />
-                                                    <!--<input type="hidden" id="setnames" name="setnames" value=""/>-->
-                                                    <input type="hidden" id="datefrom" name="datefrom" value="" />
-                                                    <input type="hidden" id="attempts" name="attempts" value="" />
-                                                    <input type="hidden" id="score_bottle" name="score_bottle" value="" />
-
-                                                </div>
-                                                <div class="bottles scoring">BOTTLES</div>
-                                                <div id="endQuiBtn" style="padding-top: 35%;">
-                                                    <br />
-                                                    <a href="#refresher" onclick="post_score_new();" id="sendScore" class="send-score button button-big red" style="display:block;">Save</a>
-                                                </div>
-                                            </div>
-                                            <!--</div>-->
-
-
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-
-                                <!-- <script src="js/master.js"></script>-->
-
-                                <!-- <script src="js/actions.js"></script>-->
-                            </div>
-                        </div>
-                    </div>
+                          <!--     <iframe src=""  style="height:540px; width:100%;" margin="0" align="middle" scrolling="auto"></iframe>-->
+                          <!--  <iframe src="fizzquizzData.html" style="height:100%; width:100%;"></iframe>-->
+                    <!--  </div>
+                    </div>-->
                 </div>
-
-
-
-
-
 
                 <div data-page="register" class="page cached">
                    <div class="page-content">
@@ -805,7 +755,7 @@
                                      <div class="item-inner">
                                         <!--<div class="item-title label">Username</div>-->
                                         <div class="item-input">
-                                           <input type="text" id="reg_username" name="reg_username" placeholder="ECID">
+                                           <input type="text" ng-model="username" id="reg_username" name="reg_username" placeholder="ECID">
                                            <span id="reg_username_err" style="color:red; display:none;">Required</span>
                                            <span id="user_taken" style="color:red; display:none;">ID is not valid/available! </span>
                                         </div>
@@ -855,7 +805,7 @@
                                         <!--<div class="item-title label">Password</div>-->
                                         <div class="item-input">
                                            <input type="password" id="reg_password" name="reg_password" placeholder="Password">
-                                           <span id="reg_password_err" style="color:red; display:none;">Required</span>
+                                           <span id="reg_username_err" style="color:red; display:none;">Required</span>
                                         </div>
                                      </div>
                                   </div>
@@ -866,7 +816,7 @@
                                      <div class="item-inner">
                                         <!--<div class="item-title label">Division</div>-->
                                         <div class="item-input">
-                                           <select id="reg_division" name="reg_division">
+                                           <select id="division" name="division">
                                               <option class="placeholder label"> -- Division -- </option>
                                               <option value="Small Format">Small Format</option>
                                               <option value="Large Format">Large Format</option>
@@ -884,13 +834,13 @@
                                      <div class="item-inner">
                                         <!--<div class="item-title label">Sales Unit/Unité de ventes</div>-->
                                         <div class="item-input">
-                                           <select id="reg_aunit" class="reg_aunit_input" name="reg_aunit">
+                                           <select id="aunit" name="aunit">
                                               <option class="placeholder label"> -- Sales Unit/Unité de ventes -- </option>
                                               <option value="west">West</option>
                                               <option value="central">Central</option>
                                               <option value="east">East</option>
                                            </select>
-                                           <span id="reg_aunit_err" style="color:red; display:none;">Required</span>
+                                           <span id="aunit_err" style="color:red; display:none;">Required</span>
                                         </div>
                                      </div>
                                   </div>
@@ -904,7 +854,7 @@
                                            <select id="reg_area" name="reg_area">
                                               <option> -- Sales Area/Secteur de vente -- </option>
                                            </select>
-                                           <span id="reg_area_err" style="color:red; display:none;">Required</span>
+                                           <span id="aunit_err" style="color:red; display:none;">Required</span>
                                         </div>
                                      </div>
                                   </div>
@@ -990,23 +940,17 @@
                    </div>
                 </div>
 
+
+
+
+
                 <!--<div class="toolbar bottom" style="display:none;">
 					  <div class="toolbar-inner">
 							<a href="#welcome" class="link">Welcome y</a>
 							<a href="#index" class="link">Index x</a>
 						</div>
 					</div>-->
-            <div class="page-content">
-              <div class="content-block">
-                <p><a href="#" class="ac-1">One group, three buttons</a></p>
-                <p><a href="#" class="ac-2">One group, title, three buttons</a></p>
-                <p><a href="#" class="ac-3">Two groups</a></p>
-                <p><a href="#" class="ac-4">Three groups</a></p>
-                <p><a href="#" class="ac-5">With callbacks on click</a></p>
-              </div>
             </div>
-
-
         </div>
 
     </div>
@@ -1015,9 +959,6 @@
     <script type="text/javascript" src="js/framework7/framework7.min.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
-
-
-
 
     <script src="vendor/jquery.countdown.package-2.1.0/js/jquery.plugin.min.js"></script>
     <script src="vendor/jquery.countdown.package-2.1.0/js/jquery.countdown.js"></script>

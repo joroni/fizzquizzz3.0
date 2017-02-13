@@ -40,13 +40,13 @@
 }
 
 #rays	{ /* with animation properties */
-    background: url(rays-white.png) 0 0 no-repeat;
+    background: url(rays.png) 0 0 no-repeat;
     position: absolute;
     top: -100px;
     left: -100px;
     width: 490px;
     height: 490px;
-opacity: 0.9;
+opacity: 0.5;
     /* microsoft ie */
     animation-name: spin;
     animation-duration: 40000ms; /* 40 seconds */

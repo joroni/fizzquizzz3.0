@@ -20,11 +20,15 @@ a.editProfile.red {
   right: -20px;
 }
 
+
+ul.messageList {
+  height: auto !important;
+}
 #defaultCountdown, #time{
   position: fixed;
   z-index: 200000;
-  top: 0;
-  right:0 !important;
+  top: 50px;
+  right:23px !important;
   background: #000;
   color: #fff;
   padding: 0 10px !important;
@@ -33,7 +37,6 @@ a.editProfile.red {
 div#fizzquizz {
   min-height: 420px !important;
   padding-top: 40px !important;
-  top: 40px !important;
 }
 
 .toolbar.bottom {
@@ -101,16 +104,9 @@ a.link.icon-only.open-panel {
   min-height: 100%;
   max-height: 100%;
   overflow: hidden;
-/*
-  background: url("../img/gray_background.jpg") no-repeat;
-  background-size: cover;
-  background-position: center center;*/
 }
 
 
-.list-block.icon-canada {
-  margin: 0;
-}
 i.placeholder {
   color: #ddd !important;
   font-style: italic;
@@ -122,20 +118,14 @@ i.placeholder {
 }
 
 
-#checkforquiz {
-  color:#fff !important; background:limegreen !important; font-weight:700; margin:20px 0 !important; padding:10px 5px !important;
 
-}
 
 .page-content {
   overflow-x: hidden !important;
-
 }
 .page-on-center {
 /*  background-color: #f8f8f8;*/
-background: radial-gradient(circle at bottom, #fff 30%, #838385 100%) !important;
-
-
+  background: radial-gradient(circle at bottom, #fff 30%, #d3d3d3 100%) !important;
 }
 
 .navbar-through .page-content {
@@ -394,6 +384,14 @@ h2#redeemScore {
   margin: 0;
   padding:0;
   line-height: 0.5em;
+}
+
+
+.truncate {
+  width: 200px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 #avatar, #avatar2, .profile-image {

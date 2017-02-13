@@ -132,7 +132,7 @@ width: 100%;
 .demo-card-wide > .mdl-card__title {
 color: #fff;
 height: 176px;
-/*background: url(../img/logo2x.png) center / cover rgb(209, 0, 0,) no-repeat;*/
+background: url(../img/logo2x.png) center / cover rgb(209, 0, 0,) no-repeat;
 background-position-y: 4px;
 background-size: 130px 130px;
 padding:10px 20px 10px 20px !important;
@@ -520,7 +520,7 @@ bottom: 0;
 }
 .quizArea, .quizResults, .endQuiBtn {
 zoom: 1;
-padding: 0 !important;
+padding: 0 10px;
 margin: 10% auto !important;
 }
 .startQuiz, #playQuiz {
@@ -592,7 +592,7 @@ text-align: center;
 padding: 10px;
 }
 a#sendScore {
-background: none !important;
+background: nine !important;
 color:red !important;
 font-size: 1.2em;
 }
@@ -601,9 +601,7 @@ font-size: 1.2em;
 .hidden {
 display:none;
 }
-ol li.question {
-	margin-left: -4px !important;
-}
+
 li.question {
 min-height:540px;
 height:100%;
@@ -633,14 +631,14 @@ line-height:22px !important;
 }
 .button:hover {
 color: #d10000 !important;
-background-color: rgba(209,0,0,0.1) !important;
+background-color: rgba(209,0,0,0) !important;
 border: 0px solid #d10000 !important;
 }
 ol.questions {
 margin-top:-20px !important;
 }
 #fizzquizz {
-top:40px;
+top:-20px;
 }
 .answerResult {
 margin: 0 auto;
@@ -696,7 +694,7 @@ font-size: 1.8em;
 box-shadow: none;
 padding: 35px 0;
 border-radius: 50%;
-/*background: url('../img/btn-play.svg') no-repeat transparent !important;*/
+background: url(../img/btn-play.svg) no-repeat transparent !important;
 background-size: 120px 120px !important;
 background-position: center center;
 font-weight: 300;
@@ -755,7 +753,7 @@ font-size:1.5em;
 text-align: center;
 text-transform: uppercase;
 color: #d10000;
-border: 0 solid #fff !important;
+border: 0px solid #fff !important;
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 background-color: transparent !important;
@@ -786,12 +784,12 @@ background-size: cover;
 border: 1px solid rgba(0, 0, 0, 0.1);
 border-radius: 50%;
 display: inline-block;
-height:100px;
+height:40px;
 left: auto;
 color: transparent;
 margin-bottom: 10px;
 position: relative;
-width: 100px;
+width: 40px;
 }
 #profile-content h3 span#fnames {
 float: left;
@@ -909,16 +907,16 @@ color: rgb(255,255,255);
 padding: 0 !important;
 width: 100% !important;
 }
-/*#btnCancel, #btnUpdate {
+#btnCancel, #btnUpdate {
 background: rgb(209,0,0);
 color: rgb(255,255,255);
 
 width: 100% !important;
-}*/
+}
 input[readonly] {
 color: #999;
 text-transform: capitalize;
-/*background: url(../img/lock.png) no-repeat scroll;*/
+background: url(../img/lock.png) no-repeat scroll;
 background-size: 10px;
 background-position-x: 250px;
 background-position-y: 15px;
@@ -971,7 +969,7 @@ padding: 0 72px 0 72px !important;
 margin:0 auto;
 }
 i.fa.fa-fizz-quizz {
-/*background: url('../img/icon.png') no-repeat scroll center center;*/
+background: url('../img/icon.png') no-repeat scroll center center;
 }
 .material-icons.star.new {
 color: #d10000;
@@ -980,7 +978,7 @@ color: #d10000;
 color: #E2E2E1;
 }
 body > div.mdl-layout__container > div > div.mdl-layout__drawer.is-visible > h4 {
-	color: red;
+color: #d10000;
 }
 /*
 .sweet-alert.showSweetAlert.visible {
@@ -1040,11 +1038,11 @@ color:#d10000;
 }
 /********** alert ************/
 .sweet-alert .sa-icon.sa-custom {
-/*background-image: url(../img/loading2.gif) !important;*/
+background-image: url(../img/loading2.gif) !important;
 display: block;
 }
 body > div.mdl-layout__container > div > div.mdl-layout__drawer > span.mdl-layout-title {
-/*background: url(../img/coke-watermark2.png) no-repeat scroll center center;*/
+background: url(../img/coke-watermark2.png) no-repeat scroll center center;
 -webkit-background-size: cover;
 background-size: cover;
 padding: 0;
