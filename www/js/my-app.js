@@ -395,7 +395,7 @@ $$("#defaultCountdown.timer").hide();
   $$('.view').append('<div id="bottomBtns" class="toolbar bottom" style="display: block;">'+
                                   '<div class="toolbar-inner">'+
                                     '<a href="#index" onclick="hideToolbar();" class="link hide-toolbar" style="color:gray;"">CANCEL</a>'+
-                                    '<a href="#quizgame"  class="link hide-toolbar" style="color:green;">PROCEED</a>'+
+                                    '<a href="#quizgame"  onclick="hidemyToolbar();"  class="link hide-toolbar" style="color:green;">PROCEED</a>'+
                                   //  '<a href="game.html"  class="link hide-toolbar" style="color:green;">PROCEED</a>'+
                                 '</div>');
   // myApp.alert('We have lift off!');
@@ -418,6 +418,12 @@ function hideToolbar() {
 
 }
 
+
+function hidemyToolbar() {
+    $$("#bottomBtns, .toolbar.bottom").hide();
+    $$("#videosplash").addClass('cached');
+
+}
 
 $(function() {
 

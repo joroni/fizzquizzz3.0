@@ -1,7 +1,7 @@
 div#endQuiBtn {
 	margin-left: 10px;
 	margin-right: 10px;
-	margin-top: 10%;
+	margin-top: 60%;
 }
 
 body {
@@ -518,11 +518,17 @@ max-width: 600px;
 .mdl-select__expandable-holder .mdl-select__label:after {
 bottom: 0;
 }
-.quizArea, .quizResults, .endQuiBtn {
+.quizArea, .quizResults {
 zoom: 1;
 padding: 0 10px;
 margin: 10% auto !important;
 }
+/*
+.endQuiBtn {
+zoom: 1;
+padding: 0 10px;
+margin: 60% auto !important;
+}*/
 .startQuiz, #playQuiz {
 /*margin-top: 0 !important;
 position: relative !important;
