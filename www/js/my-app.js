@@ -428,7 +428,7 @@ function hidemyToolbar() {
 $(function() {
 
 
-    $$("#aunit,.regaunit").change(function() {
+    $$("#reg_aunit.reg_aunit_input").change(function() {
 
         var $dropdown = $(this);
 
@@ -562,8 +562,8 @@ function register() {
     var fname = $('#reg_fname').val();
     var lname = $('#reg_lastname').val();
     var email = $('#reg_email').val();
-    var division = $('#division').val();
-    var aunit = $('#aunit').val();
+    var division = $('#reg_division').val();
+    var aunit = $('#reg_aunit').val();
     var area = $('#reg_area').val();
     var lang = $('#reg_lang').val();
 
@@ -599,7 +599,7 @@ function register() {
         }
         console.log('err empty field');
         myApp.hideIndicator();
-        myApp.alert('Fields should not be empty.');
+        myApp.alert('Fields should not be empty.', alertTitle);
     } else {
 
 
@@ -632,10 +632,10 @@ function register() {
                         $('#reg_email_err').show();
                     }
                     if (division == '') {
-                        $('#division_err').show();
+                        $('#reg_division_err').show();
                     }
                     if (aunit == '') {
-                        $('#aunit_err').show();
+                        $('#reg_aunit_err').show();
                     }
                     if (area == '') {
                         $('#reg_area_err').show();
@@ -644,7 +644,7 @@ function register() {
                         $('#reg_lang_err').show();
                     }
 
-                    myApp.alert('Fields should not be empty.');
+                    myApp.alert('Fields should not be empty.', alertTitle);
                     console.log('err empty field');
                 } else if (data == 1) {
                     //  localStorage.setItem("username", username);
@@ -666,7 +666,7 @@ function register() {
 
                 } else {
                     myApp.hideIndicator();
-                    myApp.alert(data + 'User Name is already taken.');
+                    myApp.alert(data + 'User Name is already taken.', alertTitle);
                     $('#reg_username').val('');
                     console.log('err');
                     return;
@@ -1354,11 +1354,11 @@ ptrContent.on('ptr:refresh', function (e) {
 
                  }, 3000);*
                  myApp.hideIndicator();*/
-                mainView.router.loadPage('index.html');
+              //  mainView.router.loadPage('index.html');
                 setTimeout(function(){
 
                   window.location.reload();
-              }, 10000);
+              }, 5000);
 
                 //$$('#welcome').removeClass('cached');
 
@@ -1453,5 +1453,9 @@ ptrContent.on('ptr:refresh', function (e) {
 
 
     }
+
+
+
+
 
     myApp.hideIndicator();

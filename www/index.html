@@ -79,10 +79,83 @@
         var base_url = "http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver";
     </script>
     <script src="vendor/jquery-1.7.min.js"></script>
+  <script src="vendor/jquery.validate.min.js"></script>
 
 
 
+    <script>
 
+
+
+            $.validator.setDefaults( {
+                submitHandler: function () {
+                    myApp.alert( "Registration Successful!", alertTitle );
+                    mainView.router.loadPage("#welcome");
+                }
+            } );
+
+
+                $(document).ready(function () {
+                    $("#signupForm").validate({
+                        rules: {
+                            reg_username: {
+                                required: true
+                            },
+                            reg_fname: {
+                                required: true
+                            },
+                            reg_lastname: {
+                                required: true
+                            },
+                            reg_email: {
+                                required: true,
+                                email: true
+                            },
+                            division: {
+                                required: true
+                            },
+                            aunit: {
+                                required: true
+                            },
+                            reg_area:  {
+                                required: true
+                            }
+                        },
+                        messages: {
+
+                            reg_username: {
+                                required: "Please enter your KO ID."
+                            },
+                            reg_fname: {
+                                required: "Please enter your first name."
+                            },
+                            reg_lastname: {
+                                required: "Please enter your last name."
+                            },
+                            division: {
+                                required: "Please enter your division"
+                            },
+                            aunit: {
+                                required: "Please enter your unit"
+                            },
+                            reg_area:  {
+                                required: "Please enter your area"
+                            },
+
+                            reg_email: "Please enter a valid email address"
+                            // agree: "Please accept our policy"
+                        },
+
+                        highlight: function ( element, errorClass, validClass ) {
+                            $(element).parents(".mdl-textfield, .mdl-textfield__input, .mdl-select").addClass("has-error").removeClass("has-success");
+                        },
+                        unhighlight: function ( element, errorClass, validClass ) {
+                            $(element).parents(".mdl-textfield, .mdl-textfield__input, .mdl-select").addClass("has-success").removeClass("has-error");
+                        }
+                    })
+                });
+
+    </script>
 
 </head>
 
@@ -747,7 +820,7 @@
                                      <div class="item-inner">
                                         <!--<div class="item-title label">Username</div>-->
                                         <div class="item-input">
-                                           <input type="text" ng-model="username" id="reg_username" name="reg_username" placeholder="ECID">
+                                           <input type="text" id="reg_username" name="reg_username" placeholder="ECID">
                                            <span id="reg_username_err" style="color:red; display:none;">Required</span>
                                            <span id="user_taken" style="color:red; display:none;">ID is not valid/available! </span>
                                         </div>
@@ -797,7 +870,7 @@
                                         <!--<div class="item-title label">Password</div>-->
                                         <div class="item-input">
                                            <input type="password" id="reg_password" name="reg_password" placeholder="Password">
-                                           <span id="reg_username_err" style="color:red; display:none;">Required</span>
+                                           <span id="reg_password_err" style="color:red; display:none;">Required</span>
                                         </div>
                                      </div>
                                   </div>
@@ -808,7 +881,7 @@
                                      <div class="item-inner">
                                         <!--<div class="item-title label">Division</div>-->
                                         <div class="item-input">
-                                           <select id="division" name="division">
+                                           <select id="reg_division" name="reg_division">
                                               <option class="placeholder label"> -- Division -- </option>
                                               <option value="Small Format">Small Format</option>
                                               <option value="Large Format">Large Format</option>
@@ -826,13 +899,13 @@
                                      <div class="item-inner">
                                         <!--<div class="item-title label">Sales Unit/Unité de ventes</div>-->
                                         <div class="item-input">
-                                           <select id="aunit" name="aunit">
+                                           <select id="reg_aunit" class="reg_aunit_input" name="reg_aunit">
                                               <option class="placeholder label"> -- Sales Unit/Unité de ventes -- </option>
                                               <option value="west">West</option>
                                               <option value="central">Central</option>
                                               <option value="east">East</option>
                                            </select>
-                                           <span id="aunit_err" style="color:red; display:none;">Required</span>
+                                           <span id="reg_aunit_err" style="color:red; display:none;">Required</span>
                                         </div>
                                      </div>
                                   </div>
@@ -846,7 +919,7 @@
                                            <select id="reg_area" name="reg_area">
                                               <option> -- Sales Area/Secteur de vente -- </option>
                                            </select>
-                                           <span id="aunit_err" style="color:red; display:none;">Required</span>
+                                           <span id="reg_area_err" style="color:red; display:none;">Required</span>
                                         </div>
                                      </div>
                                   </div>
@@ -954,7 +1027,6 @@
 
     <script src="vendor/jquery.countdown.package-2.1.0/js/jquery.plugin.min.js"></script>
     <script src="vendor/jquery.countdown.package-2.1.0/js/jquery.countdown.js"></script>
-
 
 
 </body>
