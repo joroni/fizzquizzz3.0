@@ -1,0 +1,28 @@
+<div>
+  <link href="vendor/videojs/video-js.css" rel="stylesheet">
+
+  <!-- If you'd like to support IE8 -->
+  <script src="vendor/videojs/videojs-ie8.min.js"></script>
+  <style>
+  .video-js {
+    background-color:transparent !important;
+  }
+
+  .vjs-nofull .vjs-fullscreen-control {
+    display:none;
+}
+
+  </style>
+
+  <video id="my-video" class="video-js vjs-default-skin vjs-nofull" controls preload="auto"  autoplay="true" style="width:100%; height: 200px;"
+  poster="http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/media/poster.jpg" data-setup="{}">
+    <source src="http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/media/freeseaturtleswimming.mp4" type='video/mp4'>
+    <source src="http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/media/freeseaturtleswimming.webm" type='video/webm'>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+
+  <script src="vendor/videojs/video.js"></script>
+</div>
