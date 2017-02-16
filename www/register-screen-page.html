@@ -1,0 +1,155 @@
+
+<script type="text/javascript" src="js/framework7/framework7.min.js"></script>
+<!-- Path to your app js-->
+<script type="text/javascript" src="js/my-app.js"></script>
+
+<div data-page="register-screen" class="page no-navbar no-toolbar no-swipeback">
+  <div class="page-content register-screen-content" style="background:#fff;">
+
+    <form id="signupForm" method="post" class="form-horizontal" action="">
+       <div class="content-block-title"></div>
+       <div class="list-block">
+          <ul>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><em class="f7-icons">person</em></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">Username</div>-->
+                      <div class="item-input">
+                         <input type="text" id="reg_username" name="reg_username" placeholder="ECID">
+                         <span id="reg_username_err" style="color:red; display:none;">Required</span>
+                         <span id="user_taken" style="color:red; display:none;">ID is not valid/available! </span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">right</i></div>
+                   <div class="item-inner">
+                      <!--  <div class="item-title label">First Name</div>-->
+                      <div class="item-input">
+                         <input type="text" id="reg_fname" name="reg_fname" placeholder="First Name">
+                         <span id="reg_fname_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">right</i></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">Last Name</div>-->
+                      <div class="item-input">
+                         <input type="text" id="reg_lastname" name="reg_lastname" placeholder="Last Name">
+                         <span id="reg_lastname_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">email</i></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">E-mail</div>-->
+                      <div class="item-input">
+                         <input type="text" id="reg_email" name="reg_email" placeholder="E-Mail">
+                         <span id="reg_email_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">lock</i></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">Password</div>-->
+                      <div class="item-input">
+                         <input type="password" id="reg_password" name="reg_password" placeholder="Password">
+                         <span id="reg_password_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">persons</i></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">Division</div>-->
+                      <div class="item-input">
+                         <select id="reg_division" name="reg_division">
+                            <option class="placeholder label"> -- Division -- </option>
+                            <option value="Small Format">Small Format</option>
+                            <option value="Large Format">Large Format</option>
+                            <option value="Generalist">Generalist</option>
+                            <option value="Merchandiser">Merchandiser</option>
+                         </select>
+                         <span id="division_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">persons</i></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">Sales Unit/Unité de ventes</div>-->
+                      <div class="item-input">
+                         <select id="reg_aunit" class="reg_aunit_input" name="reg_aunit">
+                            <option class="placeholder label"> -- Sales Unit/Unité de ventes -- </option>
+                            <option value="west">West</option>
+                            <option value="central">Central</option>
+                            <option value="east">East</option>
+                         </select>
+                         <span id="reg_aunit_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">persons</i></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">Sales Area/Secteur de vente</div>-->
+                      <div class="item-input">
+                         <select id="reg_area" name="reg_area">
+                            <option> -- Sales Area/Secteur de vente -- </option>
+                         </select>
+                         <span id="reg_area_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">chat</i></div>
+                   <div class="item-inner">
+                      <!-- <div class="item-title label">Language</div> -->
+                      <div class="item-input">
+                         <select id="reg_lang" name="lang">
+                            <option value=""> -- Language -- </option>
+                            <option value="English">English</option>
+                            <!--   <option value="f">French</option>-->
+                         </select>
+                         <span id="reg_lang_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+          </ul>
+          <br /><br />
+          <div class="content-block">
+             <div class="row">
+                <div class="col-50">
+                   <a href="#" class="item-link list-button back link">Cancel</a>
+                </div>
+                <div class="col-50">
+                   <a id="submmit-register" onclick="register();" href="#" class="register-button item-link link list-button">Register</a>
+                </div>
+             </div>
+          </div>
+       </div>
+    </form>
+  </div>
+</div>

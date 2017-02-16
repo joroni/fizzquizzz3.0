@@ -1,0 +1,53 @@
+
+<script type="text/javascript" src="js/framework7/framework7.min.js"></script>
+<!-- Path to your app js-->
+<script type="text/javascript" src="js/my-app.js"></script>
+
+<div data-page="login-screen" class="page no-navbar no-toolbar no-swipeback">
+  <div class="page-content login-screen-content">
+    <div class="login-screen-title"><img src="img/daenerys.png" style="width:100px;"></div>
+    <form>
+      <div class="list-block">
+        <ul>
+          <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">Username</div>
+              <div class="item-input">
+                <input id="user_name_input" type="text"  name="username" placeholder="ECID">
+
+              </div>
+            </div>
+          </li>
+          <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">Password</div>
+              <div class="item-input">
+                <input id="user_pass_input" type="password" placeholder="Password">
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="list-block">
+        <ul>
+          <li><a href="#" id="submmit-login" onclick="signin();" class="login-button item-link list-button">Sign In</a></li>
+        </ul>
+        <div class="list-block-label">
+          <p>Not yet a member?</p>
+        </div>
+
+        <ul>
+<!--          <li><a href="register-screen-page.html" class="open-login-screen register-button item-link list-button">Register</a></li>-->
+          <li><a href="#register" class="open-login-screen register-button item-link list-button">Register</a></li>
+
+        </ul>
+      </div>
+    </form>
+      <div style="text-align:center;">
+        <p>
+          <a href="#" class="back link item-link list-button" style="color: #ddd"><i class="f7-icons">close_round</i></a></p>
+
+
+        </div>
+  </div>
+</div>

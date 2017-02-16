@@ -21,24 +21,49 @@ var mainView = myApp.addView('.view-main', {
 
 
 
+
+
+
 function initApp(){
+
+    //  localStorage.removeItem('checkLQuiz');
+    //  localStorage.removeItem('recent_quiz');
+      localStorage.removeItem('fname');
+      localStorage.removeItem('lname');
+      localStorage.removeItem('user_division');
+      localStorage.removeItem('password');
+
       var userDataCheck = localStorage.getItem('userData');
       //localStorage.setItem("bottomBar", 'none');
 
-      $$("#bottomBtns, .toolbar.bottom").hide();
+      $$(".toolbar.bottom").hide();
 
       if (userDataCheck != 0) {
+        myProfile();
+        pullFreshQuizItems();
         check_storage();
         validateMyTurn();
         //scanIfQuizAvailable();
-      	myProfile();
-        pullFreshQuizItems();
+
         LoggedInButtons();
 
-          mainView.router.load("#welcome");
+          mainView.router.loadPage("#welcome");
 
        }else{
          LoggedOutButtons();
+        // mainView.router.loadPage("auth.html");
+
+         myApp.onPageInit('login-screen', function (page) {
+           var pageContainer = $$(page.container);
+           pageContainer.find('.list-button').on('click', function () {
+             var username = pageContainer.find('input[name="username"]').val();
+             var password = pageContainer.find('input[name="password"]').val();
+             // Handle username and password
+             myApp.alert('Username: ' + username + ', Password: ' + password, function () {
+               mainView.goBack();
+             });
+           });
+         });
 
        }
 }
@@ -49,7 +74,9 @@ initApp();
 
 $$('.hide-toolbar').on('click', function () {
   //  mainView.hideToolbar();
-      $$("#bottomBtns, .toolbar.bottom").hide();
+    //  $$("#bottomBtns, .toolbar.bottom").hide();
+      $$(".toolbar.bottom").hide();
+        $$('.homeButtonLink').hide();
 
 });
 
@@ -177,7 +204,7 @@ function signin() {
             LoggedOutButtons();
             myApp.hideIndicator();
             //  if (!username || !password){
-            myApp.alert('Username and Password incorrect');
+            myApp.alert('Username and Password incorrect', alertTitle);
             //return;
             //}
 
@@ -253,18 +280,19 @@ function signin() {
 // END login
 
 
-function update_cancel() {
+/*function update_cancel() {
     $('#profileContent').show();
     $('#editmyProfile').hide();
 }
+*/
 
 function update_user() {
     myApp.showIndicator();
-    // var id = $('#user_id').val();
+   var id = $('#user_id').val();
     var username = $('#username').val();
-    var password = $('#password').val();
-    var fname = $('#firstname').val();
-    var lname = $('#lastname').val();
+    var password = $('#update_password').val();
+    var fname = $('#update_firstname').val();
+    var lname = $('#update_lastname').val();
     var user_email = $('#email').val();
    // var division = $('#division').val();
     var user_division = $('#division').val();
@@ -273,11 +301,11 @@ function update_user() {
     // var privilege = $('#user_privilege').val();
 
     $.post(base_url + '/update/user', {
-            username: username,
-            password: password,
-            fname: fname,
-            lname: lname,
-            user_email: user_email
+        username: username,
+        password: password,
+        fname: fname,
+        lname: lname,
+        email: user_email
         })
 
         // $.post(base_url + '/update/user', {username: username, password: password})
@@ -285,15 +313,15 @@ function update_user() {
             if (data == 0) {
                 myApp.hideIndicator();
                 myApp.alert('Please try again.', alertTitle);
+                return false;
                // $('#update_0').show();
 
             } else if (data == 1) {
-                myApp.hideIndicator();
-                myApp.alert('Successfully Updated.', alertTitle);
+
                 //$('#update_1').show();
 
-                $('.profile-content').show();
-                $('#editmyProfile').hide();
+              //  $('.profile-content').show();
+                //$('#editmyProfile').hide();
                 //$('#user_id').text(id);
 
                 /*$('#user_name').text(username);*/
@@ -302,8 +330,13 @@ function update_user() {
                 $('#user_lastname').text(lname);
                 $('#user_division').text(user_division);
                 $('#user_email').text(user_email);
+                myApp.hideIndicator();
+                myApp.alert('Successfully Updated.', alertTitle);
+                return;
 
-                window.location.reload();
+                mainView.router.loadPage('#index');
+                initApp();
+              //  window.location.reload();
             }
         });
 
@@ -369,7 +402,7 @@ function imageProfile() {
             } else {
                 console.log('Upload success!');
                 //   navigator.notification.alert('Process complete');
-                myApp.alert('Process complete');
+                myApp.alert('Process complete', alertTitle);
                 //$('#capturePhoto').hide();
                 window.location.reload();
 
@@ -420,15 +453,42 @@ function hideToolbar() {
 
 
 function hidemyToolbar() {
-    $$("#bottomBtns, .toolbar.bottom").hide();
+
+  var loc =  "game.html";
+
+       // document.getElementById("myFrame").setAttribute("src", loc);
+    $$("#myFrame").attr("src", loc);
+      $$(".toolbar.bottom").hide();
+  //  $$("#bottomBtns, .toolbar.bottom").hide();
     $$("#videosplash").addClass('cached');
+    $$(".homeButtonLink").hide();
 
 }
+
+function log_out() {
+    localStorage.removeItem('userlogin');
+    //  window.location.replace("index.html");
+    window.localStorage.clear();
+
+
+    mainView.router.load({
+        template: Template7.templates.index
+
+    });
+    LoggedOutButtons();
+
+}
+
+
+
+
+
+
 
 $(function() {
 
 
-    $$("#reg_aunit.reg_aunit_input").change(function() {
+    $$("select.reg_aunit_input").change(function() {
 
         var $dropdown = $(this);
 
@@ -462,19 +522,7 @@ $(function() {
 
 });
 
-function log_out() {
-    localStorage.removeItem('userlogin');
-    //  window.location.replace("index.html");
-    window.localStorage.clear();
 
-
-    mainView.router.load({
-        template: Template7.templates.index
-
-    });
-    LoggedOutButtons();
-
-}
 
 
 
@@ -661,8 +709,10 @@ function register() {
                     localStorage.setItem("area", area);
                     localStorage.setItem("user_area", area);
                     localStorage.setItem("lang", lang);
+                    localStorage.setItem("checkLQuiz", '2017-01-01');
                     myApp.hideIndicator();
-
+                    myApp.alert(data + 'Registration Successful.', alertTitle);
+                    initApp();
 
                 } else {
                     myApp.hideIndicator();
@@ -690,12 +740,12 @@ if (bottomShow === 'show') {
   $('.toolbar.bottom').hide();
 }*/
 function get_Quiz_History() {
-    $('#output').empty();
+
     var user_id = localStorage.getItem('user_id');
     $('#output')
         .html('<th colspan="4" style="padding: 10px; background: silver; color:#fff; text-align: center;">Stat</th>');
     $.getJSON(base_url + '/get_user_quiz_history/' + user_id, function(results) {
-
+  $('#output').empty();
         //$.each(result, function ( i, field ) {
         $.each(results, function(i, fields) {
 
@@ -733,24 +783,15 @@ function myProfile() {
         $.each(result, function(i, field) {
             // $("#output").append("<tr><td>Username:  "+ field.username + " </td></tr><tr><td>Password: "+ field.password + "</td></tr>");
             //  $('#userid').val(field.id);
-            $('#username')
-                .val(field.username);
-            $('#password')
-                .val(field.password);
-            $('#firstname')
-                .val(field.fname);
-            $('#lastname')
-                .val(field.lname);
-            $('#email')
-                .val(field.email);
-            $('#division')
-                .val(field.division);
-            $('#unit')
-                .val(field.aunit);
-            $('#area')
-                .val(field.area);
-            $('#avatar')
-                .val(field.avatar);
+            $('#username').val(field.username);
+            $('#password, #update_password').val(field.password);
+            $('#firstname, #update_firstname').val(field.fname);
+            $('#lastname, #update_lastname').val(field.lname);
+            $('#email').val(field.email);
+            $('#division').val(field.division);
+            $('#unit').val(field.aunit);
+            $('#area').val(field.area);
+            $('#avatar').val(field.avatar);
 
             if ($('#avatar').val() == "" || $('#avatar').val() == null) {
                 var profile_photo = base_url + '/upload/files/' + 'daenerys.png';
@@ -865,8 +906,11 @@ function loadAnim(){
 /*********** RUN ONLY ONCE JUST TO GET THE DATE FROM LAST ROW ON THE TABLE ****************/
 function validateMyTurn() {
     //getInitQuizData
-    localStorage.removeItem("dateFrString");
-    localStorage.removeItem("dateToString");
+    //  localStorage.removeItem("checkLQuiz");
+    //localStorage.removeItem("dateFrString");
+    //localStorage.removeItem("dateToString");
+
+
 
     var myDivision2 = localStorage.getItem("user_division");
     $$.getJSON(base_url + "/jsonQuiz/" + myDivision2, function(result) {
@@ -875,20 +919,22 @@ function validateMyTurn() {
 //loadAnim();
         localStorage.setItem("dateToString", result.date_expire);
         localStorage.setItem("dateFrString", result.date_published);
-        localStorage.setItem("dateToString", result.date_expire);
+
         var dateFrStringVerify = localStorage.getItem("dateFrString").replace(/-/g,'');
+
         var checkLastQuiz = localStorage.getItem("checkLQuiz").replace(/-/g,'');
         var resultCheck = checkLastQuiz - dateFrStringVerify;
-        console.log("validateMyTurn "+ dateFrStringVerify+" | "+checkLastQuiz);
+        console.log("validateMyTurn "+ dateFrStringVerify+" - "+checkLastQuiz+" = "+ resultCheck);
 
         if (resultCheck == 0) {
 
           console.log("NO UPDATES YET.");
 	         $$('.simple-list li.status').html('	<div id="getStarted3" style="display:block; color:#d10000 !important; font-weight:700; width: 100%; text-align:center;">SEE YOU ON THE NEXT ROUNDS...</div>');
+         }
 
-        } else {
+         else {
 
-              console.log("HAS NEW UPDATES!");
+            console.log("HAS NEW UPDATES!");
               $$('.simple-list li.status').html('<a href="#" id="getStarted2" onclick="loadPages();"  class="button show-toolbar" style="color:#d10000; display:block; font-weight:700;"></a>');
 
 
@@ -1125,10 +1171,10 @@ ptrContent.on('ptr:refresh', function (e) {
                 //name: username
             }
         });
-
+        initApp();
           pullFreshQuizItems();
-        //validateMyTurn();
-        scanIfQuizAvailable();
+          validateMyTurn();
+          scanIfQuizAvailable();
 
 
     });
@@ -1196,6 +1242,14 @@ ptrContent.on('ptr:refresh', function (e) {
               // document.getElementById("myFrame").setAttribute("src", loc);
             $$("#myFrameLeaderBoard").attr("src", loc);
 
+            setTimeout(function () {
+                 myApp.showIndicator();
+            }, 100);
+
+
+            setTimeout(function () {
+                 myApp.hideIndicator();
+            }, 4000);
 
 
                $$("#bottomBtns, .toolbar.bottom").show();
@@ -1265,6 +1319,7 @@ ptrContent.on('ptr:refresh', function (e) {
 
 
     function showQuestions() {
+
         $(".raysDemo").removeClass('fadeInUpBig');
         $(".raysDemo").addClass('fadeOut animated');
         $(".raysDemo").css('top', '-9999px');
@@ -1314,6 +1369,7 @@ ptrContent.on('ptr:refresh', function (e) {
         myApp.showIndicator();
         var user_id = $("#user_id").val();
         var datefromDynamic = $("#datefrom").val();
+      //  var datefromNewQuiz = $(".quiz_datefrom").val();
         var score_bottle = $("#score_bottle").val();
         var attempts = $("#attempts").val();
 
@@ -1334,7 +1390,8 @@ ptrContent.on('ptr:refresh', function (e) {
 
             } else if (data == 1) {
                 attempts = 1;
-
+              //  localStorage.setItem("checkLQuiz", datefromNewQuiz);
+                localStorage.setItem("recent_quiz", datefromDynamic);
                 localStorage.setItem("attempts", attempts);
 
                 //localStorage.setItem("bottomBar", 'show');
@@ -1343,7 +1400,9 @@ ptrContent.on('ptr:refresh', function (e) {
                 //bottomBarShow();
                 myApp.hideIndicator();
                 myApp.alert("Score Recorded!", alertTitle);
+                initApp();
                 /*  goToStart();
+
 
                  function goToStart() {
 
@@ -1355,10 +1414,10 @@ ptrContent.on('ptr:refresh', function (e) {
                  }, 3000);*
                  myApp.hideIndicator();*/
               //  mainView.router.loadPage('index.html');
-                setTimeout(function(){
+            /*    setTimeout(function(){
 
                   window.location.reload();
-              }, 5000);
+              }, 3000);*/
 
                 //$$('#welcome').removeClass('cached');
 
@@ -1376,7 +1435,7 @@ ptrContent.on('ptr:refresh', function (e) {
 
         });
 
-        localStorage.setItem("recent_quiz", datefromDynamic);
+
 
 
     }
@@ -1456,6 +1515,6 @@ ptrContent.on('ptr:refresh', function (e) {
 
 
 
-
+  $$(".toolbar.bottom").hide();
 
     myApp.hideIndicator();

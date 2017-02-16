@@ -609,8 +609,7 @@ display:none;
 }
 
 li.question {
-min-height:540px;
-height:100%;
+	height:auto;
 }
 
 /*

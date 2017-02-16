@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
     <title>FizzQuizz</title>
       <!--***** QUIZ STYLES *****---->
     <link rel="stylesheet" href="css/my-app.css">
@@ -80,6 +80,7 @@
     </script>
     <script src="vendor/jquery-1.7.min.js"></script>
   <script src="vendor/jquery.validate.min.js"></script>
+
 
 
 
@@ -173,8 +174,8 @@
             <!--<img id="avatar" src="img/5388738458_ea9fd2a7d7_q.jpg" class="avatar profile-image">-->
             <div id="avatar" class="avatar profile-image"></div>
             <div><span id="userfirstname" class="profile-name profile-firstname"></span> <span id="userlastname" class="profile-name profile-lastname"></span></div>
-            <div id="userusername" class="profile-id">@davegraham</div>
-            <div id="useremail" class="profile-desc profile-email">Freelance designer, software engineer and cyclist</div>
+            <div class="profile-id">@davegraham</div>
+            <div class="profile-desc profile-email">Freelance designer, software engineer and cyclist</div>
             <br />
             <a href="#index" onclick="log_out();" class="close-panel">Logout</a>
         </div>
@@ -347,10 +348,38 @@
             <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
             <div class="pages navbar-through toolbar-through">
                 <!-- Index Page-->
-                <div data-page="index" class="page no-swipeback">
 
-                    <div class="page-content">
-                        <div class="content-block-title">Example Application</div>
+
+                <div data-page="index" id="index" class="page navbar-fixed swipeback">
+                  <div class="navbar">
+                    <div class="navbar-inner">
+                      <div class="left"></div>
+                      <div class="center">Embedded Login Screen</div>
+                      <div class="right"></div>
+                    </div>
+                  </div>
+
+                  <div id='stars' class="star-anim" style="z-index: 0;"></div>
+                  <div id='stars2' class="star-anim" style="z-index: 0;"></div>
+                  <div id='stars3' class="star-anim" style="z-index: 0;"></div>
+                  <div class="page-content">
+
+                    <div class="content-block" style="text-align: center; color: #ddd; padding: 0px; z-index: 5;">
+                      <a href="login-screen-page.html" id="intro" class="open-login-screen button">
+                      <div style="padding:0 70px;"><img src="img/3-bottles.png" style="width:100%;"></div>
+                    </a>
+                    </div>
+                  </div>
+                </div>
+
+
+              <!--     <div data-page="indexS" class="page no-swipeback">
+
+                    <div class="page-content" style="padding-top:40%; overflow:hidden;  background: radial-gradient(circle at bottom, #f40000 30%, #a80000 100%) !important;">
+                      <div id='stars' class="star-anim" style="z-index: 0;"></div>
+                      <div id='stars2' class="star-anim" style="z-index: 0;"></div>
+                      <div id='stars3' class="star-anim" style="z-index: 0;"></div>
+                     <div class="content-block-title">Example Application</div>
                         <div class="content-block">
                             <div class="content-block-inner">
                               <p><a href="#register">Register</a>
@@ -362,42 +391,215 @@
                             </div>
                         </div>
                         <div class="content-block-title">Example Menu</div>
-                        <div class="list-block">
+                       <div class="list-block">
                             <ul>
-                                <li>
-                                    <a href="#register" class="register-button item-link">
-                                        <div class="item-content">
-                                            <div class="item-inner">
-                                                <div class="item-title">Register</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#form" class="login-button item-link">
-                                        <div class="item-content">
-                                            <div class="item-inner">
-                                                <div class="item-title">Login</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                              <!--  <li>
-                                    <a href="#index" onclick="log_out();" class="logout-button item-link">
-                                        <div class="item-content">
-                                            <div class="item-inner">
-                                                <div class="item-title">Logout</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>-->
+
+                              <li>
+                                  <a href="#form" class="login-button item-link" style="color: #fff !important;">
+                                      <div class="item-content">
+                                          <div class="item-inner">
+                                              <div class="button item-title">Login</div>
+                                          </div>
+                                      </div>
+                                  </a>
+                              </li>
+
+
 
                             </ul>
+
+                        </div>
+
+                        <div class="content-block" style="text-align: center; color: #ddd; position: absolute; bottom: 60px; width:100%; padding: 0;">
+                        <p><small>Not yet a member?</small></p>
+                        <a href="#register" class="register-button link" style="text-align: center; color: #fff;">
+
+
+                                Register
+
+
+                          </a>
                         </div>
                     </div>
                 </div>
 
+-->
 
+
+<div data-page="register" class="page no-navbar no-toolbar cached no-swipeback">
+  <div class="page-content register-screen-content" style="background:#fff;">
+
+    <form id="signupForm" method="post" class="form-horizontal" action="">
+       <div class="content-block-title"></div>
+       <div class="list-block">
+          <ul>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><em class="f7-icons">person</em></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">Username</div>-->
+                      <div class="item-input">
+                         <input type="text" id="reg_username" name="reg_username" placeholder="ECID">
+                         <span id="reg_username_err" style="color:red; display:none;">Required</span>
+                         <span id="user_taken" style="color:red; display:none;">ID is not valid/available! </span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">right</i></div>
+                   <div class="item-inner">
+                      <!--  <div class="item-title label">First Name</div>-->
+                      <div class="item-input">
+                         <input type="text" id="reg_fname" name="reg_fname" placeholder="First Name">
+                         <span id="reg_fname_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">right</i></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">Last Name</div>-->
+                      <div class="item-input">
+                         <input type="text" id="reg_lastname" name="reg_lastname" placeholder="Last Name">
+                         <span id="reg_lastname_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">email</i></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">E-mail</div>-->
+                      <div class="item-input">
+                         <input type="text" id="reg_email" name="reg_email" placeholder="E-Mail">
+                         <span id="reg_email_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">lock</i></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">Password</div>-->
+                      <div class="item-input">
+                         <input type="password" id="reg_password" name="reg_password" placeholder="Password">
+                         <span id="reg_password_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">persons</i></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">Division</div>-->
+                      <div class="item-input">
+                         <select id="reg_division" name="reg_division">
+                            <option class="placeholder label"> -- Division -- </option>
+                            <option value="Small Format">Small Format</option>
+                            <option value="Large Format">Large Format</option>
+                            <option value="Generalist">Generalist</option>
+                            <option value="Merchandiser">Merchandiser</option>
+                         </select>
+                         <span id="division_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">persons</i></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">Sales Unit/Unité de ventes</div>-->
+                      <div class="item-input">
+                         <select id="reg_aunit" class="reg_aunit_input" name="reg_aunit">
+                            <option class="placeholder label"> -- Sales Unit/Unité de ventes -- </option>
+                            <option value="west">West</option>
+                            <option value="central">Central</option>
+                            <option value="east">East</option>
+                         </select>
+                         <span id="reg_aunit_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">persons</i></div>
+                   <div class="item-inner">
+                      <!--<div class="item-title label">Sales Area/Secteur de vente</div>-->
+                      <div class="item-input">
+                         <select id="reg_area" name="reg_area">
+                            <option> -- Sales Area/Secteur de vente -- </option>
+                         </select>
+                         <span id="reg_area_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+                <div class="item-content">
+                   <div class="item-media"><i class="f7-icons">chat</i></div>
+                   <div class="item-inner">
+                      <!-- <div class="item-title label">Language</div> -->
+                      <div class="item-input">
+                         <select id="reg_lang" name="lang">
+                            <option value=""> -- Language -- </option>
+                            <option value="English">English</option>
+                            <!--   <option value="f">French</option>-->
+                         </select>
+                         <span id="reg_lang_err" style="color:red; display:none;">Required</span>
+                      </div>
+                   </div>
+                </div>
+             </li>
+             <li>
+          </ul>
+          <br /><br />
+          <li>
+             <div class="item-content">
+                <div class="item-media"><i class="f7-icons">chat</i></div>
+                <div class="item-inner">
+                   <!-- <div class="item-title label">Language</div> -->
+                   <div class="item-input">
+                      <select id="reg_lang" name="lang">
+                         <option value=""> -- Language -- </option>
+                         <option value="English">English</option>
+                         <!--   <option value="f">French</option>-->
+                      </select>
+                      <span id="reg_lang_err" style="color:red; display:none;">Required</span>
+                   </div>
+                </div>
+             </div>
+          </li>
+          <li>
+       </ul>
+
+
+         <div style="text-align:center;">
+
+             <p><a id="submmit-register" onclick="register();" href="#register" class="register-button item-link list-button">Register</a></p>
+
+
+         </div>
+
+         <div style="text-align:center;">
+           <p>
+             <a href="#" class="back link item-link list-button" style="color: #ddd"><i class="f7-icons">close_round</i></a>
+           </p>
+
+
+           </div>
+       </div>
+    </form>
+  </div>
+</div>
 
                 <div data-page="refresher" class="page no-swipeback cached">
                     <div class="page-content">
@@ -419,12 +621,13 @@
 
                                         </div>
                                     </li>
+
                                     <li>
                                         <a href="#refresher" id="checkforquiz" class="button button-fill" style="color:#fff !important; background:limegreen !important; font-weight:700;">Look for Quiz</a>
                                     </li>
-                                    <li class="status">
+                                    <!--<li class="status">
 
-                                    </li>
+                                    </li>-->
                                 </ul>
 
                             </div>
@@ -440,12 +643,12 @@
                     <div class="page-content">
                         <div class="content-block">
 
-                            <div class="wrapper" style="min-height:250px; margin-top:25%;">
-                                <div class="h_iframe">
+                            <div class="wrapper" style="min-height:250px; height: auto; margin-top:45%;">
+                                <div class="h_iframe" style="height: auto;">
 
                                     <!-- a transparent image is preferable -->
                                     <!--	<img class="ratio" src="img/-text.png"/>-->
-                                    <iframe id="myFrame" style="min-height:200px; width:100%;" margin="0" src="http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/media/teaser.html" frameborder="0" allowfullscreen="no"></iframe>
+                                    <iframe id="myFrame" style="height:auto; width:100%;" margin="0" src="http://ec2-54-191-42-126.us-west-2.compute.amazonaws.com/fizzquizzserver/app/views/media/teaser.html" frameborder="0" allowfullscreen="no"></iframe>
                                 </div>
                                 <!--	<p>Please scale the "result" window to notice the effect.</p>-->
                             </div>
@@ -537,7 +740,7 @@
                     <div class="page-content">
                         <div id="profileContent" class="content-block centered">
                             <!--<a href="#" onclick="showImageLoader();">-->
-                            <div id="avatar2" class="avatar profile-image"></div>
+                            <div class="avatar profile-image"></div>
                             <!--</a>-->
                             <!--	<a href="#" onclick="edittheProfile();" class="red">
             <i class="f7-icons">compose</i>
@@ -620,6 +823,7 @@
                     </div>
                 </div>
                   <!-- Profile EditPage-->
+                  <!-- Profile EditPage-->
                 <div data-page="profile-edit" class="page  no-swipeback cached">
                     <div class="page-content">
                         <div id="editmyProfile" class="list-block centered">
@@ -647,8 +851,8 @@
                                             <!--<div class="item-title label">Username</div>-->
                                             <div class="item-input">
                                                 <div class="mdl-textfield mdl-js-textfield">
-                                                    <input class="mdl-textfield__input" type="password" id="password">
-                                                    <label class="mdl-textfield__label" for="password"></label>
+                                                    <input class="mdl-textfield__input" type="password" id="update_password">
+                                                    <label class="mdl-textfield__label" for="update_password"></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -661,8 +865,8 @@
                                             <!--<div class="item-title label">Username</div>-->
                                             <div class="item-input">
                                                 <div class="mdl-textfield mdl-js-textfield">
-                                                    <input class="mdl-textfield__input" type="text" id="firstname">
-                                                    <label class="mdl-textfield__label" for="firstname"></label>
+                                                    <input class="mdl-textfield__input" type="text" id="update_firstname">
+                                                    <label class="mdl-textfield__label" for="update_firstname"></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -675,7 +879,7 @@
                                             <!--<div class="item-title label">Username</div>-->
                                             <div class="item-input">
                                                 <div class="mdl-textfield mdl-js-textfield">
-                                                    <input class="mdl-textfield__input" type="text" id="lastname">
+                                                    <input class="mdl-textfield__input" type="text" id="update_lastname">
                                                     <label class="mdl-textfield__label" for="lastname"></label>
                                                 </div>
                                             </div>
@@ -797,7 +1001,7 @@
 
                                   <!-- a transparent image is preferable -->
                                   <!--	<img class="ratio" src="img/-text.png"/>-->
-                                  <iframe id="myFrame" style="min-height:200px; width:100%;" margin="0" src="game.html" frameborder="0" allowfullscreen="no"></iframe>
+                                  <iframe id="myFrame" style="min-height:200px; width:100%;" margin="0" src="" frameborder="0" allowfullscreen="no"></iframe>
                               </div>
                               <!--	<p>Please scale the "result" window to notice the effect.</p>-->
                           </div>
@@ -808,161 +1012,14 @@
                     </div>-->
                 </div>
 
-                <div data-page="register" class="page cached">
-                   <div class="page-content">
-                      <form id="signupForm" method="post" class="form-horizontal" action="">
-                         <div class="content-block-title"></div>
-                         <div class="list-block">
-                            <ul>
-                               <li>
-                                  <div class="item-content">
-                                     <div class="item-media"><em class="f7-icons">person</em></div>
-                                     <div class="item-inner">
-                                        <!--<div class="item-title label">Username</div>-->
-                                        <div class="item-input">
-                                           <input type="text" id="reg_username" name="reg_username" placeholder="ECID">
-                                           <span id="reg_username_err" style="color:red; display:none;">Required</span>
-                                           <span id="user_taken" style="color:red; display:none;">ID is not valid/available! </span>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </li>
-                               <li>
-                                  <div class="item-content">
-                                     <div class="item-media"><i class="f7-icons">right</i></div>
-                                     <div class="item-inner">
-                                        <!--  <div class="item-title label">First Name</div>-->
-                                        <div class="item-input">
-                                           <input type="text" id="reg_fname" name="reg_fname" placeholder="First Name">
-                                           <span id="reg_fname_err" style="color:red; display:none;">Required</span>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </li>
-                               <li>
-                                  <div class="item-content">
-                                     <div class="item-media"><i class="f7-icons">right</i></div>
-                                     <div class="item-inner">
-                                        <!--<div class="item-title label">Last Name</div>-->
-                                        <div class="item-input">
-                                           <input type="text" id="reg_lastname" name="reg_lastname" placeholder="Last Name">
-                                           <span id="reg_lastname_err" style="color:red; display:none;">Required</span>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </li>
-                               <li>
-                                  <div class="item-content">
-                                     <div class="item-media"><i class="f7-icons">email</i></div>
-                                     <div class="item-inner">
-                                        <!--<div class="item-title label">E-mail</div>-->
-                                        <div class="item-input">
-                                           <input type="text" id="reg_email" name="reg_email" placeholder="E-Mail">
-                                           <span id="reg_email_err" style="color:red; display:none;">Required</span>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </li>
-                               <li>
-                                  <div class="item-content">
-                                     <div class="item-media"><i class="f7-icons">lock</i></div>
-                                     <div class="item-inner">
-                                        <!--<div class="item-title label">Password</div>-->
-                                        <div class="item-input">
-                                           <input type="password" id="reg_password" name="reg_password" placeholder="Password">
-                                           <span id="reg_password_err" style="color:red; display:none;">Required</span>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </li>
-                               <li>
-                                  <div class="item-content">
-                                     <div class="item-media"><i class="f7-icons">persons</i></div>
-                                     <div class="item-inner">
-                                        <!--<div class="item-title label">Division</div>-->
-                                        <div class="item-input">
-                                           <select id="reg_division" name="reg_division">
-                                              <option class="placeholder label"> -- Division -- </option>
-                                              <option value="Small Format">Small Format</option>
-                                              <option value="Large Format">Large Format</option>
-                                              <option value="Generalist">Generalist</option>
-                                              <option value="Merchandiser">Merchandiser</option>
-                                           </select>
-                                           <span id="division_err" style="color:red; display:none;">Required</span>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </li>
-                               <li>
-                                  <div class="item-content">
-                                     <div class="item-media"><i class="f7-icons">persons</i></div>
-                                     <div class="item-inner">
-                                        <!--<div class="item-title label">Sales Unit/Unité de ventes</div>-->
-                                        <div class="item-input">
-                                           <select id="reg_aunit" class="reg_aunit_input" name="reg_aunit">
-                                              <option class="placeholder label"> -- Sales Unit/Unité de ventes -- </option>
-                                              <option value="west">West</option>
-                                              <option value="central">Central</option>
-                                              <option value="east">East</option>
-                                           </select>
-                                           <span id="reg_aunit_err" style="color:red; display:none;">Required</span>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </li>
-                               <li>
-                                  <div class="item-content">
-                                     <div class="item-media"><i class="f7-icons">persons</i></div>
-                                     <div class="item-inner">
-                                        <!--<div class="item-title label">Sales Area/Secteur de vente</div>-->
-                                        <div class="item-input">
-                                           <select id="reg_area" name="reg_area">
-                                              <option> -- Sales Area/Secteur de vente -- </option>
-                                           </select>
-                                           <span id="reg_area_err" style="color:red; display:none;">Required</span>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </li>
-                               <li>
-                                  <div class="item-content">
-                                     <div class="item-media"><i class="f7-icons">chat</i></div>
-                                     <div class="item-inner">
-                                        <!-- <div class="item-title label">Language</div> -->
-                                        <div class="item-input">
-                                           <select id="reg_lang" name="lang">
-                                              <option value=""> -- Language -- </option>
-                                              <option value="English">English</option>
-                                              <!--   <option value="f">French</option>-->
-                                           </select>
-                                           <span id="reg_lang_err" style="color:red; display:none;">Required</span>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </li>
-                               <li>
-                            </ul>
-                            <div class="content-block">
-                               <div class="row">
-                                  <div class="col-50">
-                                     <a href="#" class="button button-big red back link">Cancel</a>
-                                  </div>
-                                  <div class="col-50">
-                                     <input id="submmit-register" onclick="register();" type="submit" value="Submit" class="button button-big red">
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                      </form>
-                   </div>
-                </div>
-                <!-- Form Page-->
+
+                <!-- Form Page
                 <div data-page="form" class="page cached">
                    <div class="page-content">
                       <div class="content-block">
                          <p>
-                            Please login to HTMLCenter app.<br />
-                            Once authenticated, you can access all the amazing tutorials, and books this site has to offer.<br />
+                            Please login your Fizz Quizz Credentials.<br />
+                           <br />
                          </p>
                       </div>
                       <div class="content-block-title"></div>
@@ -973,7 +1030,7 @@
                                   <div class="item-media"><em class="f7-icons">person</em></div>
                                   <div class="item-inner">
                                      <!--<div class="item-title label">ECID</div>-->
-                                     <div class="item-input">
+                                  <!--   <div class="item-input">
                                         <input id="user_name_input" type="text" placeholder="ECID">
                                      </div>
                                   </div>
@@ -984,7 +1041,7 @@
                                   <div class="item-media"><em class="f7-icons">lock</em></div>
                                   <div class="item-inner">
                                      <!--div class="item-title label">Password</div>-->
-                                     <div class="item-input">
+                                    <!-- <div class="item-input">
                                         <input id="user_pass_input" type="password" placeholder="Password">
                                      </div>
                                   </div>
@@ -992,7 +1049,7 @@
                             </li>
                          </ul>
                       </div>
-                      <div class="content-block">
+                    <!--  <div class="content-block">
                          <div class="row">
                             <div class="col-50">
                                <a href="#" class="button button-big red back link">Cancel</a>
@@ -1000,10 +1057,39 @@
                             <div class="col-50">
                                <input id="submmit-login" onclick="signin();" type="submit" value="Submit" class="button button-big red">
                             </div>
-                         </div>
+                         </div>-->
+
+
+                    <!--     <div class="list-block">
+                            <ul>
+                              <li><a href="#" id="submmit-login" onclick="signin();"   class="button red button-big">Sign In</a></li>
+                            </ul>
+                            <br/> <br/>
+
+                            <div class="content-block" style="text-align: center; color: #ddd; position: absolute; bottom: 60px; width:100%; padding: 0;">
+                            <p><small>Not yet a member?</small></p>
+                            <a href="#register" class="register-button red link" style="text-align: center; color: #d10000;">
+
+
+                                    Register
+
+
+                              </a>
+
+
+
+
+                            <div class="content-block" style="text-align: center;">
+
+                              <p><a href="#" class="back link"><i class="f7-icons">close_round</i></a></p>
+                            </div>
                       </div>
+
+
+
+
                    </div>
-                </div>
+                </div>-->
 
 
 
